@@ -1,0 +1,15 @@
+.list-group-item {
+    border-bottom: none;
+    border-radius: 0;
+  }
+  
+  .list-group-item:last-child {
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+  
+  .sidebar-container {
+    height: 100vh;
+    border-right: 1px solid #ccc;
+     /* Adjust the padding as needed */
+  }
