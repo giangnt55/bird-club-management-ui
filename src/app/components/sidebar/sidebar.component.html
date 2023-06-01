@@ -1,30 +1,30 @@
 <!-- Sidebar -->
 <div class="bg-light sticky-top sidebar-container" id="sidebar">
-    <div class="list-group list-group-flush">
-      <a routerLink="/home" routerLinkActive="active" class="list-group-item list-group-item-action">
-        <i class="fas fa-home me-2"></i>Home
-      </a>
-      <a routerLink="/search" routerLinkActive="active" class="list-group-item list-group-item-action">
-        <i class="fas fa-search me-2"></i>Search
-      </a>
-      <a routerLink="/news" routerLinkActive="active" class="list-group-item list-group-item-action">
-        <i class="fas fa-newspaper me-2"></i>News
-      </a>
-      <a routerLink="/messages" routerLinkActive="active" class="list-group-item list-group-item-action">
-        <i class="fas fa-envelope me-2"></i>Messages
-      </a>
-      <a routerLink="/notifications" routerLinkActive="active" class="list-group-item list-group-item-action">
-        <i class="fas fa-bell me-2"></i>Notifications
-      </a>
-      <a routerLink="/create" routerLinkActive="active" class="list-group-item list-group-item-action">
-        <i class="fas fa-plus me-2"></i>Create
-      </a>
-      <a routerLink="/login" routerLinkActive="active" class="list-group-item list-group-item-action">
-        <i class="fas fa-sign-in-alt me-2"></i>Login
-      </a>
-      <a routerLink="/profile" routerLinkActive="active" class="list-group-item list-group-item-action">
-        <i class="fas fa-user me-2"></i>Profile
-      </a>
-      <!-- Add more sidebar items as needed -->
-    </div>
+  <div class="sidebar-header">
+    <!-- Add any header content here -->
+    <h2>BIRD CLUB</h2>
   </div>
+  <div class="sidebar-content">
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <i class="fas fa-home me-2"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <a routerLink="/news" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <i class="fas fa-search me-2"></i>
+          <span>Search</span>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <a routerLink="/news" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <i class="fas fa-newspaper me-2"></i>
+          <span>News</span>
+        </a>
+      </li>
+      <!-- Add more sidebar items here -->
+    </ul>
+  </div>
+</div>
