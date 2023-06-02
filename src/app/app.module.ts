@@ -12,6 +12,9 @@ import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { TestComponent } from './pages/test/test.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,8 +29,15 @@ import { TestComponent } from './pages/test/test.component';
     UserCardComponent,
     TestComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    RouterModule,
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule, // Include ReactiveFormsModule
+    HttpClientModule,
+  ],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

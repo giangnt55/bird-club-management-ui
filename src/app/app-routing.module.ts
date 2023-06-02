@@ -7,7 +7,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { TestComponent } from './pages/test/test.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'news', component: NewsReadingComponent },
