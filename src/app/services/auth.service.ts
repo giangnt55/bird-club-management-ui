@@ -1,27 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { LOGIN_RES } from '../models/auth.model';
+import { environment } from 'src/app/environments/environment';
 import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
+import { catchError } from 'rxjs/operators';
+import { LoginResponse } from '../models/auth.model';
+import { Response } from '../models/response.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private httpClient: HttpClient) {}
+  private apiUrl: string = environment.apiUrl;
+  constructor(private httpClient: HttpClient, private toastr: ToastrService) {}
 
-  LOGIN_URL = `http://localhost:5400/api/v1/auth/sign-in`;
-  REFRESH_TOKEN_URL = `http://localhost:5400/api/v1/auth/refresh-token`;
-  LOGOUT_URL = `http://localhost:5400/api/v1/auth/sign-out`;
+  LOGIN_URL = `${this.apiUrl}/auth/sign-in`;
+  REFRESH_TOKEN_URL = `${this.apiUrl}/auth/refresh-token`;
+  LOGOUT_URL = `${this.apiUrl}/auth/sign-out`;
 
-  login(username: string, password: string): Observable<any> {
-    //const loginUrl = `${this.apiUrl}/auth/login`;
-
+  login(
+    username: string,
+    password: string
+  ): Observable<Response<LoginResponse>> {
     const loginData = {
       username: username,
       password: password,
     };
 
-    return this.httpClient.post(this.LOGIN_URL, loginData);
+    return this.httpClient
+      .post<Response<LoginResponse>>(this.LOGIN_URL, loginData)
+      .pipe(
+        catchError((error) => {
+          throw error; // Rethrow the error to propagate it to the component
+        })
+      );
   }
 
   // Add more authentication-related methods as needed

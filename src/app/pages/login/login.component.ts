@@ -1,19 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+import { LoginResponse } from 'src/app/models/auth.model';
+import { Response } from 'src/app/models/response.model';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
-  loginForm: FormGroup;
+export class LoginComponent implements OnInit {
+  loginForm!: FormGroup;
+  isLoginDisabled: boolean = true;
 
-  constructor(private fb: FormBuilder, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
+
+  ngOnInit(): void {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+
+    this.loginForm.valueChanges.subscribe(() => {
+      this.isLoginDisabled = this.loginForm.invalid;
     });
   }
 
@@ -26,15 +42,18 @@ export class LoginComponent {
     const password = this.loginForm.get('password')?.value;
 
     this.authService.login(username, password).subscribe(
-      (response) => {
-        // Handle successful login
-        console.log('Login success:', response);
-        // Redirect to a different page or perform other actions
+      (response: Response<LoginResponse>) => {
+        this.toastr.success('Login successful', 'Success');
+        const { access_token, refresh_token } = response.data;
+        localStorage.setItem('access_token', access_token);
+        localStorage.setItem('refresh_token', refresh_token);
+        // Redirect to home page
+        console.log(response);
+        this.router.navigate(['/home']);
       },
       (error) => {
-        // Handle login error
         console.error('Login error:', error);
-        // Display an error message or perform other actions
+        this.toastr.error('Invalid username or password', 'Error');
       }
     );
   }

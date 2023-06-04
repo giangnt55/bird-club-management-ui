@@ -1,17 +1,16 @@
+<ng-container *ngIf="getCurrentRoutePath() !== '/login' && getCurrentRoutePath() !== '/register'">
 <div class="container-fluid">
   <div class="row">
-    <ng-container *ngIf="getCurrentRoutePath() !== '/login'">
       <div class="col-2">
         <app-sidebar></app-sidebar>
       </div>
       <div class="col-10">
         <router-outlet></router-outlet>
       </div>
-    </ng-container>
-    <ng-container *ngIf="getCurrentRoutePath() === '/login'">
-      <div class="col-12">
-        <router-outlet></router-outlet>
-      </div>
-    </ng-container>
   </div>
 </div>
+</ng-container>
+<ng-container *ngIf="getCurrentRoutePath() === '/login' || getCurrentRoutePath()  === '/register'">
+    <router-outlet></router-outlet>
+</ng-container>
+<app-spinner></app-spinner>
