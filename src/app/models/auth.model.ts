@@ -21,3 +21,8 @@ export interface LoginResponse {
   user_id: string;
   is_first_login: boolean;
 }
+
+export interface BaseReponse {
+  status_code: number;
+  message: string;
+}
