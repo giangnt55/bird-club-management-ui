@@ -5,6 +5,4 @@ export interface Post extends BaseDto {
   title: string;
   description: string;
   likeCount: number;
-  commentCount: number;
-  shareCount: number;
 }

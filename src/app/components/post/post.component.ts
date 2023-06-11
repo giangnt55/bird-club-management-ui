@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Post } from 'src/app/models/post.model';
 
 @Component({
@@ -6,8 +6,15 @@ import { Post } from 'src/app/models/post.model';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css'],
 })
-export class PostComponent {
+export class PostComponent implements OnInit, OnDestroy {
   @Input() post!: Post;
+
+  ngOnInit(): void {
+    console.log(this.post);
+  }
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
+  }
 
   likePost() {
     // Implement the logic for liking a post
