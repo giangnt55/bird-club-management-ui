@@ -1,88 +1,162 @@
-
-body {
-    background-color: #eee;
-    font-family: "Poppins", sans-serif;
-    font-weight: 300
+.wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  margin-top: 10px;
 }
 
-.card {
-    border: none
+.post {
+  margin-bottom: 20px;
 }
 
-.ellipsis {
-    color: #a09c9c
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-hr {
-    color: #a09c9c;
-    margin-top: 4px;
-    margin-bottom: 8px
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ddd;
+  margin-right: 10px;
 }
 
-.muted-color {
-    color: #a09c9c;
-    font-size: 13px
+.username {
+  font-weight: bold;
+  color: #262626;
+  margin-right: 10px;
+  text-decoration: none;
 }
 
-.ellipsis i {
-    margin-top: 3px;
-    cursor: pointer
+.date-separator {
+  margin: 0 5px;
+  color: #999;
 }
 
-.icons i {
-    font-size: 25px
+.date {
+  color: #999;
 }
 
-.icons .fa-heart {
-    color: red
+.follow-btn {
+  margin-left: auto;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #262626;
 }
 
-.icons .fa-smile-o {
-    color: yellow;
-    font-size: 29px
+.gallery {
+  position: relative;
+  margin-bottom: 10px;
 }
 
-.rounded-image {
-    border-radius: 50% !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50px;
-    width: 50px
+.gallery-actions {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
 }
 
-.name {
-    font-weight: 600
+.arrow {
+  width: 24px;
+  height: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M10.5 6l-6 6 6 6 1.5-1.5-4.5-4.5 4.5-4.5z"/></svg>');
+  mask-mode: alpha;
+  cursor: pointer;
+  margin: 0 5px;
 }
 
-.comment-text {
-    font-size: 12px
+.bullets {
+  display: flex;
+  align-items: center;
+  margin: 0 5px;
 }
 
-.status small {
-    margin-right: 10px;
-    color: blue
+.bullet {
+  width: 8px;
+  height: 8px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  margin: 0 3px;
 }
 
-.form-control {
-    border-radius: 26px
+.images-row {
+  display: flex;
 }
 
-.comment-input {
-    position: relative
+.image-container {
+  width: 100%;
+  background-color: #eee;
+  position: relative;
 }
 
-.fonts {
-    position: absolute;
-    right: 13px;
-    top: 8px;
-    color: #a09c9c
+.left-container {
+  margin-right: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.form-control:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #8bbafe;
-    outline: 0;
-    box-shadow: none
+.right-container {
+  margin-left: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.x1lliihq {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.likes-counter {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.caption {
+  margin-bottom: 10px;
+}
+
+.description {
+  margin-bottom: 5px;
+}
+
+.comment input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.publish-btn {
+  font-weight: bold;
+  color: #0095f6;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.avatar img, .image-container img {
+  max-width: 100%; height: auto; object-fit: cover;
+}
+
+.avatar img{
+  border-radius: 50%;
 }

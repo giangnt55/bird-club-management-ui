@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { RemommendNewsComponent } from './components/remommend-news/remommend-news.component';
+import { NewsComponent } from './components/news/news.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +34,8 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
     UserCardComponent,
     TestComponent,
     SpinnerComponent,
+    RemommendNewsComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,
