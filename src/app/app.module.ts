@@ -21,7 +21,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { RemommendNewsComponent } from './components/remommend-news/remommend-news.component';
 import { NewsComponent } from './components/news/news.component';
-import { AuthInterceptor } from './interceptors/auth-interceptor.interceptor'; // Import the AuthInterceptor
+import { AuthInterceptor } from './interceptors/auth-interceptor.interceptor';
+import { PostCreateComponent } from './components/post-create/post-create.component'; // Import the AuthInterceptor
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { AuthInterceptor } from './interceptors/auth-interceptor.interceptor'; /
     SpinnerComponent,
     RemommendNewsComponent,
     NewsComponent,
+    PostCreateComponent,
   ],
   imports: [
     BrowserModule,
