@@ -21,6 +21,8 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { RemommendNewsComponent } from './components/remommend-news/remommend-news.component';
 import { NewsComponent } from './components/news/news.component';
+import { AuthInterceptor } from './interceptors/auth-interceptor.interceptor'; // Import the AuthInterceptor
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +44,7 @@ import { NewsComponent } from './components/news/news.component';
     RouterModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule, // Include ReactiveFormsModule
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
@@ -57,6 +59,11 @@ import { NewsComponent } from './components/news/news.component';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor, // Add the AuthInterceptor
       multi: true,
     },
   ],

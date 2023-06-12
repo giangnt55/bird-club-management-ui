@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,9 +7,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
-  isSearchZoneExpanded = false;
+  constructor(private router: Router) {}
 
-  toggleSearchZone() {
-    this.isSearchZoneExpanded = !this.isSearchZoneExpanded;
+  redirectToHome() {
+    this.router.navigate(['/home']); // Replace '/home' with your actual home route
+  }
+
+  redirectToProfile() {
+    this.router.navigate(['/profile']);
+  }
+
+  redirectToNews() {
+    this.router.navigate(['/news']);
   }
 }

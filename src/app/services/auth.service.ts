@@ -4,7 +4,7 @@ import { environment } from 'src/app/environments/environment';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { catchError } from 'rxjs/operators';
-import { BaseReponse, LoginResponse } from '../models/auth.model';
+import { LoginResponse } from '../models/auth.model';
 import { Response } from '../models/response.model';
 
 @Injectable({
@@ -36,16 +36,12 @@ export class AuthService {
       );
   }
 
-  // logout(
-  // ): Observable<Response<BaseReponse>> {
-  //   return this.httpClient
-  //     .post<Response<BaseReponse>>(this.LOGOUT_URL, )
-  //     .pipe(
-  //       catchError((error) => {
-  //         throw error;
-  //       })
-  //     );
-  // }
-
+  logout(): Observable<any> {
+    return this.httpClient.post<any>(this.LOGOUT_URL, {}).pipe(
+      catchError((error) => {
+        throw error;
+      })
+    );
+  }
   // // Add more authentication-related methods as needed
 }

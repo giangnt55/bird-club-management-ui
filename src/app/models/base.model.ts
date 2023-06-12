@@ -1,15 +1,15 @@
 export interface AccountCreator {
   id: string;
-  fullName: string;
+  fullname: string;
   email: string;
-  phoneNumber: string;
+  phonenumber: string;
   avatar: string;
 }
 
 export interface BaseDto {
   id: string;
-  createdAt?: Date | null;
-  editedAt?: Date | null;
+  created_at?: Date | null;
+  edited_at?: Date | null;
   creator?: AccountCreator | null;
   editor?: AccountCreator | null;
 }
