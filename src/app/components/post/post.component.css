@@ -98,6 +98,10 @@
     background-color: #eee;
     position: relative;
   }
+
+  .image-container img {
+    height: 300px;
+  }
   
   .left-container {
     margin-right: 5px;
