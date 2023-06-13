@@ -2,9 +2,9 @@
   <div class="post">
     <div class="header">
       <div class="avatar">
-        <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/313442034_1807317972944994_4019730258150584617_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=TZKg7As2TAkAX8UfTPG&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfBgNpRNqZTWXPuf7vSXe9OSo8MuPw3Qw9ydt-UOAjO-mA&oe=648ADFBA" alt="Profile Picture">
+        <img [src] = "post?.creator?.avatar" alt="Profile Picture">
       </div>
-      <a [href]="" target="_blank" class="username">{{ post?.creator?.fullname }}</a>
+      <a [href]="" target="_blank" class="username">{{ post.creator?.fullname }}</a>
       <div class="date-separator">•</div>
       <div class="date">3 day ago</div>
       <a [href]="" target="_blank" class="follow-btn highlight-link">Follow</a>
@@ -38,7 +38,7 @@
     
     <div class="caption">
       <span class="description">
-        <a class="username" [href]="">{{ post?.creator?.fullname }}</a>
+        <a class="username" [href]="">{{ post.creator?.fullname }}</a>
         <ng-container [ngSwitch]="showFullText">
           <span *ngSwitchCase="false">
             <span [ngClass]="{ 'truncated': post.content.length > 100, 'expanded': showFullText }">
