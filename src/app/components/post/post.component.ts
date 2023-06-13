@@ -1,4 +1,11 @@
-import { Component, Input } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnDestroy,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
 import { Post } from 'src/app/models/post.model';
 
 @Component({
@@ -6,8 +13,15 @@ import { Post } from 'src/app/models/post.model';
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.css'],
 })
-export class PostComponent {
+export class PostComponent implements OnInit, OnDestroy, OnChanges {
+  showFullText: boolean = false;
+
+  ngOnChanges(changes: SimpleChanges): void {}
+
   @Input() post!: Post;
+
+  ngOnInit(): void {}
+  ngOnDestroy(): void {}
 
   likePost() {
     // Implement the logic for liking a post

@@ -1,10 +1,15 @@
 import { BaseDto } from './base.model';
 
 export interface Post extends BaseDto {
-  imageUrl: string;
+  image: string;
   title: string;
-  description: string;
-  likeCount: number;
-  commentCount: number;
-  shareCount: number;
+  content: string;
+  total_like: number;
+  total_comment: number;
+}
+
+export interface PostCreateDto {
+  image: string;
+  title: string;
+  content: string;
 }

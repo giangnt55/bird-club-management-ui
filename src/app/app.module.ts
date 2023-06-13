@@ -21,6 +21,11 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { RemommendNewsComponent } from './components/remommend-news/remommend-news.component';
 import { NewsComponent } from './components/news/news.component';
+import { AuthInterceptor } from './interceptors/auth-interceptor.interceptor';
+import { PostCreateComponent } from './components/post-create/post-create.component'; // Import the AuthInterceptor
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { environment } from 'src/app/environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,15 +41,18 @@ import { NewsComponent } from './components/news/news.component';
     SpinnerComponent,
     RemommendNewsComponent,
     NewsComponent,
+    PostCreateComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule, // Include ReactiveFormsModule
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireStorageModule,
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass: 'toast-top-right',
@@ -57,6 +65,11 @@ import { NewsComponent } from './components/news/news.component';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: LoadingInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor, // Add the AuthInterceptor
       multi: true,
     },
   ],

@@ -1,25 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Post } from 'src/app/models/post.model';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
-  posts: Post[] = [
-    {
-      id: '1',
-      imageUrl:
-        'https://i.pinimg.com/564x/7d/0d/6d/7d0d6de4a1944d7f0d0f9b012c05e532.jpg',
-      title: 'Post Title 1',
-      description: 'Post description or caption 1',
-      likeCount: 0,
-      commentCount: 0,
-      shareCount: 0,
-      createdAt: new Date(),
-      editedAt: new Date(),
-    },
-    // Add more post objects as needed
-  ];
+export class HomeComponent implements OnInit, OnDestroy {
+  posts: Post[] = [];
+  private subscription!: Subscription;
+
+  constructor(private postService: PostService) {}
+
+  ngOnInit() {
+    this.getPosts();
+  }
+
+  getPosts() {
+    this.subscription = this.postService.getPosts().subscribe(
+      (response) => {
+        this.posts = response;
+        console.log(this.posts);
+      },
+      (error) => {
+        console.log('Error:', error);
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
 }
