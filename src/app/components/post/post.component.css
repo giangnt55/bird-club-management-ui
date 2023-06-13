@@ -100,7 +100,7 @@
   }
 
   .image-container img {
-    height: 300px;
+    width: 100%;
   }
   
   .left-container {
@@ -164,3 +164,8 @@
     border-radius: 50%;
   }
   
+  .read-more {
+    cursor: pointer;
+    color: #ccc;
+    text-decoration: none;
+  }

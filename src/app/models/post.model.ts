@@ -7,3 +7,9 @@ export interface Post extends BaseDto {
   total_like: number;
   total_comment: number;
 }
+
+export interface PostCreateDto {
+  image: string;
+  title: string;
+  content: string;
+}

@@ -3,7 +3,7 @@ import { environment } from 'src/app/environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
-import { Post } from 'src/app/models/post.model';
+import { Post, PostCreateDto } from 'src/app/models/post.model';
 import { PaginationResponse } from 'src/app/models/paging.model';
 import { map } from 'rxjs/operators';
 
@@ -13,6 +13,7 @@ import { map } from 'rxjs/operators';
 export class PostService {
   private apiUrl: string = environment.apiUrl;
   GET_POST_URL = `${this.apiUrl}/post`;
+  CREATE_POST_URL = `${this.apiUrl}/post`;
 
   constructor(private httpClient: HttpClient, private toastr: ToastrService) {}
 
@@ -22,6 +23,22 @@ export class PostService {
       .pipe(
         map((response: PaginationResponse<Post>) => {
           return response.data;
+        })
+      );
+  }
+
+  createPost(post: PostCreateDto): Observable<any> {
+    const body = {
+      title: post.title,
+      content: post.content,
+      image: post.image,
+    };
+
+    return this.httpClient
+      .post<PaginationResponse<Post>>(this.CREATE_POST_URL, body)
+      .pipe(
+        map((response: PaginationResponse<Post>) => {
+          return response;
         })
       );
   }

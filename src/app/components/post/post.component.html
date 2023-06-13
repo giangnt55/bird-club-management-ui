@@ -37,7 +37,19 @@
     <div class="likes-counter">{{ post.total_like }} likes</div>
     
     <div class="caption">
-      <span class="description"><a class="username" [href]="">Trường Giang</a> {{ post.content }}</span>
+      <span class="description">
+        <a class="username" [href]="">{{ post?.creator?.fullname }}</a>
+        <ng-container [ngSwitch]="showFullText">
+          <span *ngSwitchCase="false">
+            <span [ngClass]="{ 'truncated': post.content.length > 100, 'expanded': showFullText }">
+              {{ post.content | slice: 0:100 }}
+              <span *ngIf="post.content.length > 100" class="read-more">...</span>
+              <a *ngIf="post.content.length > 100" class="read-more" (click)="showFullText = true">More</a>
+            </span>
+          </span>
+          <span *ngSwitchCase="true">{{ post.content }}</span>
+        </ng-container>
+      </span>
     </div>
     
     <div class="comment">

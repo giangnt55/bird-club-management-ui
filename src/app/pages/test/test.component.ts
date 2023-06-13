@@ -7,6 +7,8 @@ import {
 } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { finalize } from 'rxjs/operators';
+import { PostService } from '../../services/post.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-test',
@@ -18,7 +20,11 @@ export class TestComponent implements OnInit, OnChanges {
   placeholder = "What's on your mind?";
   previewImageSrc: string | null = null;
 
-  constructor(private storage: AngularFireStorage) {}
+  constructor(
+    private storage: AngularFireStorage,
+    private postService: PostService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit() {
     this.previewImageSrc = null;
@@ -72,7 +78,10 @@ export class TestComponent implements OnInit, OnChanges {
   uploadImage() {
     if (this.previewImageSrc !== null) {
       const file = this.dataURLtoFile(this.previewImageSrc, 'image.png');
-      const filePath = 'path/to/upload/' + file.name;
+      const timestamp = new Date().getTime();
+      const randomNumber = Math.floor(Math.random() * 1000000);
+      const fileName = `image_${timestamp}_${randomNumber}.png`;
+      const filePath = 'path/to/upload/' + fileName;
       const task = this.storage.upload(filePath, file);
 
       task
@@ -83,11 +92,34 @@ export class TestComponent implements OnInit, OnChanges {
               .ref(filePath)
               .getDownloadURL()
               .subscribe((downloadURL) => {
-                console.log('Image uploaded. URL:', downloadURL);
-                // Perform further actions with the downloadURL (e.g., store in database)
-                // Reset previewImageSrc and clear file input here if needed
-                this.previewImageSrc = null;
-                this.fileInput.nativeElement.value = '';
+                // Get the content
+                const content = document
+                  .querySelector('.content')
+                  ?.textContent?.trim();
+
+                // Create a new post object
+                const post = {
+                  title: 'Post Title',
+                  content: content || '', // Ensure content is defined and provide a default value
+                  image: downloadURL,
+                };
+
+                // Call the createPost method from the post service
+                this.postService.createPost(post).subscribe(
+                  (response) => {
+                    // Handle successful post creation
+                    console.log('Post created:', response);
+                    // Reset previewImageSrc and clear file input here if needed
+                    // this.previewImageSrc = null;
+                    // this.fileInput.nativeElement.value = '';
+                    this.cancelPreviewImage();
+                    this.toastr.success('Post created successfully');
+                  },
+                  (error) => {
+                    // Handle error during post creation
+                    this.toastr.error('Failed to create post');
+                  }
+                );
               });
           })
         )

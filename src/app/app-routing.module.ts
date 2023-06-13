@@ -8,7 +8,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { TestComponent } from './pages/test/test.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'news', component: NewsReadingComponent },

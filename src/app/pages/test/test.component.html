@@ -17,7 +17,7 @@
     
    <!--content-->
   <div class="flex-grow-1">
-    <div class="form-control border-0" contenteditable="true" (input)="handleInput($event)" [attr.data-placeholder]="placeholder"></div>
+    <div class="form-control content border-0" contenteditable="true" (input)="handleInput($event)" [attr.data-placeholder]="placeholder"></div>
     <div id="imagePreview" class="mt-2">
       <div class="image-container">
         <img *ngIf="previewImageSrc !== null" [src]="previewImageSrc" class="img-thumbnail" alt="Preview Image">
