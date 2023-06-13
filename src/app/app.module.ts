@@ -23,7 +23,6 @@ import { RemommendNewsComponent } from './components/remommend-news/remommend-ne
 import { NewsComponent } from './components/news/news.component';
 import { AuthInterceptor } from './interceptors/auth-interceptor.interceptor';
 import { PostCreateComponent } from './components/post-create/post-create.component'; // Import the AuthInterceptor
-
 @NgModule({
   declarations: [
     AppComponent,
