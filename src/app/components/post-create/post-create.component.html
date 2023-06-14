@@ -1,6 +1,10 @@
-<h2 mat-dialog-title>Tạo bài viết</h2>
-<form [formGroup]="form" (submit)="submitForm()">
-  <mat-dialog-content>
+<div class="card mainDiv">
+  <!--title-->
+  <div class="card-header title text-center">
+    <h5 class="card-title fw-bold">Tạo bài viết</h5>
+  </div>
+
+  <div class="card-body" id="body">
     <div class="d-flex user-infor align-items-center">
       <!--avatar-->
       <div class="avatar me-3">
@@ -10,36 +14,32 @@
         <p class="fw-bold text-center">Truong Giang</p>
       </div>
     </div>
-
-    <div class="form-control content border-0">
-      <mat-form-field>
-        <textarea matInput formControlName="content" placeholder="What's on your mind?"></textarea>
-      </mat-form-field>
-    </div>
-
+    
+   <!--content-->
+  <div class="flex-grow-1">
+    <div class="form-control content border-0" contenteditable="true" (input)="handleInput($event)" [attr.data-placeholder]="placeholder"></div>
     <div id="imagePreview" class="mt-2">
       <div class="image-container">
-        <img *ngIf="previewImageSrc" [src]="previewImageSrc" class="img-thumbnail" alt="Preview Image">
+        <img *ngIf="previewImageSrc !== null" [src]="previewImageSrc" class="img-thumbnail" alt="Preview Image">
       </div>
     </div>
-
+  </div>
+  
     <div class="mb-3 d-flex">
       <div class="custom-file">
         <div class="file-input">
           <label class="custom-file-label" for="image">
-            <mat-icon>image</mat-icon>
+            <i class="fa fa-image"></i>
           </label>
           <input type="file" id="image" (change)="previewImage($event)" style="display: none" #fileInput>
         </div>
       </div>
-      <button *ngIf="previewImageSrc" mat-icon-button color="warn" (click)="cancelPreviewImage()">
-        <mat-icon>close</mat-icon>
+      <button *ngIf="previewImageSrc !== null" class="btn btn-danger btn-sm cancel-button" (click)="cancelPreviewImage()">
+        <i class="fa fa-times"></i>
       </button>
     </div>
-  </mat-dialog-content>
-
-  <mat-dialog-actions>
-    <button mat-button color="primary" type="submit">Đăng</button>
-    <button mat-button mat-dialog-close>Cancel</button>
-  </mat-dialog-actions>
-</form>
+    
+    <!--submit button-->
+    <button type="submit" class="btn btn-primary btn-submit" (click)="uploadImage()">Đăng</button>
+  </div>
+</div>

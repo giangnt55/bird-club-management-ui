@@ -28,7 +28,8 @@ export class SidebarComponent {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        console.log(result); // Perform any required actions with the form data
+        // Close the dialog
+        dialogRef.close();
       }
     });
   }
