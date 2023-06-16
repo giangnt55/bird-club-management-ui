@@ -31,6 +31,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { LikeComponent } from './components/like/like.component';
+import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +49,8 @@ import { MatIconModule } from '@angular/material/icon';
     RemommendNewsComponent,
     NewsComponent,
     PostCreateComponent,
+    LikeComponent,
+    UpdateProfileComponent,
   ],
   imports: [
     BrowserModule,

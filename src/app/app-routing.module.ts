@@ -6,6 +6,7 @@ import { NewsReadingComponent } from './pages/news-reading/news-reading.componen
 import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TestComponent } from './pages/test/test.component';
+import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'test', component: TestComponent },
+  {path : 'update-profile', component: UpdateProfileComponent}
 ];
 
 @NgModule({

@@ -3,14 +3,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  selector: 'app-update-profile',
+  templateUrl: './update-profile.component.html',
+  styleUrls: ['./update-profile.component.css']
 })
-export class ProfileComponent {
+export class UpdateProfileComponent {
   constructor(private router: Router, private dialog: MatDialog) {}
 
-  redirectToUpdateProfile(){
-    this.router.navigate(['/update-profile']);
-  }
+
 }

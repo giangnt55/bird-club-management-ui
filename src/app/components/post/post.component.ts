@@ -7,6 +7,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Post } from 'src/app/models/post.model';
+import { LikeService } from 'src/app/services/like.service';
 
 @Component({
   selector: 'app-post',
@@ -15,6 +16,9 @@ import { Post } from 'src/app/models/post.model';
 })
 export class PostComponent implements OnInit, OnDestroy, OnChanges {
   showFullText: boolean = false;
+  isLiked: boolean = false;
+
+  constructor(private likeService: LikeService) { }
 
   ngOnChanges(changes: SimpleChanges): void {}
 
@@ -24,8 +28,18 @@ export class PostComponent implements OnInit, OnDestroy, OnChanges {
   ngOnDestroy(): void {}
 
   likePost() {
-    // Implement the logic for liking a post
-    console.log('Post Liked');
+    // this.likeService.likePost().subscribe(
+    //   response => {
+    //     console.log('Post Liked', response);
+    //     this.isLiked = !this.isLiked;
+    //     // Perform any additional actions after liking the post
+    //   },
+    //   error => {
+    //     console.error('Failed to like the post', error);
+    //     // Handle the error or display an error message to the user
+    //   }
+    // );
+    // console.log('Post Liked');
   }
 
   sharePost() {
