@@ -9,6 +9,8 @@ import { PostCreateComponent } from '../../components/post-create/post-create.co
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
+  showOptions: boolean = false;
+
   constructor(private router: Router, private dialog: MatDialog) {}
 
   redirectToHome() {
@@ -33,4 +35,14 @@ export class SidebarComponent {
       }
     });
   }
+
+  toggleOptions() {
+    this.showOptions = !this.showOptions;
+  }
+
+  redirectToSetting(){}
+
+  redirectToPassword(){}
+
+  logout(){}
 }
