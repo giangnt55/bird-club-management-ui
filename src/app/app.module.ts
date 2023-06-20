@@ -11,7 +11,6 @@ import { NewsReadingComponent } from './pages/news-reading/news-reading.componen
 import { RouterModule } from '@angular/router';
 import { RegisterComponent } from './pages/register/register.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
-import { TestComponent } from './pages/test/test.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -31,6 +30,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CreateArticleComponent } from './components/create-article/create-article.component';
+import { NewsCreateComponent } from './pages/news-create/news-create.component';
+import { ListNewsComponent } from './pages/list-news/list-news.component';
+import { TestComponent } from './pages/test/test.component';
+import { NewsItemComponent } from './components/news-item/news-item.component';
+import { HotNewsComponent } from './components/hot-news/hot-news.component';
+import { ChatsComponent } from './pages/chats/chats.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,11 +49,17 @@ import { MatIconModule } from '@angular/material/icon';
     NewsReadingComponent,
     RegisterComponent,
     UserCardComponent,
-    TestComponent,
     SpinnerComponent,
     RemommendNewsComponent,
     NewsComponent,
     PostCreateComponent,
+    CreateArticleComponent,
+    NewsCreateComponent,
+    ListNewsComponent,
+    TestComponent,
+    NewsItemComponent,
+    HotNewsComponent,
+    ChatsComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +76,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
+    CKEditorModule,
     ToastrModule.forRoot({
       timeOut: 2000,
       positionClass: 'toast-top-right',
