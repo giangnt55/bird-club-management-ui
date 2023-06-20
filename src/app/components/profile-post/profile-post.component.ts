@@ -14,17 +14,13 @@ export class ProfilePostComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
   showPostDetail: boolean = false;
-  postId: string = 'd53a57e9-24ec-4599-3f8f-08db6c9b23a3'; // Assign the ID from the API response
+  postId: string = '6e9fd5bb-e2a0-4e97-3f90-08db6c9b23a3'; // Hardcode for testing
 
-  // openPostDetail() {
-  //   this.showPostDetail = !this.showPostDetail;
-  //   console.log(this.postId);
-  // }
   openPostDetail() {
-    const postId = '3fa85f64-5717-4562-b3fc-2c963f66afa6'; // Replace with the actual postId
+    const postIdParam = this.postId;
 
     const dialogRef = this.dialog.open(PostDialogComponent, {
-      data: { postId },
+      data: { postId: postIdParam },
     });
 
     dialogRef.afterClosed().subscribe(() => {

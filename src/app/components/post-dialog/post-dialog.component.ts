@@ -1,5 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { DetailPost } from 'src/app/models/post.model';
 import { PostService } from 'src/app/services/post.service';
@@ -12,16 +13,17 @@ import { PostService } from 'src/app/services/post.service';
 export class PostDialogComponent implements OnInit {
   post!: DetailPost;
   private subscription!: Subscription;
-  @Input() postId!: string;
+  postId!: string;
 
   constructor(
     private postService: PostService,
+    private toastr: ToastrService,
     public dialogRef: MatDialogRef<PostDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   ngOnInit(): void {
-    console.log('OK ' + this.postId);
+    this.postId = this.data.postId;
     this.getPost();
   }
 
@@ -29,10 +31,9 @@ export class PostDialogComponent implements OnInit {
     this.subscription = this.postService.getPost(this.postId).subscribe(
       (response) => {
         this.post = response;
-        console.log(this.post);
       },
       (error) => {
-        console.log('Error:', error);
+        this.toastr.error('Error has occured:)', 'Error');
       }
     );
   }
