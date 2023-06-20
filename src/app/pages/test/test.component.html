@@ -1,45 +1,120 @@
-<div class="card mainDiv">
-  <!--title-->
-  <div class="card-header title text-center">
-    <h5 class="card-title fw-bold">Tạo bài viết</h5>
-  </div>
-
-  <div class="card-body" id="body">
-    <div class="d-flex user-infor align-items-center">
-      <!--avatar-->
-      <div class="avatar me-3">
-        <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/313442034_1807317972944994_4019730258150584617_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=TZKg7As2TAkAX8UfTPG&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfAVNOGj28ESkTkfcXrkuF7nb4d6DyiPebZtqw2V8J_-bg&oe=648CD9FA" class="rounded-circle" alt="Profile Picture" width="40" height="40">
-      </div>
-      <div class="user-name">
-        <p class="fw-bold text-center">Truong Giang</p>
-      </div>
-    </div>
-    
-   <!--content-->
-  <div class="flex-grow-1">
-    <div class="form-control content border-0" contenteditable="true" (input)="handleInput($event)" [attr.data-placeholder]="placeholder"></div>
-    <div id="imagePreview" class="mt-2">
-      <div class="image-container">
-        <img *ngIf="previewImageSrc !== null" [src]="previewImageSrc" class="img-thumbnail" alt="Preview Image">
+<body>
+    <div class="menu">
+      <img draggable="false" class="logo" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/pinterest-512.png">
+      <a class="home" >Home</a>
+      <input id="one" type="text" class="search-bar" placeholder="Search">
+      <button id="two" class="search-bar"></button>
+      <div class="icon-container">
+        <img tabindex="1" draggable="false" class="icon bell" src="https://i.hizliresim.com/rcvolcu.png">
+        <img tabindex="1" draggable="false" class="icon message" src="https://i.hizliresim.com/newumah.png">
+        <img tabindex="1" draggable="false" class="icon pp" src="https://i.pinimg.com/564x/bd/94/ce/bd94ce28cf8aefb521bac31d547f6409.jpg">
+        <img tabindex="1" draggable="false" class="icon btn" src="https://i.hizliresim.com/g15mqud.png">
+        
+        <!----FOCUS----->
+        <div tabindex="1" class="focus-bar bell-bar">nothing</div>
+        <!-------------------->
+        <div tabindex="1" class="focus-bar message-bar">you are alone</div>
+        <!-------------------->
+        <div tabindex="1" class="focus-bar pp-bar"><img src="https://i.pinimg.com/564x/bd/94/ce/bd94ce28cf8aefb521bac31d547f6409.jpg"><a href="https://github.com/devrimos" target="_blank">devrimos</a></div>
+        <!-------------------->
+        <div tabindex="1" class="focus-bar btn-bar">¯\_( ͡° ͜ʖ ͡°)_/¯</div>
+        
       </div>
     </div>
-  </div>
-  
-    <div class="mb-3 d-flex">
-      <div class="custom-file">
-        <div class="file-input">
-          <label class="custom-file-label" for="image">
-            <i class="fa fa-image"></i>
-          </label>
-          <input type="file" id="image" (change)="previewImage($event)" style="display: none" #fileInput>
+    <!--------------------------->
+    <div class="responsive-search-bar">
+        <input type="text">
+        <p class="close">❌</p>
+      </div>
+    <!--------------------------->
+    <div class="container">
+      <div class="window">
+        <img class="foto" src="https://i.pinimg.com/736x/47/5e/ba/475eba57454015bfe214e8722e2422a1.jpg">
+        <p class="content">Follow me</p>
+        <img class="user" src="https://i.pinimg.com/236x/58/9c/8f/589c8ffa48aa58004b6221b60a15f05e.jpg">
+        <a class="username">bruhmomento</a>
+        
+        <div class="hover-zone">
+          <div class="top-bar">
+            <p>Profile ⌵</p>
+            <a>Save</a>
+          </div>
+          <!-------------------->
+          <div class="bottom-bar">
+            <a>↗ website.com</a>
+            <div class="radius-ico">
+              <img src="https://cdn3.iconfinder.com/data/icons/iconset-1-1/24/icon_set_outlinder-10-256.png">
+              <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-more-256.png">
+            </div>
+          </div>
         </div>
       </div>
-      <button *ngIf="previewImageSrc !== null" class="btn btn-danger btn-sm cancel-button" (click)="cancelPreviewImage()">
-        <i class="fa fa-times"></i>
-      </button>
+      <!-------------------->
+      <div class="window">
+        <img class="foto" src="https://i.pinimg.com/236x/34/0c/43/340c4350e10d6fac215d2a1a28410f6a.jpg">
+          <p class="content">Like my pen</p>
+        <img class="user" src="https://i.pinimg.com/236x/95/9c/d3/959cd32eba7a0b6cecacfe086a6c1a47.jpg">
+        <a class="username">devrimos</a>
+        
+        <div class="hover-zone">
+          <div class="top-bar">
+            <p>Profile ⌵</p>
+            <a>Save</a>
+          </div>
+          <!-------------------->
+          <div class="bottom-bar">
+            <a>↗ website.com</a>
+            <div class="radius-ico">
+              <img draggable="false" src="https://cdn3.iconfinder.com/data/icons/iconset-1-1/24/icon_set_outlinder-10-256.png">
+              <img draggable="false" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-more-256.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-------------------->
+      <div class="window">
+        <img class="foto" src="https://i.pinimg.com/564x/cc/3a/4c/cc3a4c281e75b599b967e1bc8e6e3863.jpg">
+          <p class="content">Hover</p>
+        <img class="user" src="https://i.pinimg.com/236x/8b/2b/aa/8b2baa42f72980861f541a315446ec5f.jpg">
+        <a class="username">usamaladin</a>
+        
+        <div class="hover-zone">
+          <div class="top-bar">
+            <p>Profile ⌵</p>
+            <a>Save</a>
+          </div>
+          <!-------------------->
+          <div class="bottom-bar">
+            <a>↗ website.com</a>
+            <div class="radius-ico">
+              <img draggable="false" src="https://cdn3.iconfinder.com/data/icons/iconset-1-1/24/icon_set_outlinder-10-256.png">
+              <img draggable="false" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-more-256.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-------------------->
+      <div class="window">
+        <img class="foto" src="https://i.pinimg.com/236x/69/1b/17/691b1705fc94d871d2fc6207bf8c4fe8.jpg">
+          <p class="content">Yeeesss</p>
+        <img class="user" src="https://i.pinimg.com/236x/46/1d/f7/461df750a734b8c580246e6618c6919a.jpg">
+        <a class="username">anon</a>
+        
+        <div class="hover-zone">
+          <div class="top-bar">
+            <p>Profile ⌵</p>
+            <a>Save</a>
+          </div>
+          <!-------------------->
+          <div class="bottom-bar">
+            <a>↗ website.com</a>
+            <div class="radius-ico">
+              <img draggable="false" src="https://cdn3.iconfinder.com/data/icons/iconset-1-1/24/icon_set_outlinder-10-256.png">
+              <img draggable="false" src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-more-256.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      
     </div>
-    
-    <!--submit button-->
-    <button type="submit" class="btn btn-primary btn-submit" (click)="uploadImage()">Đăng</button>
-  </div>
-</div>
+  </body>

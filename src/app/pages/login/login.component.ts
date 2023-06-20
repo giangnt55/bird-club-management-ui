@@ -5,7 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { LoginResponse } from 'src/app/models/auth.model';
 import { Response } from 'src/app/models/response.model';
-
+import { UsersService } from 'src/app/services/users.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private usersService: UsersService,
     private toastr: ToastrService,
     private router: Router
   ) {}
@@ -47,8 +48,23 @@ export class LoginComponent implements OnInit {
         const { access_token, refresh_token } = response.data;
         localStorage.setItem('access_token', access_token);
         localStorage.setItem('refresh_token', refresh_token);
-        // Redirect to home page
-        console.log(response);
+
+        // Retrieve account information and store it
+        this.usersService.getAccountInfo().subscribe(
+          (accountInfo) => {
+            // Store the account information in session storage
+            sessionStorage.setItem(
+              'account_infor',
+              JSON.stringify(accountInfo)
+            );
+            // Use the account information here
+            console.log(accountInfo);
+          },
+          (error) => {
+            console.error('Error retrieving account information:', error);
+          }
+        );
+
         this.router.navigate(['/home']);
       },
       (error) => {

@@ -22,7 +22,8 @@ export interface LoginResponse {
   is_first_login: boolean;
 }
 
-export interface BaseReponse {
+export interface BaseResponse<T> {
   status_code: number;
   message: string;
+  data: T;
 }

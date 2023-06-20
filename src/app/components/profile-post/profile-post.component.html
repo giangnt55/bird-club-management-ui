@@ -1,0 +1,22 @@
+<div class="image-wrapper gallery-item" (click)="openPostDetail()">
+    <div class="img-overlay-wrapper">
+        <div class="img-btns">
+            <p>465 <i class="uil uil-heart-alt"></i> &nbsp&nbsp 25 <i class="uil uil-comment"></i></p>
+        </div>
+        <div class="img-overlay"></div>
+    </div>
+    <img class="image"
+        src="https://images.unsplash.com/photo-1559056986-f834be7896e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80"
+        alt="">
+        <div class="gallery-item-info">
+
+            <ul>
+                <li class="gallery-item-likes"><span class="visually-hidden">Likes:</span><i class="fas fa-heart" aria-hidden="true"></i> 56</li>
+                <li class="gallery-item-comments"><span class="visually-hidden">Comments:</span><i class="fas fa-comment" aria-hidden="true"></i> 2</li>
+            </ul>
+    
+        </div>
+    
+</div>
+
+<app-post-dialog *ngIf="showPostDetail" [postId]="postId"></app-post-dialog>

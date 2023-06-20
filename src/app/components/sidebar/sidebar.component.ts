@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { PostCreateComponent } from '../../components/post-create/post-create.component';
@@ -8,20 +8,18 @@ import { PostCreateComponent } from '../../components/post-create/post-create.co
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   constructor(private router: Router, private dialog: MatDialog) {}
-
-  redirectToHome() {
-    this.router.navigate(['/home']); // Replace '/home' with your actual home route
+  loggedInAccount!: any | null;
+  ngOnInit(): void {
+    // Retrieve the stored account information from session storage
+    const storedAccountInfo = sessionStorage.getItem('account_infor');
+    if (storedAccountInfo) {
+      this.loggedInAccount = JSON.parse(storedAccountInfo);
+    }
   }
 
-  redirectToProfile() {
-    this.router.navigate(['/profile']);
-  }
-
-  redirectToNews() {
-    this.router.navigate(['/news']);
-  }
+  showMoreOptions: boolean = false;
 
   openDialog() {
     const dialogRef = this.dialog.open(PostCreateComponent);
@@ -32,5 +30,13 @@ export class SidebarComponent {
         dialogRef.close();
       }
     });
+  }
+
+  toggleMoreOptions() {
+    this.showMoreOptions = !this.showMoreOptions;
+  }
+
+  logout() {
+    // Your logout implementation
   }
 }

@@ -5,7 +5,7 @@
     <i class="logo-icon uil uil-instagram"></i>
   </header>
   <nav>
-    <button (click)="redirectToHome()">
+    <button [routerLink]="['/home']">
       <span>
         <svg aria-label="" class="" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24"
           width="24">
@@ -32,7 +32,7 @@
         <span>Search</span>
       </span>
     </button>
-    <button (click)="redirectToNews()">
+    <button [routerLink]="['/news']">
       <span>
         <svg aria-label="" class="" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24"
           width="24">
@@ -47,7 +47,7 @@
         <span>Explore</span>
       </span>
     </button>
-    <button>
+    <button [routerLink]="['/inbox']">
       <span>
         <svg aria-label="Messenger" class="" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24"
           width="24">
@@ -94,16 +94,16 @@
         <span>Create</span>
       </span>
     </button>
-    <button (click)="redirectToProfile()">
+    <button [routerLink]="['/profile']">
       <span>
         <div class="">
           <div>
             <div class="">
               <div class=""><span class="" role="link" tabindex="-1"
                   style="width: 24px; height: 24px; border-radius: 50%;">
-                  <img style="border-radius: 50%; width: 23px; height: 23px;" alt="" class="profile-img"
+                  <img style="border-radius: 50%; width: 25px; height: 25px;" alt="" class="profile-img"
                     crossorigin="anonymous" draggable="false"
-                    src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/313442034_1807317972944994_4019730258150584617_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=TZKg7As2TAkAX8UfTPG&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfBgNpRNqZTWXPuf7vSXe9OSo8MuPw3Qw9ydt-UOAjO-mA&oe=648ADFBA">
+                  [src]="this.loggedInAccount?.avatar">
                 </span></div>
             </div>
           </div>
@@ -118,10 +118,9 @@
         <span>Profile</span>
       </span>
     </button>
-    <button>
+    <button (click)="toggleMoreOptions()" [class.active]="showMoreOptions">
       <span>
-        <svg aria-label="" class="" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24"
-          width="24">
+        <svg aria-label="" class="" color="#262626" fill="#262626" height="24" role="img" viewBox="0 0 24 24" width="24">
           <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="3"
             x2="21" y1="4" y2="4"></line>
           <line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="3"
