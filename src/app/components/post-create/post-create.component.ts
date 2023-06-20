@@ -1,5 +1,3 @@
-import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { finalize } from 'rxjs/operators';
 import { PostService } from '../../services/post.service';
 import { ToastrService } from 'ngx-toastr';
 import {
@@ -12,8 +10,6 @@ import {
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FirebaseService } from 'src/app/services/firebase.service';
-import { UsersService } from 'src/app/services/users.service';
-import { AccountInfor } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-post-create',

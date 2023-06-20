@@ -16,8 +16,6 @@ export class SidebarComponent implements OnInit {
     const storedAccountInfo = sessionStorage.getItem('account_infor');
     if (storedAccountInfo) {
       this.loggedInAccount = JSON.parse(storedAccountInfo);
-      // Use the account information here
-      console.log(this.loggedInAccount);
     }
   }
 
