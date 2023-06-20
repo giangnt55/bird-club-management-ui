@@ -135,7 +135,7 @@ body {
   margin-top: auto;
 }
 
-@media (width < 580px) {
+@media (width < 980px) {
   .logo-img {
     display: none;
   }
@@ -143,13 +143,34 @@ body {
     display: block;
   }
   .sidebar {
-    width: 72px;
+    width: fit-content;
+    padding-right: 0;
   }
-  .sidebar button > span {
-    width: 50px;
-  }
+
   .sidebar button > span > span {
+    width: 0;
     opacity: 0;
     visibility: hidden;
   }
+}
+
+/* Styles for /inbox */
+
+.inbox-styles .logo-img {
+  display: none;
+}
+
+.inbox-styles .logo-icon {
+  display: block;
+}
+
+.inbox-styles .sidebar {
+  width: fit-content;
+  padding-right: 0;
+}
+
+.inbox-styles .sidebar button > span > span {
+  width: 0;
+  opacity: 0;
+  visibility: hidden;
 }

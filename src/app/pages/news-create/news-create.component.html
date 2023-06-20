@@ -1,0 +1,27 @@
+<!-- blog.component.html -->
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="row">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title">Create a new blog post</h2>
+            <form>
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" id="title" [(ngModel)]="blogTitle" name="title" class="form-control" required>
+              </div>
+              
+              <div class="mb-3">
+                <label for="coverImage" class="form-label">Cover Image URL</label>
+                <input type="text" id="coverImage" [(ngModel)]="blogCoverImage" name="coverImage" class="form-control" required>
+              </div>
+                <label for="content" class="form-label">Content</label>
+                <ckeditor [editor]="Editor" [(ngModel)]="blogContent" name="content" required></ckeditor>
+         
+              <button type="button" (click)="saveBlog()" class="btn btn-primary">Save</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

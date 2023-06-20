@@ -1,0 +1,21 @@
+.dialog-content {
+    display: flex;
+    align-items: stretch;
+    height: 90vh; /* Adjust the height as needed */
+    width: 80vw;
+
+    .image-container {
+        flex: 0 0 60%;
+        background-color: #f0f0f0; /* Replace with your desired styling */
+        padding: 20px; /* Adjust padding as needed */
+        width: 60%;
+      }
+    
+      .post-content {
+        flex: 1;
+        background-color: #ffffff; /* Replace with your desired styling */
+        padding: 20px; /* Adjust padding as needed */
+        width: 40%;
+      }
+  }
+  
