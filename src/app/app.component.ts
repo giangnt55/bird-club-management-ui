@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,17 +6,22 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnChanges {
   constructor(private router: Router) {}
+
   title = 'bird-club-management-ui';
 
   ngOnInit(): void {
-    console.log(this.getCurrentRoutePath());
+    console.log('routt', this.router.url);
     // if (currentUrl === '/inbox') {
     //   // Apply the styles for /inbox
     //   console.log('ok');
     //   this.applyInboxStyles();
     // }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('routt chnage', this.router.url);
   }
 
   applyInboxStyles(): void {

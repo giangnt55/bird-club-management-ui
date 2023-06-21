@@ -1,4 +1,4 @@
-import { Component, Inject, Input, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnDestroy, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
@@ -10,7 +10,7 @@ import { PostService } from 'src/app/services/post.service';
   templateUrl: './post-dialog.component.html',
   styleUrls: ['./post-dialog.component.css'],
 })
-export class PostDialogComponent implements OnInit {
+export class PostDialogComponent implements OnInit, OnDestroy {
   post!: DetailPost;
   private subscription!: Subscription;
   postId!: string;
@@ -21,6 +21,12 @@ export class PostDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<PostDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
 
   ngOnInit(): void {
     this.postId = this.data.postId;

@@ -40,6 +40,7 @@ import { HotNewsComponent } from './components/hot-news/hot-news.component';
 import { ChatsComponent } from './pages/chats/chats.component';
 import { ProfilePostComponent } from './components/profile-post/profile-post.component';
 import { PostDialogComponent } from './components/post-dialog/post-dialog.component';
+import { CommmentComponent } from './components/commment/commment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +65,7 @@ import { PostDialogComponent } from './components/post-dialog/post-dialog.compon
     ChatsComponent,
     ProfilePostComponent,
     PostDialogComponent,
+    CommmentComponent,
   ],
   imports: [
     BrowserModule,

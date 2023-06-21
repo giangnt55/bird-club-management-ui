@@ -9,14 +9,19 @@ import { ListNewsComponent } from './pages/list-news/list-news.component';
 import { NewsCreateComponent } from './pages/news-create/news-create.component';
 import { TestComponent } from './pages/test/test.component';
 import { ChatsComponent } from './pages/chats/chats.component';
+import { NewsComponent } from './components/news/news.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'news', component: NewsReadingComponent },
+
   { path: 'register', component: RegisterComponent },
-  { path: 'list-news', component: ListNewsComponent },
+  {
+    path: 'list-news',
+    component: ListNewsComponent,
+  },
+  { path: 'list-news/:id', component: NewsReadingComponent },
   { path: 'create-news', component: NewsCreateComponent },
   { path: 'test', component: TestComponent },
   { path: 'profile', component: ProfileComponent },

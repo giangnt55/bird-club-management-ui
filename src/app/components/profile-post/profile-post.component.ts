@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PostDialogComponent } from '../post-dialog/post-dialog.component';
+import { Post } from 'src/app/models/post.model';
 
 @Component({
   selector: 'app-profile-post',
@@ -9,15 +10,15 @@ import { PostDialogComponent } from '../post-dialog/post-dialog.component';
 })
 export class ProfilePostComponent implements OnInit {
   constructor(private dialog: MatDialog) {}
+  @Input() post!: Post;
+  showPostDetail: boolean = false;
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    // Initialization logic goes here if needed
   }
-  showPostDetail: boolean = false;
-  postId: string = '6e9fd5bb-e2a0-4e97-3f90-08db6c9b23a3'; // Hardcode for testing
 
   openPostDetail() {
-    const postIdParam = this.postId;
+    const postIdParam = this.post.id;
 
     const dialogRef = this.dialog.open(PostDialogComponent, {
       data: { postId: postIdParam },

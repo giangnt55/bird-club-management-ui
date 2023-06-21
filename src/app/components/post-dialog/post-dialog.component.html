@@ -4,6 +4,44 @@
     </div>
     <div class="post-content">
       <!-- Post content and comments markup here -->
+      <div class="creator">
+        <span class="creator-content">
+          <div class="">
+            <div>
+              <div class="">
+                <div class=""><span class="" role="link" tabindex="-1">
+                    <img style="border-radius: 50%; width: 40px; height: 40px;" alt="" class="profile-img"
+                      crossorigin="anonymous" draggable="false"
+                    [src]="this.post?.creator?.avatar">
+                  </span></div>
+              </div>
+            </div>
+            <div class="" style="opacity: 1;">
+              <div style="width: 100%;">
+                <div class=""></div>
+              </div>
+            </div>
+          </div>
+          <i class="uil uil-profile">
+          </i>
+          <span class="fullname">{{this.post?.creator?.fullname}}</span>
+          <i class="fas fa-ellipsis-h menu-icon"></i>
+        </span>
+      </div>
+      <hr class="line">
+      <div class="comment-content">
+        <!-- Example comment -->
+        <div class="comment">
+          <div class="comment-avatar">
+            <img class="profile-img" alt="" [src]="">
+          </div>
+          <div class="comment-details">
+            <span class="comment-author">Giang</span>
+            <span class="comment-text">OK</span>
+          </div>
+        </div>
+        <!-- Add more comments here -->
+      </div>
     </div>
   </div>
   

@@ -39,4 +39,5 @@ export class SidebarComponent implements OnInit {
   logout() {
     // Your logout implementation
   }
+  changeBackgroundColor() {}
 }

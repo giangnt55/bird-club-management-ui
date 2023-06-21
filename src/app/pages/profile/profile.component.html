@@ -64,9 +64,9 @@ Enjoy the code <3
             </div>
             <div id="imgblockbc1" class="block-background"></div>
         </div>
-        <app-profile-post></app-profile-post>
-        <app-profile-post></app-profile-post>
-        <app-profile-post></app-profile-post>
+        <div *ngFor="let post of posts" class="post">
+            <app-profile-post [post]="post"></app-profile-post>
+          </div> 
     </div>
 </div>
 <div class="user-loader">
