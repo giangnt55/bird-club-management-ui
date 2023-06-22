@@ -33,6 +33,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { LikeComponent } from './components/like/like.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +52,7 @@ import { UpdateProfileComponent } from './components/update-profile/update-profi
     PostCreateComponent,
     LikeComponent,
     UpdateProfileComponent,
+    PostDetailComponent,
   ],
   imports: [
     BrowserModule,

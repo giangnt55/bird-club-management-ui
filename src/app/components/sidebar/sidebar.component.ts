@@ -10,6 +10,7 @@ import { PostCreateComponent } from '../../components/post-create/post-create.co
 })
 export class SidebarComponent {
   showOptions: boolean = false;
+  showSearch = false;
 
   constructor(private router: Router, private dialog: MatDialog) {}
 
@@ -34,6 +35,13 @@ export class SidebarComponent {
         dialogRef.close();
       }
     });
+  }
+  toggleSearchTable() {
+    this.showSearch = !this.showSearch;
+  }
+
+  stopPropagation(event: Event){
+    event.stopPropagation();
   }
 
   toggleOptions() {
