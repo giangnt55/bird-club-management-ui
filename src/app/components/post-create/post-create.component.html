@@ -8,10 +8,10 @@
     <div class="d-flex user-infor align-items-center">
       <!--avatar-->
       <div class="avatar me-3">
-        <img src="https://scontent.fsgn2-7.fna.fbcdn.net/v/t39.30808-6/313442034_1807317972944994_4019730258150584617_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=TZKg7As2TAkAX8UfTPG&_nc_ht=scontent.fsgn2-7.fna&oh=00_AfAVNOGj28ESkTkfcXrkuF7nb4d6DyiPebZtqw2V8J_-bg&oe=648CD9FA" class="rounded-circle" alt="Profile Picture" width="40" height="40">
+        <img [src]="this.loggedInAccount?.avatar" class="rounded-circle" alt="Profile Picture" width="40" height="40">
       </div>
       <div class="user-name">
-        <p class="fw-bold text-center">Truong Giang</p>
+        <p class="fw-bold text-center">{{this.loggedInAccount?.fullname}}</p>
       </div>
     </div>
     
@@ -25,11 +25,11 @@
     </div>
   </div>
   
-    <div class="mb-3 d-flex">
-      <div class="custom-file">
+    <div class="mb-3 d-flex btn-add-image">
+      <div class="custom-file text-center">
         <div class="file-input">
-          <label class="custom-file-label" for="image">
-            <i class="fa fa-image"></i>
+          <label class="custom-file-label file-input" for="image">
+            Add image
           </label>
           <input type="file" id="image" (change)="previewImage($event)" style="display: none" #fileInput>
         </div>

@@ -1,31 +1,44 @@
-import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { PostDetailComponent } from 'src/app/components/post-detail/post-detail.component';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { Post } from 'src/app/models/post.model';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
 })
-export class ProfileComponent {
-  constructor(private router: Router, private dialog: MatDialog) {}
+export class ProfileComponent implements OnInit {
+  posts: Post[] = [];
+  private subscription!: Subscription;
+  loggedInAccount!: any | null;
 
-  redirectToUpdateProfile(){
-    this.router.navigate(['/update-profile']);
+  constructor(private postService: PostService) {}
+
+  ngOnInit(): void {
+    // Retrieve the stored account information from session storage
+    const storedAccountInfo = sessionStorage.getItem('account_infor');
+    if (storedAccountInfo) {
+      this.loggedInAccount = JSON.parse(storedAccountInfo);
+    }
+
+    this.getOwnPosts();
   }
 
-  showPostDetails() {
-    const dialogRef = this.dialog.open(PostDetailComponent, {
-      width: '400px',
-      data: {
-        title: 'Post Title',
-        likes: 465,
-        comments: 25,
-         image: "https://images.unsplash.com/photo-1559056986-f834be7896e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1955&q=80"
-        // Add any other necessary data for the post details
+  getOwnPosts() {
+    this.subscription = this.postService.getOwnPosts().subscribe(
+      (response) => {
+        this.posts = response;
+      },
+      (error) => {
+        console.log('Error:', error);
       }
-    });
+    );
   }
 
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
 }

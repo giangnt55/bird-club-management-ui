@@ -22,7 +22,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.subscription = this.postService.getPosts().subscribe(
       (response) => {
         this.posts = response;
-        console.log(this.posts);
       },
       (error) => {
         console.log('Error:', error);

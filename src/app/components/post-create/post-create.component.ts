@@ -1,8 +1,12 @@
-import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { finalize } from 'rxjs/operators';
 import { PostService } from '../../services/post.service';
 import { ToastrService } from 'ngx-toastr';
-import { Component, ElementRef, ViewChild, Inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  Inject,
+  OnInit,
+} from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { FirebaseService } from 'src/app/services/firebase.service';
@@ -12,11 +16,12 @@ import { FirebaseService } from 'src/app/services/firebase.service';
   templateUrl: './post-create.component.html',
   styleUrls: ['./post-create.component.css'],
 })
-export class PostCreateComponent {
+export class PostCreateComponent implements OnInit {
   form: FormGroup;
   previewImageSrc: string | null = null;
   @ViewChild('fileInput') fileInput!: ElementRef;
   placeholder = "What's on your mind?";
+  loggedInAccount!: any | null;
 
   constructor(
     public dialogRef: MatDialogRef<PostCreateComponent>,
@@ -29,6 +34,15 @@ export class PostCreateComponent {
     this.form = this.formBuilder.group({
       content: [''],
     });
+  }
+  ngOnInit(): void {
+    // Retrieve the stored account information from session storage
+    const storedAccountInfo = sessionStorage.getItem('account_infor');
+    if (storedAccountInfo) {
+      this.loggedInAccount = JSON.parse(storedAccountInfo);
+      // Use the account information here
+      console.log(this.loggedInAccount);
+    }
   }
 
   penFileInput() {

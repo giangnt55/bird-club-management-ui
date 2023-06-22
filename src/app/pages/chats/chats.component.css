@@ -1,0 +1,376 @@
+
+
+.inbox {
+    position: absolute;
+    left: 17%;
+    border: 1px solid #dbdbdb;
+    padding: 283px 458px;
+    height: 100%;
+}
+
+.username {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    border-right: 1px solid #dbdbdb;
+    border-bottom: 1px solid #dbdbdb;
+    padding: 29px 150px;
+    margin-top: 0;
+}
+
+.name {
+    position: absolute;
+    left: 27%;
+    top: 31%;
+    font-size: 18px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    user-select: none;
+}
+
+.username svg {
+    position: absolute;
+    right: 5%;
+    top: 30%;
+}
+
+.username span {
+    position: absolute;
+    right: 38%;
+    top: 70%;
+}
+
+.box1 {
+    position: relative;
+    /*  margin-left: -440px;
+margin-top: -200px; */
+    align-items: right;
+    overflow: hidden;
+    /* margin-bottom: 18px; */
+    width: 105.2%;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 0;
+    margin-left: -15px;
+    margin-top: 10px;
+}
+
+.box1 img {
+    width: 60px;
+    border-radius: 50%;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+.friends {
+    position: absolute;
+    top: 13%;
+    left: 1.5%;
+    z-index: 3;
+}
+
+.nickname1 {
+    position: absolute;
+    top: 3%;
+    left: 25%;
+    display: flex;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    user-select: none;
+    z-index: 3;
+}
+
+.nickname2 {
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    display: flex;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    user-select: none;
+}
+
+.nickname3 {
+    position: absolute;
+    top: 37%;
+    left: 25%;
+    display: flex;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    user-select: none;
+}
+
+.friends {
+    border-right: 1px solid #dbdbdb;
+    /* padding: 50px 150px; */
+    width: 286px;
+    height: 507px;
+    margin-top: -15px;
+    padding: 0;
+
+}
+
+.nick1 {
+    position: absolute;
+    top: 6.5%;
+    left: 25%;
+    display: flex;
+    color: gray;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    user-select: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.nick2 {
+    position: absolute;
+    top: 23.4%;
+    left: 25%;
+    display: flex;
+    color: gray;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    user-select: none;
+}
+
+.nick3 {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    display: flex;
+    color: gray;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    user-select: none;
+}
+
+.your {
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    display: none;
+}
+
+.your button {
+    position: absolute;
+    top: 0%;
+    left: 53%;
+}
+
+.notify {
+    position: absolute;
+    top: 90%;
+    left: -70%;
+    width: 300%;
+    display: inline;
+    color: gray;
+}
+
+button {
+    display: block;
+}
+
+h2 {
+    font: inherit;
+    font-size: 22px;
+}
+
+.your svg {
+    border: 2px solid black;
+    border-radius: 100%;
+    padding: 30px;
+    margin-left: 20px;
+}
+
+.btn {
+    position: absolute;
+    top: 66%;
+    left: 62.5%;
+    border-radius: 4px;
+    color: #fff;
+    color: rgba(var(--eca, 255, 255, 255), 1);
+    padding: 7px;
+    outline: none;
+    font-weight: 600;
+    border-radius: 5px;
+    color: white;
+    border: 1px solid transparent;
+    background-color: #0095f6;
+    background-color: rgba(var(--d69, 0, 149, 246), 1);
+    cursor: pointer;
+}
+
+.chat1 {
+    position: absolute;
+    top: 2%;
+    left: 32.8%;
+
+    padding: 280px 308.4px;
+}
+
+.chat1 img {
+    width: 24px;
+    border-radius: 50%;
+    position: absolute;
+    left: 5%;
+    top: -30%;
+}
+
+.chat1 svg {
+    position: absolute;
+    right: 4%;
+    top: -25%;
+}
+
+.userchat {
+    position: absolute;
+    top: -80%;
+    left: 10%;
+    color: #262626;
+
+}
+
+.nav1 {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 15px;
+    width: 585px;
+    position: absolute;
+    left: 0%;
+    top: 2.9%;
+}
+
+.text {
+    position: absolute;
+}
+
+#txt {
+    width: 398px;
+    height: 25px;
+    outline: none;
+    resize: none;
+    border: 0;
+}
+
+textarea {
+    padding: 8px 9px;
+    line-height: 25px;
+    margin-left: 60px;
+    /*     border-radius: 50%; */
+    font-size: 15px;
+    text-align: left;
+    background: none;
+    margin-top: 5px;
+}
+
+textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.text {
+    border: 1px solid #dbdbdb;
+    width: 90%;
+    padding: -20px 9px;
+    position: absolute;
+    top: 86%;
+    left: 5%;
+    border-radius: 70px;
+}
+
+.text ._8-yf55 {
+    position: absolute;
+    left: 5.5%;
+    top: 25%;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.text ._8-yff5 {
+    position: absolute;
+    top: 25%;
+    right: 12%;
+}
+
+.text ._8-yff55 {
+    position: absolute;
+    top: 25%;
+    right: 4%;
+}
+
+.area {
+    position: absolute;
+    right: 8%;
+    bottom: 19%;
+    /*   background-color: #dbdbdb; */
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    border-top-left-radius: 28px;
+    border-bottom-left-radius: 28px;
+    padding: 2px 5px;
+}
+
+.icn {
+    position: absolute;
+    top: 35%;
+    right: 110%;
+    padding: 5px 40px;
+    width: 50%;
+}
+
+._88-yf5 {
+    position: absolute;
+    left: 1%;
+    top: 1%;
+
+}
+
+._888-yf5 {
+    position: absolute;
+    left: 31%;
+
+}
+
+._8888-yf5 {
+    position: absolute;
+    left: 53%;
+}
+
+.icn {
+    display: none;
+}
+
+p:hover>.icn {
+    display: block
+}
+
+.chat1 {
+    display: none;
+}
+
+.your {
+    display: block;
+}
+
+.nickname1 {
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.nick1 {
+    position: absolute;
+    margin-top: 31.9px;
+    margin-left: 10px;
+}
+
+.mess {
+    margin-top: 0px;
+    background-color: #dbdbdb;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+    border-top-left-radius: 28px;
+    border-bottom-left-radius: 28px;
+    padding: 14px 5px;
+    margin-bottom: 0;
+}
