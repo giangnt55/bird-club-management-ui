@@ -29,19 +29,70 @@
         </span>
       </div>
       <hr class="line">
-      <div class="comment-content">
-        <!-- Example comment -->
-        <div class="comment">
-          <div class="comment-avatar">
-            <img class="profile-img" alt="" [src]="">
-          </div>
-          <div class="comment-details">
-            <span class="comment-author">Giang</span>
-            <span class="comment-text">OK</span>
-          </div>
-        </div>
+      <div class="comment-content"> 
         <!-- Add more comments here -->
+        <div class="creator">
+          <span class="creator-content owner-content">
+              <div class="avatar">
+                  <div>
+                      <div class="">
+                          <div class=""><span class="" role="link" tabindex="-1">
+                                  <img style="border-radius: 50%; width: 40px; height: 40px;" alt="" class="profile-img"
+                                      crossorigin="anonymous" draggable="false" 
+                                      [src]="post?.creator?.avatar">
+                              </span></div>
+                      </div>
+                  </div>
+                  <div class="" style="opacity: 1;">
+                      <div style="width: 100%;">
+                          <div class=""></div>
+                      </div>
+                  </div>
+              </div>
+              <i class="uil uil-profile">
+              </i>
+              <div class="comment-content">
+                  <span class="fullname">{{post?.creator?.fullname}}</span>
+                  <div class="commnet">{{post?.content}}</div>
+              </div>
+              <i class="fas fa-heart menu-icon"></i>
+          </span>
+          <div class="comment-actions">
+            <span class="comment-time">{{ post?.created_at | dateAgo }}</span>
+              <span class="total_like">{{post?.total_like}} likes</span>
+              <span class="reply">Reply</span>
+          </div>
       </div>
+      <ng-container *ngFor="let comment of post?.comments">
+        <app-commment class="comment" [detailComment]="comment"></app-commment>
+      </ng-container>
+      
+      </div>
+      <div class="comment-section">
+        <div class="creator">
+          <span class="creator-content owner-content">
+            <div class="avatar">
+              <div>
+                <div class="">
+                  <div class=""><span class="" role="link" tabindex="-1">
+                    <img style="border-radius: 50%; width: 40px; height: 40px;" alt="" class="profile-img"
+                      crossorigin="anonymous" draggable="false" [src]="loggedInAccount?.avatar">
+                  </span></div>
+                </div>
+              </div>
+              <div class="" style="opacity: 1;">
+                <div style="width: 100%;">
+                  <div class=""></div>
+                </div>
+              </div>
+            </div>
+            <i class="uil uil-profile"></i>
+            <div class="comment-content">
+              <input class="form-input" type="text" placeholder="Add a comment..." [(ngModel)]="commentContent" />
+              <a type="button" class="publish-btn highlight-link" (click)="commentPost()">Post</a>
+            </div>
+          </span>
+        </div>
     </div>
   </div>
   

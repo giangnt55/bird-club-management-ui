@@ -18,10 +18,10 @@ const routes: Routes = [
 
   { path: 'register', component: RegisterComponent },
   {
-    path: 'list-news',
+    path: 'news',
     component: ListNewsComponent,
   },
-  { path: 'list-news/:id', component: NewsReadingComponent },
+  { path: 'news/:id', component: NewsReadingComponent },
   { path: 'create-news', component: NewsCreateComponent },
   { path: 'test', component: TestComponent },
   { path: 'profile', component: ProfileComponent },

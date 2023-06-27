@@ -23,7 +23,7 @@
 .comment-actions {
     display: flex;
     align-items: center;
-    margin-top: 7px;
+    margin-top: 5px;
     margin-left: 70px;
 }
 
@@ -48,3 +48,12 @@
 .reply:hover {
     text-decoration: underline;
 }
+
+.commnet {
+    margin-right: 10px;
+}
+
+.avatar {
+    margin-bottom: auto;
+    margin-top: 5px;
+  }

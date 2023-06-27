@@ -10,6 +10,6 @@ export class NewsItemComponent {
   constructor(private router: Router) {}
   getDetail() {
     console.log('@@@@@');
-    this.router.navigate(['/list-news', '123123123sajkdsakjsa']);
+    this.router.navigate(['/news', '123123123sajkdsakjsa']);
   }
 }

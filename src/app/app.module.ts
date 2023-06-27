@@ -41,6 +41,7 @@ import { ChatsComponent } from './pages/chats/chats.component';
 import { ProfilePostComponent } from './components/profile-post/profile-post.component';
 import { PostDialogComponent } from './components/post-dialog/post-dialog.component';
 import { CommmentComponent } from './components/commment/commment.component';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { CommmentComponent } from './components/commment/commment.component';
     ProfilePostComponent,
     PostDialogComponent,
     CommmentComponent,
+    DateAgoPipe,
   ],
   imports: [
     BrowserModule,
