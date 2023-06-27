@@ -1,9 +1,97 @@
 <div class="dialog-content">
     <div class="image-container">
-      <!-- Image markup here -->
+      <img [src]="post?.image" alt="" class="fit-image">
     </div>
     <div class="post-content">
       <!-- Post content and comments markup here -->
+      <div class="creator">
+        <span class="creator-content">
+          <div class="">
+            <div>
+              <div class="">
+                <div class=""><span class="" role="link" tabindex="-1">
+                    <img style="border-radius: 50%; width: 40px; height: 40px;" alt="" class="profile-img"
+                      crossorigin="anonymous" draggable="false"
+                    [src]="this.post?.creator?.avatar">
+                  </span></div>
+              </div>
+            </div>
+            <div class="" style="opacity: 1;">
+              <div style="width: 100%;">
+                <div class=""></div>
+              </div>
+            </div>
+          </div>
+          <i class="uil uil-profile">
+          </i>
+          <span class="fullname">{{this.post?.creator?.fullname}}</span>
+          <i class="fas fa-ellipsis-h menu-icon"></i>
+        </span>
+      </div>
+      <hr class="line">
+      <div class="comment-container">
+        <div class="comment-content"> 
+          <!-- Add more comments here -->
+          <div class="creator">
+            <span class="creator-content owner-content">
+                <div class="avatar">
+                    <div>
+                        <div class="">
+                            <div class=""><span class="" role="link" tabindex="-1">
+                                    <img style="border-radius: 50%; width: 40px; height: 40px;" alt="" class="profile-img"
+                                        crossorigin="anonymous" draggable="false" 
+                                        [src]="post?.creator?.avatar">
+                                </span></div>
+                        </div>
+                    </div>
+                    <div class="" style="opacity: 1;">
+                        <div style="width: 100%;">
+                            <div class=""></div>
+                        </div>
+                    </div>
+                </div>
+                <i class="uil uil-profile">
+                </i>
+                <div class="comment-content">
+                    <span class="fullname">{{post?.creator?.fullname}}</span>
+                    <div class="commnet">{{post?.content}}</div>
+                </div>
+            </span>
+            <div class="comment-actions">
+              <span class="comment-time">{{ post?.created_at | dateAgo }}</span>
+            </div>
+        </div>
+        <ng-container *ngFor="let comment of comments">
+          <app-commment class="comment" [detailComment]="comment"></app-commment>
+        </ng-container>
+        
+        </div>
+      </div>
+      <div class="comment-section">
+        <div class="creator">
+          <span class="creator-content owner-content">
+            <div class="avatar">
+              <div>
+                <div class="">
+                  <div class=""><span class="" role="link" tabindex="-1">
+                    <img style="border-radius: 50%; width: 40px; height: 40px;" alt="" class="profile-img"
+                      crossorigin="anonymous" draggable="false" [src]="loggedInAccount?.avatar">
+                  </span></div>
+                </div>
+              </div>
+              <div class="" style="opacity: 1;">
+                <div style="width: 100%;">
+                  <div class=""></div>
+                </div>
+              </div>
+            </div>
+            <i class="uil uil-profile"></i>
+            <div class="comment-content">
+              <input class="form-input" type="text" placeholder="Add a comment..." [(ngModel)]="commentContent" appHighlightUsername/>
+              <a type="button" class="publish-btn highlight-link" (click)="commentPost()">Post</a>
+            </div>
+          </span>
+        </div>
     </div>
   </div>
   
