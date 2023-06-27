@@ -169,3 +169,9 @@
     color: #ccc;
     text-decoration: none;
   }
+
+  .view-comments-link {
+    cursor: pointer;
+    color: #a2a0a0;
+    text-decoration: none;
+  }

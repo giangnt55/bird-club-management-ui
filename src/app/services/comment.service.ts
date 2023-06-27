@@ -3,8 +3,8 @@ import { environment } from '../environments/environment';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, throwError } from 'rxjs';
-import { NoDataResponse } from '../models/auth.model';
-import { CommentCreate } from '../models/comment.model';
+import { BaseResponse, NoDataResponse } from '../models/auth.model';
+import { CommentCreate, DetailComment } from '../models/comment.model';
 
 @Injectable({
   providedIn: 'root',
@@ -37,4 +37,14 @@ export class CommentService {
         })
       );
   }
+
+  // getCommentByPostId(postId : string): Observable<any> {
+  //   return this.httpClient
+  //     .get<BaseResponse<DetailComment>>(this.GET_POST_URL)
+  //     .pipe(
+  //       map((response: PaginationResponse<Post>) => {
+  //         return response.data;
+  //       })
+  //     );
+  // }
 }

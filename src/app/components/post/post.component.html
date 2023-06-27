@@ -49,6 +49,10 @@
         </ng-container>
       </span>
     </div>
+
+    <span class="view-comments-link" (click)="openPostDetail()"> 
+    View all {{ post?.total_comment }} comments 
+    </span>
     
     <div class="comment">
       <input type="text" placeholder="Add a comment..." [(ngModel)]="commentContent" />
