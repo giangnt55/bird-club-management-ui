@@ -18,12 +18,6 @@ export class CommentService {
   constructor(private httpClient: HttpClient, private toastr: ToastrService) {}
 
   comment(comment: CommentCreate): Observable<any> {
-    // const body = {
-    //   content: comment,
-    //   post_id: comment.post_id,
-    //   reply_to: comment.reply_to,
-    // };
-
     return this.httpClient
       .post<NoDataResponse>(`${this.CREATE_URL}`, comment)
       .pipe(
@@ -38,13 +32,13 @@ export class CommentService {
       );
   }
 
-  // getCommentByPostId(postId : string): Observable<any> {
-  //   return this.httpClient
-  //     .get<BaseResponse<DetailComment>>(this.GET_POST_URL)
-  //     .pipe(
-  //       map((response: PaginationResponse<Post>) => {
-  //         return response.data;
-  //       })
-  //     );
-  // }
+  getCommentByPostId(postId: string): Observable<any> {
+    return this.httpClient
+      .get<BaseResponse<DetailComment>>(`${this.GET_URL}/post/${postId}`)
+      .pipe(
+        map((response: BaseResponse<DetailComment>) => {
+          return response.data;
+        })
+      );
+  }
 }

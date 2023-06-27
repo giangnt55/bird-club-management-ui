@@ -2,7 +2,6 @@ import {
   ChangeDetectorRef,
   Component,
   Inject,
-  Input,
   OnDestroy,
   OnInit,
 } from '@angular/core';
@@ -12,9 +11,10 @@ import { Subscription } from 'rxjs';
 import { DetailPost } from 'src/app/models/post.model';
 import { PostService } from 'src/app/services/post.service';
 import { TimeService } from 'src/app/time.service';
-import { LikeService } from '../like.service';
 import { CommentService } from 'src/app/services/comment.service';
-import { CommentCreate } from 'src/app/models/comment.model';
+import { CommentCreate, DetailComment } from 'src/app/models/comment.model';
+import { LikeService } from 'src/app/services/like.service';
+import { ReplyService } from 'src/app/services/reply.service';
 
 @Component({
   selector: 'app-post-dialog',
@@ -27,12 +27,15 @@ export class PostDialogComponent implements OnInit, OnDestroy {
   postId!: string;
   loggedInAccount!: any | null;
   commentContent: string = '';
+  comments: DetailComment[] = [];
+  comment!: DetailComment;
 
   constructor(
     private postService: PostService,
     private toastr: ToastrService,
     private timeService: TimeService,
     private likeService: LikeService,
+    private replyService: ReplyService,
     private commentService: CommentService,
     private changeDetectorRef: ChangeDetectorRef,
     public dialogRef: MatDialogRef<PostDialogComponent>,
@@ -54,6 +57,19 @@ export class PostDialogComponent implements OnInit, OnDestroy {
 
     this.postId = this.data.postId;
     this.getPost();
+    this.getComments();
+
+    // Subscribe to the replyService to receive the comment
+    this.subscription = this.replyService
+      .getComment()
+      .subscribe((comment: DetailComment | null) => {
+        if (comment !== null) {
+          this.comment = comment;
+          this.commentContent = `@${comment.creator?.fullname}`;
+          // Clear the comment after processing
+          this.replyService.setcomment(null);
+        }
+      });
   }
 
   getPost() {
@@ -65,6 +81,19 @@ export class PostDialogComponent implements OnInit, OnDestroy {
         this.toastr.error('An error has occurred.', 'Error');
       }
     );
+  }
+
+  getComments() {
+    this.subscription = this.commentService
+      .getCommentByPostId(this.postId)
+      .subscribe(
+        (response) => {
+          this.comments = response;
+        },
+        (error) => {
+          this.toastr.error('An error has occurred.', 'Error');
+        }
+      );
   }
 
   getTimeAgo(dateTime: Date | null | undefined): string {

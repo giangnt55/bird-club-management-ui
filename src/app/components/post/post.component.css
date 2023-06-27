@@ -141,19 +141,21 @@
     margin-bottom: 5px;
   }
   
-  .comment input {
+  /* .comment input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 4px;
     margin-bottom: 5px;
   }
-  
+   */
   .publish-btn {
     font-weight: bold;
     color: #0095f6;
     cursor: pointer;
     text-decoration: none;
+    margin-left: 20px;
+
   }
   
   .avatar img, .image-container img {
@@ -174,4 +176,14 @@
     cursor: pointer;
     color: #a2a0a0;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .form-input {
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    background: none;
+    width: 90%;
   }

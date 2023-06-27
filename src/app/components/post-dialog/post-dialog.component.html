@@ -61,7 +61,7 @@
               <span class="comment-time">{{ post?.created_at | dateAgo }}</span>
             </div>
         </div>
-        <ng-container *ngFor="let comment of post?.comments">
+        <ng-container *ngFor="let comment of comments">
           <app-commment class="comment" [detailComment]="comment"></app-commment>
         </ng-container>
         
@@ -87,7 +87,7 @@
             </div>
             <i class="uil uil-profile"></i>
             <div class="comment-content">
-              <input class="form-input" type="text" placeholder="Add a comment..." [(ngModel)]="commentContent" />
+              <input class="form-input" type="text" placeholder="Add a comment..." [(ngModel)]="commentContent" appHighlightUsername/>
               <a type="button" class="publish-btn highlight-link" (click)="commentPost()">Post</a>
             </div>
           </span>

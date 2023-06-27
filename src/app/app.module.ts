@@ -43,6 +43,7 @@ import { PostDialogComponent } from './components/post-dialog/post-dialog.compon
 import { CommmentComponent } from './components/commment/commment.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { MenuDialogComponent } from './menu-dialog/menu-dialog.component';
+import { HighlightUsernameDirective } from './helpers/highlight-username.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +71,7 @@ import { MenuDialogComponent } from './menu-dialog/menu-dialog.component';
     CommmentComponent,
     DateAgoPipe,
     MenuDialogComponent,
+    HighlightUsernameDirective,
   ],
   imports: [
     BrowserModule,

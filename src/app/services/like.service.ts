@@ -28,7 +28,7 @@ export class LikeService {
       );
   }
 
-  likePost(like: LikeCreateDto): Observable<any> {
+  like(like: LikeCreateDto): Observable<any> {
     const body = {
       post_id: like.post_id,
       comment_id: like.comment_id,
@@ -46,7 +46,7 @@ export class LikeService {
     );
   }
 
-  unlikePost(like: LikeCreateDto): Observable<any> {
+  unlike(like: LikeCreateDto): Observable<any> {
     const body = {
       post_id: like.post_id,
       comment_id: like.comment_id,

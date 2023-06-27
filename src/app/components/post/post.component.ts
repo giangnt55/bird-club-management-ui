@@ -8,10 +8,10 @@ import {
 import { Post } from 'src/app/models/post.model';
 import { PostDialogComponent } from '../post-dialog/post-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { LikeService } from '../like.service';
 import { Subscription } from 'rxjs';
 import { CommentService } from 'src/app/services/comment.service';
 import { CommentCreate } from 'src/app/models/comment.model';
+import { LikeService } from 'src/app/services/like.service';
 
 @Component({
   selector: 'app-post',
@@ -51,7 +51,7 @@ export class PostComponent implements OnInit, OnDestroy {
       console.log('Post Unliked');
       // Call the API to unlike the post
       this.likeSubscription = this.likeService
-        .unlikePost({ post_id: this.post.id, comment_id: null })
+        .unlike({ post_id: this.post.id, comment_id: null })
         .subscribe(
           (response) => {
             // Handle the success response here
@@ -71,7 +71,7 @@ export class PostComponent implements OnInit, OnDestroy {
       console.log('Post Liked');
       // Call the API to like the post
       this.likeSubscription = this.likeService
-        .likePost({ post_id: this.post.id, comment_id: null })
+        .like({ post_id: this.post.id, comment_id: null })
         .subscribe(
           (response) => {
             // Handle the success response here
