@@ -45,11 +45,15 @@
   .follow-btn {
     margin-left: auto;
     padding: 6px 12px;
-    border: 1px solid #ccc;
+    /* border: 1px solid #ccc; */
     border-radius: 4px;
     font-weight: bold;
     text-decoration: none;
     color: #262626;
+  }
+  
+  .follow-btn:hover {
+    color: #868181;
   }
 
   .gallery {

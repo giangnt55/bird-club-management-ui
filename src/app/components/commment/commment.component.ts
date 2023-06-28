@@ -22,6 +22,7 @@ export class CommmentComponent implements OnInit, OnDestroy {
   @Input() detailComment!: DetailComment;
   loggedInAccount!: any | null;
   private subscription!: Subscription;
+  showReplies: boolean = false;
 
   constructor(
     private dialog: MatDialog,
