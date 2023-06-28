@@ -43,6 +43,7 @@ import { PostDialogComponent } from './components/post-dialog/post-dialog.compon
 import { LikeComponent } from './components/like/like.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +71,7 @@ import { PostDetailComponent } from './components/post-detail/post-detail.compon
     LikeComponent,
     UpdateProfileComponent,
     PostDetailComponent,
+    UpdatePasswordComponent,
   ],
   imports: [
     BrowserModule,

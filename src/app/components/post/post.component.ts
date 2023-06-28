@@ -5,9 +5,11 @@ import {
   OnDestroy,
   OnChanges,
   SimpleChanges,
+  ElementRef,
 } from '@angular/core';
 import { Post } from 'src/app/models/post.model';
 import { LikeService } from 'src/app/services/like.service';
+import { Response } from 'src/app/models/response.model';
 
 @Component({
   selector: 'app-post',
@@ -17,29 +19,56 @@ import { LikeService } from 'src/app/services/like.service';
 export class PostComponent implements OnInit, OnDestroy, OnChanges {
   showFullText: boolean = false;
   isLiked: boolean = false;
+  totalLikes: number = 0;
 
-  constructor(private likeService: LikeService) { }
+  constructor(private likeService: LikeService, private elementRef: ElementRef) { }
 
   ngOnChanges(changes: SimpleChanges): void {}
 
   @Input() post!: Post;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.totalLikes = this.post.total_like;
+  }
   ngOnDestroy(): void {}
 
   likePost() {
-    // this.likeService.likePost().subscribe(
-    //   response => {
-    //     console.log('Post Liked', response);
-    //     this.isLiked = !this.isLiked;
-    //     // Perform any additional actions after liking the post
-    //   },
-    //   error => {
-    //     console.error('Failed to like the post', error);
-    //     // Handle the error or display an error message to the user
-    //   }
-    // );
-    // console.log('Post Liked');
+    if (this.isLiked) {
+      // User already liked the post, so unlike it
+      this.likeService.likePost(this.post.id).subscribe(
+        (response: Response<boolean>) => {
+          if (response.status_code === 200) {
+            this.totalLikes--;
+            this.isLiked = false;
+            this.changeIconColor('rgb(38, 38, 38)');
+          }
+        },
+        (error) => {
+          // Handle error response
+          console.error('Failed to unlike the post:', error);
+        }
+      );
+    } else {
+      // User has not liked the post, so like it
+      this.likeService.likePost(this.post.id).subscribe(
+        (response: Response<boolean>) => {
+          if (response.status_code === 200) {
+            this.totalLikes++;
+            this.isLiked = true;
+            this.changeIconColor('red');
+          }
+        },
+        (error) => {
+          // Handle error response
+          console.error('Failed to like the post:', error);
+        }
+      );
+    }
+  }
+
+  private changeIconColor(color: string) {
+    const likeIcon = this.elementRef.nativeElement.querySelector('#likeIcon');
+    likeIcon.setAttribute('fill', color);
   }
 
   sharePost() {

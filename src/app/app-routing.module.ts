@@ -10,6 +10,7 @@ import { NewsCreateComponent } from './pages/news-create/news-create.component';
 import { TestComponent } from './pages/test/test.component';
 import { ChatsComponent } from './pages/chats/chats.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'inbox', component: ChatsComponent },
   { path: 'test', component: TestComponent },
-  {path : 'update-profile', component: UpdateProfileComponent}
+  {path : 'update-profile', component: UpdateProfileComponent},
+  {path : 'update-password', component: UpdatePasswordComponent}
 ];
 
 @NgModule({

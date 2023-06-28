@@ -9,7 +9,7 @@ import { PostCreateComponent } from '../../components/post-create/post-create.co
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  showOptions: boolean = false;
+  showMoreOptions: boolean = false;
   showSearch = false;
 
   constructor(private router: Router, private dialog: MatDialog) {}
@@ -21,8 +21,6 @@ export class SidebarComponent implements OnInit {
       this.loggedInAccount = JSON.parse(storedAccountInfo);
     }
   }
-
-  showMoreOptions: boolean = false;
 
   openDialog() {
     const dialogRef = this.dialog.open(PostCreateComponent);
@@ -48,10 +46,6 @@ export class SidebarComponent implements OnInit {
 
   stopPropagation(event: Event){
     event.stopPropagation();
-  }
-
-  toggleOptions() {
-    this.showOptions = !this.showOptions;
   }
 
   redirectToSetting(){}

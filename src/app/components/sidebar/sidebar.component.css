@@ -196,11 +196,13 @@ body {
   top: 0;
   right: 0;
   transform: translateX(100%);
+  transition: right 1s ease;
   z-index: 9999; /* Adjust the z-index as needed */
 }
 
 .search-box.show {
   display: block;
+  right: 80px;
 }
 
 .search-box .card {
@@ -240,11 +242,6 @@ button.hide-text .icon {
   /* Add padding or margin if needed */
   padding: 10px; /* Adjust as necessary */
   margin: 10px; /* Adjust as necessary */
-}
-
-.search-box.show {
-  /* Styles for showing the search box */
-  display: block;
 }
 
 
