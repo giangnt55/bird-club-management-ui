@@ -20,12 +20,13 @@ body {
   height: 100%;
   padding: 40px 10px 30px 10px;
   background: #ffffff;
-  transition: width 1s ease;
+  transition: width 0.5s ease;
+  border-right: solid 0.5px #e7e4e4;
 }
 
 .sidebar-header {
   width: 100%;
-  margin-bottom: 44px;
+  margin-bottom: 10px;
 }
 
 .logo-icon {
@@ -37,8 +38,7 @@ body {
 }
 
 .logo-img {
-  margin-left: 14px;
-  height: 32px;
+  width: 100%;
 }
 
 .sidebar button {
@@ -201,7 +201,7 @@ body {
   top: 0;
   left: 80px;
   overflow: hidden;
-  transition: width 1s ease;
+  transition: width 0.2s ease;
   z-index: 9999;
 }
 
@@ -215,7 +215,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: #fff;
-  transition: transform 1s ease;
+  transition: transform 0.2s ease;
 }
 
 .search-box.show .card {

@@ -48,12 +48,13 @@ export class SidebarComponent implements OnInit {
     this.showSearch = false;
   }
 
-  stopPropagation(event: Event){
+  stopPropagation(event: Event) {
     event.stopPropagation();
   }
 
-  redirectToSetting(){}
+  redirectToSetting() {}
 
-  redirectToPassword(){}
+  redirectToPassword() {}
+
   changeBackgroundColor() {}
 }
