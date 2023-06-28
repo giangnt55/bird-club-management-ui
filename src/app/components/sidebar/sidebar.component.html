@@ -7,7 +7,7 @@
       <i class="logo-icon uil uil-instagram"></i>
     </header>
     <nav>
-      <button [routerLink]="['/home']">
+      <button [routerLink]="['/home']" (click)="hideSearchBox()">
         <span>
           <svg aria-label class color="#262626" fill="#262626" height="24"
             role="img" viewBox="0 0 24 24"
@@ -38,7 +38,7 @@
           <span *ngIf="!showSearch">Search</span>
         </span>
       </button>
-      <button [routerLink]="['/news']">
+      <button [routerLink]="['/news']" (click)="hideSearchBox()">
         <span>
           <svg aria-label class color="#262626" fill="#262626" height="24"
             role="img" viewBox="0 0 24 24"
@@ -58,7 +58,7 @@
           <span *ngIf="!showSearch">Explore</span>
         </span>
       </button>
-      <button [routerLink]="['/inbox']">
+      <button [routerLink]="['/inbox']" (click)="hideSearchBox()">
         <span>
           <svg aria-label="Messenger" class color="#262626" fill="#262626"
             height="24" role="img" viewBox="0 0 24 24"
@@ -77,7 +77,7 @@
           <span *ngIf="!showSearch">Messages</span>
         </span>
       </button>
-      <button>
+      <button (click)="hideSearchBox()">
         <span>
           <svg aria-label class color="#262626" fill="#262626" height="24"
             role="img" viewBox="0 0 24 24"
@@ -92,7 +92,7 @@
           <span *ngIf="!showSearch">Notifications</span>
         </span>
       </button>
-      <button (click)="openDialog()">
+      <button (click)="openDialog()" (click)="hideSearchBox()">
         <span>
           <svg aria-label class color="#262626" fill="#262626" height="24"
             role="img" viewBox="0 0 24 24"
@@ -112,7 +112,7 @@
           <span *ngIf="!showSearch">Create</span>
         </span>
       </button>
-      <button [routerLink]="['/profile']">
+      <button [routerLink]="['/profile']" (click)="hideSearchBox()">
         <span>
           <div class>
             <div>
@@ -159,7 +159,7 @@
 
       <div [hidden]="!showMoreOptions" class="options-container">
         <ul>
-          <button (click)="redirectToSetting()" class="option">
+          <button (click)="redirectToSetting()" class="option" (click)="hideSearchBox()">
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                 viewBox="0 0 1024 1024"><path fill="currentColor"
@@ -167,7 +167,8 @@
               <span *ngIf="!showSearch">Setting</span>
             </span>
           </button>
-          <button (click)="redirectToPassword()" class="option" [routerLink]="['/update-password']">
+          <button (click)="redirectToPassword()" class="option"
+            [routerLink]="['/update-password']" (click)="hideSearchBox()">
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                 viewBox="0 0 32 32"><path fill="currentColor"
@@ -176,7 +177,7 @@
               <span *ngIf="!showSearch">Password</span>
             </span>
           </button>
-          <button (click)="logout()" class="option">
+          <button (click)="logout()" class="option" (click)="hideSearchBox()">
             <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                 viewBox="0 0 36 36"><path fill="currentColor"
                   d="M7 6h16v9.8h2V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v24a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2H7Z"
@@ -195,8 +196,55 @@
   <div class="search-box" [ngClass]="{'show': showSearch}">
     <div class="card">
       <div class="card-body">
-        <input type="text" placeholder="Search.."
-          (click)="stopPropagation($event)">
+        <div class="input-wrapper">
+          <input type="text" placeholder="Search.." class="search-input"
+            (click)="stopPropagation($event)">
+          <span class="fa fa-search icon-search"></span>
+        </div>
+        <div class="display-container">
+          <div class="search-person-container">
+            <div class="person-infor">
+              <div class="person-avatar">
+                <img width="50px"
+                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+              </div>
+              <div class="person-name">
+                <label>Trieu Do</label>
+              </div>
+            </div>
+
+            <div class="person-infor">
+              <div class="person-avatar">
+                <img width="50px"
+                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+              </div>
+              <div class="person-name">
+                <label>Trieu Do</label>
+              </div>
+            </div>
+
+            <div class="person-infor">
+              <div class="person-avatar">
+                <img width="50px"
+                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+              </div>
+              <div class="person-name">
+                <label>Trieu Do</label>
+              </div>
+            </div>
+          </div>
+          <div class="search-post-container">
+            <div class="person-infor">
+              <div class="person-avatar">
+                <img width="50px"
+                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+              </div>
+              <div class="person-name">
+                <label>Trieu Do</label>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

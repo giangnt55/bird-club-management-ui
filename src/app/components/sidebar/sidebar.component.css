@@ -20,7 +20,6 @@ body {
   height: 100%;
   padding: 40px 10px 30px 10px;
   background: #ffffff;
-  border-right: 1px solid #dbdbdb;
   transition: width 1s ease;
 }
 
@@ -179,6 +178,11 @@ body {
 .options-container {
   display: flex;
   flex-direction: row;
+  margin-left: 0;
+}
+
+.options-container ul{
+  padding: 0;
 }
 
 .option {
@@ -191,29 +195,41 @@ body {
 }
 
 .search-box {
-  display: none;
+  width: 0;
+  height: 800px;
   position: absolute;
   top: 0;
-  right: 0;
-  transform: translateX(100%);
-  transition: right 1s ease;
-  z-index: 9999; /* Adjust the z-index as needed */
+  left: 80px;
+  overflow: hidden;
+  transition: width 1s ease;
+  z-index: 9999;
 }
 
 .search-box.show {
   display: block;
-  right: 80px;
+  left: 80px;
+  width: 400px;
 }
 
 .search-box .card {
-  width: 300px; /* Adjust the width as needed */
+  width: 100%;
+  height: 100%;
   background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 1s ease;
 }
 
-.search-box .card-body {
+.search-box.show .card {
+  transform: translateX(0);
+}
+
+.card-body {
   padding: 16px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .search-box input[type="text"] {
@@ -237,11 +253,67 @@ button.hide-text .icon {
 
 
 .sidebar.smaller {
-  width: 80px; /* Allow the sidebar to adjust its width based on content */
+  width: 80px;
+  margin: 10px;
+}
 
-  /* Add padding or margin if needed */
-  padding: 10px; /* Adjust as necessary */
-  margin: 10px; /* Adjust as necessary */
+.input-wrapper {
+  margin: 5px;
+  position: relative;
+}
+
+.search-input {
+  padding-right: 30px;
+}
+
+.card-body .icon-search {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  top: 50%;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  pointer-events: none;
+  color: #aaa;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.display-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-person-container, .search-post-container {
+  margin-bottom: 10px;
+  width: 100%;
+  height: 45%;
+}
+
+.search-post-container {
+  border-top: 1px solid #0f0e0e;
+  padding-top: 10px; /* Add some spacing above the line */
+}
+
+.person-infor{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.person-avatar{
+  width: 50px;
+  height: 50px;
+}
+
+.person-name{
+  text-align: center;
+  margin: auto 10px;
+  font-weight: bold;
+  width: 25%;
 }
 
 

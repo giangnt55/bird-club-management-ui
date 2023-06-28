@@ -44,6 +44,10 @@ export class SidebarComponent implements OnInit {
     this.showSearch = !this.showSearch;
   }
 
+  hideSearchBox() {
+    this.showSearch = false;
+  }
+
   stopPropagation(event: Event){
     event.stopPropagation();
   }
