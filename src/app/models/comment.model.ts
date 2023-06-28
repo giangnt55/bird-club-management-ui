@@ -22,5 +22,5 @@ export interface DetailComment extends BaseDto {
   is_liked: boolean;
   total_like: number;
   total_reply: number;
-  replies: Comment[];
+  replies: DetailComment[];
 }

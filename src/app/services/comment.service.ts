@@ -19,10 +19,10 @@ export class CommentService {
 
   comment(comment: CommentCreate): Observable<any> {
     return this.httpClient
-      .post<NoDataResponse>(`${this.CREATE_URL}`, comment)
+      .post<BaseResponse<DetailComment>>(`${this.CREATE_URL}`, comment)
       .pipe(
-        map((response: NoDataResponse) => {
-          return response;
+        map((response: BaseResponse<DetailComment>) => {
+          return response.data;
         }),
         catchError((error) => {
           // Handle the error here (e.g., show an error message)

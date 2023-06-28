@@ -12,7 +12,6 @@ export class HighlightUsernameDirective {
   }
 
   private highlightUsernames() {
-    console.log('OJ');
     const inputText = this.elementRef.nativeElement.value;
     const highlightedText = inputText.replace(
       /@([^\s]+)/g,

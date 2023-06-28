@@ -26,7 +26,7 @@ body {
 
 .sidebar-header {
   width: 100%;
-  margin-bottom: 44px;
+  margin-bottom: 10px;
 }
 
 .logo-icon {
@@ -38,8 +38,7 @@ body {
 }
 
 .logo-img {
-  margin-left: 14px;
-  height: 32px;
+  width: 100%;
 }
 
 .sidebar button {

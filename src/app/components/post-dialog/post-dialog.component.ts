@@ -5,7 +5,11 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import {
+  MAT_DIALOG_DATA,
+  MatDialog,
+  MatDialogRef,
+} from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { Subscription } from 'rxjs';
 import { DetailPost } from 'src/app/models/post.model';
@@ -15,6 +19,7 @@ import { CommentService } from 'src/app/services/comment.service';
 import { CommentCreate, DetailComment } from 'src/app/models/comment.model';
 import { LikeService } from 'src/app/services/like.service';
 import { ReplyService } from 'src/app/services/reply.service';
+import { MenuDialogComponent } from 'src/app/menu-dialog/menu-dialog.component';
 
 @Component({
   selector: 'app-post-dialog',
@@ -35,6 +40,7 @@ export class PostDialogComponent implements OnInit, OnDestroy {
     private toastr: ToastrService,
     private timeService: TimeService,
     private likeService: LikeService,
+    private dialog: MatDialog,
     private replyService: ReplyService,
     private commentService: CommentService,
     private changeDetectorRef: ChangeDetectorRef,
@@ -118,14 +124,17 @@ export class PostDialogComponent implements OnInit, OnDestroy {
   commentPost() {
     const comment: CommentCreate = {
       content: this.commentContent,
-      post_id: this.post.id,
-      reply_to: null,
+      post_id: this.comment == null ? this.post.id : null,
+      reply_to: this.comment == null ? null : this.comment.id,
     };
+
+    console.log(comment);
 
     this.commentService.comment(comment).subscribe(
       (response) => {
         // this.post.total_comment--;
         // this.post.comments
+        this.getComments();
         // this.changeDetectorRef.detectChanges(); // Manually trigger change detection to update the UI
       },
       (error) => {
@@ -137,5 +146,17 @@ export class PostDialogComponent implements OnInit, OnDestroy {
 
     // Clear the input field after submitting the comment
     this.commentContent = '';
+  }
+
+  openMenuDialog(): void {
+    const dialogRef = this.dialog.open(MenuDialogComponent);
+
+    dialogRef.afterClosed().subscribe((result: string | undefined) => {
+      if (result === 'report') {
+        // Handle report option
+      } else if (result === 'cancel') {
+        // Handle cancel option
+      }
+    });
   }
 }

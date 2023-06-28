@@ -14,7 +14,10 @@ import { environment } from '../environments/environment';
 export class LoadingInterceptor implements HttpInterceptor {
   private apiUrl: string = environment.apiUrl;
   private totalRequests = 0;
-  private ignoredAPIs: string[] = [`${this.apiUrl}/like`, '/api/ignore2']; // Example ignored API URLs
+  private ignoredAPIs: string[] = [
+    `${this.apiUrl}/like`,
+    `${this.apiUrl}/comment`,
+  ];
 
   constructor(private loadingService: LoaderService) {}
 
@@ -41,6 +44,6 @@ export class LoadingInterceptor implements HttpInterceptor {
   }
 
   private shouldIgnoreApi(apiUrl: string): boolean {
-    return this.ignoredAPIs.includes(apiUrl);
+    return apiUrl.startsWith(`${this.apiUrl}`);
   }
 }

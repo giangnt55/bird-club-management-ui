@@ -25,7 +25,7 @@
           <i class="uil uil-profile">
           </i>
           <span class="fullname">{{this.post?.creator?.fullname}}</span>
-          <i class="fas fa-ellipsis-h menu-icon"></i>
+          <i (click)="openMenuDialog()" class="fas fa-ellipsis-h menu-icon"></i>
         </span>
       </div>
       <hr class="line">
@@ -87,7 +87,7 @@
             </div>
             <i class="uil uil-profile"></i>
             <div class="comment-content">
-              <input class="form-input" type="text" placeholder="Add a comment..." [(ngModel)]="commentContent" appHighlightUsername/>
+              <input class="form-input" type="text" placeholder="Add a comment..." [(ngModel)]="commentContent"/>
               <a type="button" class="publish-btn highlight-link" (click)="commentPost()">Post</a>
             </div>
           </span>
