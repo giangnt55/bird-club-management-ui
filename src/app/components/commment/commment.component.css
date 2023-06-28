@@ -1,0 +1,71 @@
+.creator-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    padding-bottom: 0px;
+}
+
+.comment-content {
+    margin-left: 10px;
+}
+
+.fullname {
+    font-weight: bolder;
+}
+
+.menu-icon {
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.comment-actions {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    margin-left: 80px;
+}
+
+.comment-time {
+    font-size: 12px;
+    color: gray;
+    margin-right: 10px;
+}
+
+.total_like {
+    font-size: 12px;
+    color: gray;
+    margin-right: 10px;
+}
+
+.reply {
+    font-size: 12px;
+    color: gray;
+    cursor: pointer;
+}
+
+.reply:hover {
+    text-decoration: underline;
+}
+
+.commnet {
+    margin-right: 10px;
+}
+
+.avatar {
+    margin-bottom: auto;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.view-reply {
+    font-size: 12px;
+    color: gray;
+    cursor: pointer;
+    margin-left: 80px;
+}
+
+.replies {
+    margin-left: 60px;
+}

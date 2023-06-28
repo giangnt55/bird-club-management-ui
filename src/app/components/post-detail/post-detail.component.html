@@ -1,0 +1,11 @@
+<div class="post-details-container">
+  <div class="image-container">
+    <img class="image" src="{{ data.image }}" alt="Post Image">
+  </div>
+  <div class="content-container">
+    <h2>{{ data.title }}</h2>
+    <p>{{ data.likes }} <i class="uil uil-heart-alt"></i> {{ data.comments }} <i class="uil uil-comment"></i></p>
+    <!-- Additional content here -->
+  </div>
+  <button mat-button (click)="closeDialog()">Close</button>
+</div>

@@ -40,6 +40,14 @@ import { HotNewsComponent } from './components/hot-news/hot-news.component';
 import { ChatsComponent } from './pages/chats/chats.component';
 import { ProfilePostComponent } from './components/profile-post/profile-post.component';
 import { PostDialogComponent } from './components/post-dialog/post-dialog.component';
+import { CommmentComponent } from './components/commment/commment.component';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { MenuDialogComponent } from './menu-dialog/menu-dialog.component';
+import { HighlightUsernameDirective } from './helpers/highlight-username.directive';
+import { LikeComponent } from './components/like/like.component';
+import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +72,14 @@ import { PostDialogComponent } from './components/post-dialog/post-dialog.compon
     ChatsComponent,
     ProfilePostComponent,
     PostDialogComponent,
+    CommmentComponent,
+    DateAgoPipe,
+    MenuDialogComponent,
+    HighlightUsernameDirective,
+    LikeComponent,
+    UpdateProfileComponent,
+    PostDetailComponent,
+    UpdatePasswordComponent,
   ],
   imports: [
     BrowserModule,

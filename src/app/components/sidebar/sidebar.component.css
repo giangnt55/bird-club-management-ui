@@ -20,13 +20,13 @@ body {
   height: 100%;
   padding: 40px 10px 30px 10px;
   background: #ffffff;
-  border-right: 1px solid #dbdbdb;
-  transition: 0.3s;
+  transition: width 0.5s ease;
+  border-right: solid 0.5px #e7e4e4;
 }
 
 .sidebar-header {
   width: 100%;
-  margin-bottom: 44px;
+  margin-bottom: 10px;
 }
 
 .logo-icon {
@@ -38,8 +38,7 @@ body {
 }
 
 .logo-img {
-  margin-left: 14px;
-  height: 32px;
+  width: 100%;
 }
 
 .sidebar button {
@@ -174,3 +173,152 @@ body {
   opacity: 0;
   visibility: hidden;
 }
+
+
+.options-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: 0;
+}
+
+.options-container ul{
+  padding: 0;
+}
+
+.option {
+  width: 100%;
+  margin-right: 10px;
+}
+/* /////Search box/////// */
+.sidebar-container {
+  position: relative;
+}
+
+.search-box {
+  width: 0;
+  height: 800px;
+  position: absolute;
+  top: 0;
+  left: 80px;
+  overflow: hidden;
+  transition: width 0.2s ease;
+  z-index: 9999;
+}
+
+.search-box.show {
+  display: block;
+  left: 80px;
+  width: 400px;
+}
+
+.search-box .card {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transition: transform 0.2s ease;
+}
+
+.search-box.show .card {
+  transform: translateX(0);
+}
+
+.card-body {
+  padding: 16px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-box input[type="text"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+/* Existing styles */
+
+button.hide-text .button-text {
+  display: none;
+}
+
+button.hide-text .icon {
+  margin-right: 0;
+}
+
+
+.sidebar.smaller {
+  width: 80px;
+  margin: 10px;
+}
+
+.input-wrapper {
+  margin: 5px;
+  position: relative;
+}
+
+.search-input {
+  padding-right: 30px;
+}
+
+.card-body .icon-search {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  top: 50%;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  pointer-events: none;
+  color: #aaa;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.display-container{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-person-container, .search-post-container {
+  margin-bottom: 10px;
+  width: 100%;
+  height: 45%;
+}
+
+.search-post-container {
+  border-top: 1px solid #0f0e0e;
+  padding-top: 10px; /* Add some spacing above the line */
+}
+
+.person-infor{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.person-avatar{
+  width: 50px;
+  height: 50px;
+}
+
+.person-name{
+  text-align: center;
+  margin: auto 10px;
+  font-weight: bold;
+  width: 25%;
+}
+
+
+
+
+
+
+

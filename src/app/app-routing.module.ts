@@ -9,18 +9,28 @@ import { ListNewsComponent } from './pages/list-news/list-news.component';
 import { NewsCreateComponent } from './pages/news-create/news-create.component';
 import { TestComponent } from './pages/test/test.component';
 import { ChatsComponent } from './pages/chats/chats.component';
+import { NewsComponent } from './components/news/news.component';
+import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
+import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'news', component: NewsReadingComponent },
+
   { path: 'register', component: RegisterComponent },
-  { path: 'list-news', component: ListNewsComponent },
+  {
+    path: 'news',
+    component: ListNewsComponent,
+  },
+  { path: 'news/:id', component: NewsReadingComponent },
   { path: 'create-news', component: NewsCreateComponent },
   { path: 'test', component: TestComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'inbox', component: ChatsComponent },
+  { path: 'test', component: TestComponent },
+  {path : 'update-profile', component: UpdateProfileComponent},
+  {path : 'update-password', component: UpdatePasswordComponent}
 ];
 
 @NgModule({

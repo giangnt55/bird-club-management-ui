@@ -8,10 +8,16 @@ import {
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { LoaderService } from '../services/loader.service';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
+  private apiUrl: string = environment.apiUrl;
   private totalRequests = 0;
+  private ignoredAPIs: string[] = [
+    `${this.apiUrl}/like`,
+    `${this.apiUrl}/comment`,
+  ];
 
   constructor(private loadingService: LoaderService) {}
 
@@ -19,15 +25,25 @@ export class LoadingInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    this.totalRequests++;
-    this.loadingService.setLoading(true);
+    const apiUrl = request.url;
+    if (!this.shouldIgnoreApi(apiUrl)) {
+      this.totalRequests++;
+      this.loadingService.setLoading(true);
+    }
+
     return next.handle(request).pipe(
       finalize(() => {
-        this.totalRequests--;
-        if (this.totalRequests == 0) {
-          this.loadingService.setLoading(false);
+        if (!this.shouldIgnoreApi(apiUrl)) {
+          this.totalRequests--;
+          if (this.totalRequests === 0) {
+            this.loadingService.setLoading(false);
+          }
         }
       })
     );
+  }
+
+  private shouldIgnoreApi(apiUrl: string): boolean {
+    return apiUrl.startsWith(`${this.apiUrl}`);
   }
 }
