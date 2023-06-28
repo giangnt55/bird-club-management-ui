@@ -51,4 +51,5 @@ export class SidebarComponent implements OnInit {
   redirectToSetting(){}
 
   redirectToPassword(){}
+  changeBackgroundColor() {}
 }

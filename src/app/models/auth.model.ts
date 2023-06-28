@@ -27,3 +27,8 @@ export interface BaseResponse<T> {
   message: string;
   data: T;
 }
+
+export interface NoDataResponse {
+  status_code: number;
+  message: string;
+}

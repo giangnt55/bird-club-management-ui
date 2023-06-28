@@ -1,28 +1,68 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/app/environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
-import { Like } from '../models/like.model';
-import { Response } from '../models/response.model';
-
+import { Like, LikeCreateDto } from '../models/like.model';
+import { Observable, catchError, map, throwError } from 'rxjs';
+import { BaseResponse, NoDataResponse } from '../models/auth.model';
 
 @Injectable({
   providedIn: 'root',
 })
-
-export class LikeService{
+export class LikeService {
   private apiUrl: string = environment.apiUrl;
-  LIKE_URL = `${this.apiUrl}/like`;
+  GET_URL = `${this.apiUrl}/like`;
+  GET_LIKE_OF_POST_URL = `${this.apiUrl}/like/post`;
+  CREATE_URL = `${this.apiUrl}/like`;
+  DELETE_URL = `${this.apiUrl}/like`;
 
   constructor(private httpClient: HttpClient, private toastr: ToastrService) {}
 
-  likePost(id: string): Observable<Response<any>> {
+  getLikesOfPost(postId: string): Observable<any> {
+    return this.httpClient
+      .get<BaseResponse<Like>>(`${this.GET_LIKE_OF_POST_URL}/${postId}`)
+      .pipe(
+        map((response: BaseResponse<Like>) => {
+          return response.data;
+        })
+      );
+  }
 
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const body = { postId: id };
+  like(like: LikeCreateDto): Observable<any> {
+    const body = {
+      post_id: like.post_id,
+      comment_id: like.comment_id,
+    };
 
-    return this.httpClient.post<Response<any>>(this.LIKE_URL, body, { headers: headers });
-    //return this.httpClient.post<Like>(this.LIKE_URL, {});
+    return this.httpClient.post<NoDataResponse>(this.CREATE_URL, body).pipe(
+      map((response: NoDataResponse) => {
+        return response;
+      }),
+      catchError((error) => {
+        // Handle the error here (e.g., show an error message)
+        console.error('Error creating post:', error);
+        return throwError(error);
+      })
+    );
+  }
+
+  unlike(like: LikeCreateDto): Observable<any> {
+    const body = {
+      post_id: like.post_id,
+      comment_id: like.comment_id,
+    };
+
+    return this.httpClient
+      .delete<NoDataResponse>(this.DELETE_URL, { body })
+      .pipe(
+        map((response: NoDataResponse) => {
+          return response;
+        }),
+        catchError((error) => {
+          // Handle the error here (e.g., show an error message)
+          console.error('Error unliking post:', error);
+          return throwError(error);
+        })
+      );
   }
 }
