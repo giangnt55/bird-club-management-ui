@@ -9,6 +9,9 @@ import { PostCreateComponent } from '../../components/post-create/post-create.co
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
+  showMoreOptions: boolean = false;
+  showSearch = false;
+
   constructor(private router: Router, private dialog: MatDialog) {}
   loggedInAccount!: any | null;
   ngOnInit(): void {
@@ -18,8 +21,6 @@ export class SidebarComponent implements OnInit {
       this.loggedInAccount = JSON.parse(storedAccountInfo);
     }
   }
-
-  showMoreOptions: boolean = false;
 
   openDialog() {
     const dialogRef = this.dialog.open(PostCreateComponent);
@@ -39,5 +40,20 @@ export class SidebarComponent implements OnInit {
   logout() {
     // Your logout implementation
   }
+  toggleSearchTable() {
+    this.showSearch = !this.showSearch;
+  }
+
+  hideSearchBox() {
+    this.showSearch = false;
+  }
+
+  stopPropagation(event: Event){
+    event.stopPropagation();
+  }
+
+  redirectToSetting(){}
+
+  redirectToPassword(){}
   changeBackgroundColor() {}
 }
