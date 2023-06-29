@@ -20,7 +20,7 @@ body {
   height: 100%;
   padding: 40px 10px 30px 10px;
   background: #ffffff;
-  transition: width 1s ease;
+  transition: width 0.5s ease;
 }
 
 .sidebar-header {
@@ -192,6 +192,7 @@ body {
 /* /////Search box/////// */
 .sidebar-container {
   position: relative;
+  transition: width 0.8s ease;
 }
 
 .search-box {
@@ -201,7 +202,7 @@ body {
   top: 0;
   left: 80px;
   overflow: hidden;
-  transition: width 1s ease;
+  transition: width 1s ease, opacity 1s ease;
   z-index: 9999;
 }
 
@@ -209,6 +210,7 @@ body {
   display: block;
   left: 80px;
   width: 400px;
+  opacity: 1;
 }
 
 .search-box .card {
@@ -216,6 +218,7 @@ body {
   height: 100%;
   background-color: #fff;
   transition: transform 1s ease;
+  transform: translateX(100%);
 }
 
 .search-box.show .card {
@@ -295,7 +298,7 @@ button.hide-text .icon {
 
 .search-post-container {
   border-top: 1px solid #0f0e0e;
-  padding-top: 10px; /* Add some spacing above the line */
+  padding-top: 10px;
 }
 
 .person-infor{
