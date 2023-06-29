@@ -112,7 +112,7 @@
           <span *ngIf="!showSearch">Create</span>
         </span>
       </button>
-      <button [routerLink]="['/profile']" (click)="hideSearchBox()">
+      <button [routerLink]="['/', loggedInAccount?.username]" (click)="hideSearchBox()">
         <span>
           <div class>
             <div>

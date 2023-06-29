@@ -1,0 +1,24 @@
+.Suggested {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.Suggested p {
+  margin-bottom: 0;
+  margin-right: 10px;
+  font-weight: bold;
+  color: #8D949E;
+  /* Adjust the margin as needed */
+}
+
+
+.btn-viewAll {
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  /* color: #1877F2;  */
+  color: rgb(125, 123, 123);
+  margin-left: auto;
+}

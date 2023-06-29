@@ -48,6 +48,8 @@ import { LikeComponent } from './components/like/like.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { SuggestionUserComponent } from './components/suggestion-user/suggestion-user.component';
+import { UserComponent } from './components/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,6 +82,8 @@ import { UpdatePasswordComponent } from './components/update-password/update-pas
     UpdateProfileComponent,
     PostDetailComponent,
     UpdatePasswordComponent,
+    SuggestionUserComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
