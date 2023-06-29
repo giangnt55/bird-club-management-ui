@@ -10,3 +10,19 @@ export interface AccountInfor extends BaseDto {
   address: string;
   username: string;
 }
+
+export interface User extends BaseDto {
+  fullname: string;
+  avatar: string;
+  role: number;
+  status: number;
+  email: string;
+  phone_number: string;
+  address: string;
+  username: string;
+  total_following: number;
+  total_follower: number;
+  total_post: number;
+  is_followed_by_logged_in_user: boolean;
+  is_following_logged_in_user: boolean;
+}

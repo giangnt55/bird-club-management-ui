@@ -5,14 +5,14 @@ Enjoy the code <3
   <div class="user-header-inner">
       <div class="uh-left">
           <div class="uh-image">
-              <img class="uh-image-inner" [src]="this.loggedInAccount?.avatar" alt="">
+              <img class="uh-image-inner" [src]="this.user?.avatar" alt="">
               <div class="gradient"></div>
           </div>
       </div>
       <div class="uh-right">
           <div class="user-info">
               <h3>
-                  {{this.loggedInAccount?.fullname}}
+                  {{this.user?.fullname}}
                   <svg class="uname-verified" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1350.03 1326.16">
                       <defs>
                           <style>
@@ -40,12 +40,12 @@ Enjoy the code <3
               <button class="btn" [routerLink]="['/update-profile']">Edit Profile</button>
           </div>
           <div class=user-links>
-              <a><span>2.1k</span> Posts</a>
-              <a><span>421k</span> Followers</a>
-              <a>Following <span>388</span></a>
+              <a><span>{{this.user?.total_post}}</span> Posts</a>
+              <a><span>{{this.user?.total_follower}}</span> Followers</a>
+              <a>Following <span>{{this.user?.total_following}}</span></a>
           </div>
           <div class="user-bio">
-              <p class="user-bio-name">Truong Giang</p>
+              <p class="user-bio-name">{{this.user?.username}}</p>
               <p>Just an API maker with beautiful face.</p>
           </div>
       </div>

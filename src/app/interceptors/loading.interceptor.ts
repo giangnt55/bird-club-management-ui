@@ -44,6 +44,6 @@ export class LoadingInterceptor implements HttpInterceptor {
   }
 
   private shouldIgnoreApi(apiUrl: string): boolean {
-    return apiUrl.startsWith(`${this.apiUrl}`);
+    return apiUrl.startsWith(`${apiUrl}`);
   }
 }
