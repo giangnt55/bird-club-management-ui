@@ -1,0 +1,17 @@
+.events {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.event-card {
+  width: calc(33.33% - 10px); /* Adjust the width as needed */
+  margin-bottom: 20px; /* Adjust the margin as needed */
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  margin-left: 10px;
+}
+
+

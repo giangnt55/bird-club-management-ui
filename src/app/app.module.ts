@@ -48,6 +48,9 @@ import { LikeComponent } from './components/like/like.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { EventComponent } from './components/event/event.component';
+import { EventsComponent } from './pages/events/events.component';
+import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,6 +83,9 @@ import { UpdatePasswordComponent } from './components/update-password/update-pas
     UpdateProfileComponent,
     PostDetailComponent,
     UpdatePasswordComponent,
+    EventComponent,
+    EventsComponent,
+    EventDetailComponent,
   ],
   imports: [
     BrowserModule,

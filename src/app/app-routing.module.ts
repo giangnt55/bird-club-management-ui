@@ -12,6 +12,7 @@ import { ChatsComponent } from './pages/chats/chats.component';
 import { NewsComponent } from './components/news/news.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { EventsComponent } from './pages/events/events.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -30,7 +31,8 @@ const routes: Routes = [
   { path: 'inbox', component: ChatsComponent },
   { path: 'test', component: TestComponent },
   {path : 'update-profile', component: UpdateProfileComponent},
-  {path : 'update-password', component: UpdatePasswordComponent}
+  {path : 'update-password', component: UpdatePasswordComponent},
+  {path : 'events' , component: EventsComponent}
 ];
 
 @NgModule({

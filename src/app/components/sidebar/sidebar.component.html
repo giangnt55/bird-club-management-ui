@@ -159,7 +159,7 @@
 
       <div [hidden]="!showMoreOptions" class="options-container">
         <ul>
-          <button (click)="redirectToSetting()" class="option" (click)="hideSearchBox()">
+          <button [routerLink]="['/events']" class="option" (click)="hideSearchBox()">
             <span>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                 viewBox="0 0 1024 1024"><path fill="currentColor"
