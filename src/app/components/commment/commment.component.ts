@@ -22,6 +22,7 @@ export class CommmentComponent implements OnInit, OnDestroy {
   @Input() detailComment!: DetailComment;
   loggedInAccount!: any | null;
   private subscription!: Subscription;
+  showReplies: boolean = false;
 
   constructor(
     private dialog: MatDialog,
@@ -44,15 +45,15 @@ export class CommmentComponent implements OnInit, OnDestroy {
     }
   }
 
-  likeComment() {
-    if (this.detailComment.is_liked) {
+  likeComment(detailComment: DetailComment) {
+    if (detailComment.is_liked) {
       // Call the API to unlike the post
       this.subscription = this.likeService
-        .unlike({ post_id: null, comment_id: this.detailComment.id })
+        .unlike({ post_id: null, comment_id: detailComment.id })
         .subscribe(
           (response) => {
-            this.detailComment.is_liked = false;
-            this.detailComment.total_like--;
+            detailComment.is_liked = false;
+            detailComment.total_like--;
             this.changeDetectorRef.detectChanges();
           },
           (error) => {
@@ -63,11 +64,11 @@ export class CommmentComponent implements OnInit, OnDestroy {
         );
     } else {
       this.subscription = this.likeService
-        .like({ post_id: null, comment_id: this.detailComment.id })
+        .like({ post_id: null, comment_id: detailComment.id })
         .subscribe(
           (response) => {
-            this.detailComment.is_liked = true;
-            this.detailComment.total_like++;
+            detailComment.is_liked = true;
+            detailComment.total_like++;
             this.changeDetectorRef.detectChanges();
           },
           (error) => {

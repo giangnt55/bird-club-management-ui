@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/app/environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { DetailPost, Post, PostCreateDto } from 'src/app/models/post.model';
-import { PaginationResponse } from 'src/app/models/paging.model';
+import {
+  BasePaginationParam,
+  PaginationResponse,
+} from 'src/app/models/paging.model';
 import { map } from 'rxjs/operators';
 import { BaseResponse } from '../models/auth.model';
 
@@ -19,12 +22,26 @@ export class PostService {
 
   constructor(private httpClient: HttpClient, private toastr: ToastrService) {}
 
-  getPosts(): Observable<any> {
+  getPosts(paging: BasePaginationParam): Observable<any> {
+    let params = new HttpParams();
+
+    if (paging.page !== null) {
+      params = params.set('page', paging.page);
+    }
+
+    if (paging.page_size !== null) {
+      params = params.set('page_size', paging.page_size);
+    }
+
+    if (paging.order_by !== null) {
+      params = params.set('order_by', paging.order_by);
+    }
+
     return this.httpClient
-      .get<PaginationResponse<Post>>(this.GET_POST_URL)
+      .get<PaginationResponse<Post>>(this.GET_POST_URL, { params })
       .pipe(
         map((response: PaginationResponse<Post>) => {
-          return response.data;
+          return response;
         })
       );
   }
@@ -34,6 +51,16 @@ export class PostService {
       .get<PaginationResponse<Post>>(this.GET_OWN_POST_URL)
       .pipe(
         map((response: PaginationResponse<Post>) => {
+          return response.data;
+        })
+      );
+  }
+
+  getPostsByUsername(username: string): Observable<any> {
+    return this.httpClient
+      .get<BaseResponse<Post>>(`${this.GET_POST_URL}/${username}`)
+      .pipe(
+        map((response: BaseResponse<Post>) => {
           return response.data;
         })
       );

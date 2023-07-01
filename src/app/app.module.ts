@@ -51,6 +51,8 @@ import { UpdatePasswordComponent } from './components/update-password/update-pas
 import { EventComponent } from './components/event/event.component';
 import { EventsComponent } from './pages/events/events.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
+import { SuggestionUserComponent } from './components/suggestion-user/suggestion-user.component';
+import { UserComponent } from './components/user/user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,6 +88,8 @@ import { EventDetailComponent } from './pages/event-detail/event-detail.componen
     EventComponent,
     EventsComponent,
     EventDetailComponent,
+    SuggestionUserComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,

@@ -6,8 +6,8 @@
       </div>
       <a [href] target="_blank" class="username">{{ post.creator?.fullname }}</a>
       <div class="date-separator">•</div>
-      <div class="date">3 day ago</div>
-      <a [href] target="_blank" class="follow-btn highlight-link">Follow</a>
+      <div class="date">{{ post?.created_at | dateAgo }}</div>
+      <a type="button" class="follow-btn highlight-link"  (click)="openMenuDialog()">...</a>
     </div>
 
     <div class="gallery">

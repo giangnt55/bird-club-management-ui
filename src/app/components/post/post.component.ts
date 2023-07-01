@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 import { CommentService } from 'src/app/services/comment.service';
 import { CommentCreate } from 'src/app/models/comment.model';
 import { LikeService } from 'src/app/services/like.service';
+import { MenuDialogComponent } from 'src/app/menu-dialog/menu-dialog.component';
 
 @Component({
   selector: 'app-post',
@@ -126,6 +127,18 @@ export class PostComponent implements OnInit, OnDestroy {
 
     dialogRef.afterClosed().subscribe(() => {
       console.log('Post dialog closed');
+    });
+  }
+
+  openMenuDialog(): void {
+    const dialogRef = this.dialog.open(MenuDialogComponent);
+
+    dialogRef.afterClosed().subscribe((result: string | undefined) => {
+      if (result === 'report') {
+        // Handle report option
+      } else if (result === 'cancel') {
+        // Handle cancel option
+      }
     });
   }
 }
