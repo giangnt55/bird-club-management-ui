@@ -23,8 +23,6 @@ body {
   scrollbar-width: thin;
   background: #ffffff;
   transition: width 0.5s ease;
-  transition: width 0.5s ease;
-  border-right: solid 0.5px #e7e4e4;
 }
 
 .sidebar-header {

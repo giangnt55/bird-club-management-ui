@@ -26,13 +26,14 @@ const routes: Routes = [
   { path: 'news/:id', component: NewsReadingComponent },
   { path: 'create-news', component: NewsCreateComponent },
   { path: 'test', component: TestComponent },
-  { path: ':username', component: ProfileComponent },
   { path: 'inbox', component: ChatsComponent },
   { path: 'test', component: TestComponent },
   { path: 'update-profile', component: UpdateProfileComponent },
-  { path: 'update-password', component: UpdatePasswordComponent },,
-  {path : 'events' , component: EventsComponent}
+  { path: 'update-password', component: UpdatePasswordComponent },
+  {path : 'events' , component: EventsComponent},
+  { path: ':username', component: ProfileComponent }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
