@@ -1,0 +1,108 @@
+.event {
+ display: flex;
+ flex-direction: column;
+ max-width: 1400px;
+ height: 100vh;
+ margin: 0 auto;
+ overflow: hidden;
+ background-color: var(--theme-bg-color);
+}
+
+.event-explain {
+ background-color: var(--header-bg-color);
+ margin-left: 40px;
+ border-radius: 0 0 8px 8px;
+}
+
+.event-bg {
+ border-radius: 8px 8px 0 0;
+ object-fit: cover;
+ width: 100%;
+ height: 350px;
+ transition: .3s;
+ position: relative;
+}
+
+.event-card-time{
+  color: red;
+  font-weight: bold;
+}
+
+.detail-event,
+.introduce-card{
+  background-color: beige;
+  width: 50%;
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.event-body{
+  display: flex;
+  flex-direction: row;
+}
+
+.explain-title,
+.event-subtitle-wrapper{
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 25px;
+  border-bottom: solid 1px black;
+}
+
+.overview-text,
+.explain-bar{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  .explain-contents{
+    display: flex;
+    flex-direction: row;
+    .explain-subtitle{
+      margin-left: 10px;
+    }
+  }
+}
+.below-header{
+  display: flex;
+  align-items: center;
+    justify-content: space-between;
+}
+
+.nav-bar{
+  width: 50%;
+}
+
+.options{
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-right: 40px;
+  .btn-primary {
+    margin-left: 10px;
+  }
+
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #7d7b7b;
+}
