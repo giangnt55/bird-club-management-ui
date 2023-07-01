@@ -18,7 +18,7 @@
           </svg>
           <i class="uil uil-home">
           </i>
-          <span *ngIf="!showSearch">Home</span>
+          <span *ngIf="!showSearch">Trang chủ</span>
         </span>
       </button>
       <button (click)="toggleSearchTable()">
@@ -35,7 +35,7 @@
           </svg>
           <i class="uil uil-search">
           </i>
-          <span *ngIf="!showSearch">Search</span>
+          <span *ngIf="!showSearch">Tìm kiếm</span>
         </span>
       </button>
       <button [routerLink]="['/news']" (click)="hideSearchBox()">
@@ -55,7 +55,7 @@
           </svg>
           <i class="uil uil-explore">
           </i>
-          <span *ngIf="!showSearch">Explore</span>
+          <span *ngIf="!showSearch">Bài viết hay</span>
         </span>
       </button>
       <button [routerLink]="['/inbox']" (click)="hideSearchBox()">
@@ -74,7 +74,7 @@
           <i class="uil uil-location-arrow">
             <span>2</span>
           </i>
-          <span *ngIf="!showSearch">Messages</span>
+          <span *ngIf="!showSearch">Tin nhắn</span>
         </span>
       </button>
       <button (click)="hideSearchBox()">
@@ -89,7 +89,7 @@
           <i class="uil uil-heart">
             <em></em>
           </i>
-          <span *ngIf="!showSearch">Notifications</span>
+          <span *ngIf="!showSearch">Thông báo</span>
         </span>
       </button>
       <button (click)="openDialog()" (click)="hideSearchBox()">
@@ -109,7 +109,7 @@
               x1="12.003" x2="12.003" y1="6.545" y2="17.455"></line>
           </svg>
           <i class="uil uil-create"></i>
-          <span *ngIf="!showSearch">Create</span>
+          <span *ngIf="!showSearch">Tạo bài viết</span>
         </span>
       </button>
       <button [routerLink]="['/', loggedInAccount?.username]" (click)="hideSearchBox()">
@@ -137,27 +137,7 @@
           <span *ngIf="!showSearch">Profile</span>
         </span>
       </button>
-      <button (click)="toggleMoreOptions()" [class.active]="showMoreOptions">
-        <span>
-          <svg aria-label class color="#262626" fill="#262626" height="24"
-            role="img" viewBox="0 0 24 24" width="24">
-            <line fill="none" stroke="currentColor" stroke-linecap="round"
-              stroke-linejoin="round" stroke-width="2" x1="3"
-              x2="21" y1="4" y2="4"></line>
-            <line fill="none" stroke="currentColor" stroke-linecap="round"
-              stroke-linejoin="round" stroke-width="2" x1="3"
-              x2="21" y1="12" y2="12"></line>
-            <line fill="none" stroke="currentColor" stroke-linecap="round"
-              stroke-linejoin="round" stroke-width="2" x1="3"
-              x2="21" y1="20" y2="20"></line>
-          </svg>
-          <i class="uil uil-more">
-          </i>
-          <span *ngIf="!showSearch">More</span>
-        </span>
-      </button>
-
-      <div [hidden]="!showMoreOptions" class="options-container">
+      <!-- <div [hidden]="!showMoreOptions" class="options-container">
         <ul>
           <button (click)="redirectToSetting()" class="option" (click)="hideSearchBox()">
             <span>
@@ -190,7 +170,28 @@
             </span>
           </button>
         </ul>
-      </div>
+      </div> -->
+      <button (click)="toggleMoreOptions()" [class.active]="showMoreOptions">
+        <span>
+          <svg aria-label class color="#262626" fill="#262626" height="24"
+            role="img" viewBox="0 0 24 24" width="24">
+            <line fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="2" x1="3"
+              x2="21" y1="4" y2="4"></line>
+            <line fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="2" x1="3"
+              x2="21" y1="12" y2="12"></line>
+            <line fill="none" stroke="currentColor" stroke-linecap="round"
+              stroke-linejoin="round" stroke-width="2" x1="3"
+              x2="21" y1="20" y2="20"></line>
+          </svg>
+          <i class="uil uil-more">
+          </i>
+          <span *ngIf="!showSearch">More</span>
+        </span>
+      </button>
+
+    
     </nav>
   </aside>
   <div class="search-box" [ngClass]="{'show': showSearch}">

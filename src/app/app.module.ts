@@ -50,6 +50,8 @@ import { PostDetailComponent } from './components/post-detail/post-detail.compon
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 import { SuggestionUserComponent } from './components/suggestion-user/suggestion-user.component';
 import { UserComponent } from './components/user/user.component';
+import { BirdComponent } from './pages/bird/bird.component';
+import { BirdCardComponent } from './components/bird-card/bird-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,6 +86,8 @@ import { UserComponent } from './components/user/user.component';
     UpdatePasswordComponent,
     SuggestionUserComponent,
     UserComponent,
+    BirdCardComponent,
+    BirdComponent,
   ],
   imports: [
     BrowserModule,

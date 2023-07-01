@@ -1,0 +1,129 @@
+body {
+  background-color: #f2f2f2;
+  background-color: #edeef0;
+  font-family: "Opens Sans", "Roboto", Helvetica, Arial, sans-serif;
+}
+
+@media (min-width: 1024px) {
+  body {
+    padding: 60px;
+  }
+}
+
+.container {
+  padding: 20px 63px 20px 65px;
+}
+
+.card {
+  overflow: hidden;
+  width: 90%;
+  height: 100vw;
+  margin: 5%;
+  float: left;
+  display: block;
+  position: relative;
+  background-color: #fff;
+  transition: box-shadow 300ms ease-in;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: calc((100vw - 350px) / 2);
+    height: calc((100vw - 350px) / 2);
+    margin: 2.5vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: calc((100vw - 385px) / 3);
+    height: calc((100vw - 385px) / 3);
+    margin: 10px 20px 10px 0;
+  }
+}
+
+.card:hover {
+  box-shadow: 1px 1px 8px 2px rgba(0, 0, 0, 0.1);
+}
+
+.img--container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.img--container img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card--text {
+  bottom: -50%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  transition: all 450ms cubic-bezier(0.6, 0.06, 0.34, 0.61);
+}
+
+.card--text.is-clicked,
+.card:hover .card--text {
+  bottom: 0%;
+}
+
+@media (min-width: 768px) {
+  .card--text {
+    bottom: -51%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card--text {
+    bottom: -64%;
+  }
+}
+
+@media (min-width: 1420px) {
+  .card--text {
+    bottom: -75%;
+  }
+}
+
+.text--container {
+  padding: 30px;
+}
+
+.text--title {
+  font-size: 1.15em;
+  margin-bottom: 0.75em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.text--details:before {
+  content: "";
+  display: block;
+  width: 30%;
+  height: 1px;
+  background-color: #ddd;
+  margin: 30px 0;
+}
+
+.text--description {
+  line-height: 1.4em;
+}
+
+.text--link {
+  text-decoration: none;
+  margin-top: 1em;
+  display: inline-block;
+  color: #a52a2a;
+}
+
+.text--link:hover {
+  color: lighten(#a52a5a, 20%);
+}
