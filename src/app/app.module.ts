@@ -53,6 +53,8 @@ import { EventsComponent } from './pages/events/events.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { SuggestionUserComponent } from './components/suggestion-user/suggestion-user.component';
 import { UserComponent } from './components/user/user.component';
+import { BirdComponent } from './pages/bird/bird.component';
+import { BirdCardComponent } from './components/bird-card/bird-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +92,8 @@ import { UserComponent } from './components/user/user.component';
     EventDetailComponent,
     SuggestionUserComponent,
     UserComponent,
+    BirdCardComponent,
+    BirdComponent,
   ],
   imports: [
     BrowserModule,
