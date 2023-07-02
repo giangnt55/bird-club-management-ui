@@ -11,6 +11,7 @@ import { TestComponent } from './pages/test/test.component';
 import { ChatsComponent } from './pages/chats/chats.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { BirdComponent } from './pages/bird/bird.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -24,12 +25,13 @@ const routes: Routes = [
   },
   { path: 'news/:id', component: NewsReadingComponent },
   { path: 'create-news', component: NewsCreateComponent },
+  { path: 'bird', component: BirdComponent },
   { path: 'test', component: TestComponent },
-  { path: ':username', component: ProfileComponent },
   { path: 'inbox', component: ChatsComponent },
   { path: 'test', component: TestComponent },
   { path: 'update-profile', component: UpdateProfileComponent },
   { path: 'update-password', component: UpdatePasswordComponent },
+  { path: ':username', component: ProfileComponent },
 ];
 
 @NgModule({
