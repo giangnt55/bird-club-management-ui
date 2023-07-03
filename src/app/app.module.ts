@@ -55,6 +55,7 @@ import { SuggestionUserComponent } from './components/suggestion-user/suggestion
 import { UserComponent } from './components/user/user.component';
 import { BirdComponent } from './pages/bird/bird.component';
 import { BirdCardComponent } from './components/bird-card/bird-card.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -92,6 +93,7 @@ import { BirdCardComponent } from './components/bird-card/bird-card.component';
     EventDetailComponent,
     SuggestionUserComponent,
     UserComponent,
+    DashboardComponent,
     BirdCardComponent,
     BirdComponent,
   ],
