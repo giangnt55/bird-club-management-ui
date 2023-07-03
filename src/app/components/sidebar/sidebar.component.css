@@ -154,8 +154,6 @@ body {
   }
 }
 
-/* Styles for /inbox */
-
 .inbox-styles .logo-img {
   display: none;
 }
@@ -175,7 +173,6 @@ body {
   visibility: hidden;
 }
 
-
 .options-container {
   display: flex;
   flex-direction: row;
@@ -190,7 +187,7 @@ body {
   width: 100%;
   margin-right: 10px;
 }
-/* /////Search box/////// */
+
 .sidebar-container {
   position: relative;
   transition: width 0.8s ease;
@@ -245,8 +242,6 @@ body {
   box-sizing: border-box;
 }
 
-/* Existing styles */
-
 button.hide-text .button-text {
   display: none;
 }
@@ -254,7 +249,6 @@ button.hide-text .button-text {
 button.hide-text .icon {
   margin-right: 0;
 }
-
 
 .sidebar.smaller {
   width: 80px;
@@ -319,25 +313,23 @@ button.hide-text .icon {
   font-weight: bold;
   width: 25%;
 }
-/* ////scroll sidebar// */
 
 .sidebar::-webkit-scrollbar {
-  width: 8px; /* Adjust the width as per your preference */
+  width: 8px;
 }
 
 .sidebar::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Adjust the background color as needed */
+  background-color: #f1f1f1;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: #888; /* Adjust the thumb color as needed */
+  background-color: #888;
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* Adjust the thumb color on hover as needed */
+  background-color: #555;
 }
 
-
-
-
-
+.button-text.hide {
+  display: none;
+}

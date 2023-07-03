@@ -12,6 +12,8 @@ export class SidebarComponent implements OnInit {
   showMoreOptions: boolean = false;
   showSearch = false;
 
+  isSidebarSmaller: boolean = false;
+
   constructor(private router: Router, private dialog: MatDialog) {}
   loggedInAccount!: any | null;
   ngOnInit(): void {
@@ -41,11 +43,21 @@ export class SidebarComponent implements OnInit {
     // Your logout implementation
   }
   toggleSearchTable() {
-    this.showSearch = !this.showSearch;
+    if (this.showSearch) {
+      this.hideSearchBox();
+    } else {
+      this.showSearchBox();
+    }
   }
 
   hideSearchBox() {
     this.showSearch = false;
+    this.isSidebarSmaller = false;
+  }
+
+  showSearchBox() {
+    this.showSearch = true;
+    this.isSidebarSmaller = true;
   }
 
   stopPropagation(event: Event) {
