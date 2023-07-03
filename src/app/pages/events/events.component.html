@@ -1,11 +1,13 @@
 <div class="container main-content">
   <h3 class="fw-bold">Khám phá sự kiện</h3>
   <div class="events">
-    <app-event class="event-card"></app-event>
-    <app-event class="event-card"></app-event>
-    <app-event class="event-card"></app-event>
-    <app-event class="event-card"></app-event>
-    <app-event class="event-card"></app-event>
-    <app-event class="event-card"></app-event>
-  </div>  
+    <!-- <div class="event-row" *ngFor="let eventRow of eventRows">
+      <div class="row">
+        <div class="col-md-2" *ngFor="let event of eventRow">
+          <app-event class="event-card" [event]="event"></app-event>
+        </div>
+      </div>
+    </div> -->
+    <app-event class="event-card" [event]="this.events[0]"></app-event>
+  </div>
 </div>
