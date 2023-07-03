@@ -1,0 +1,82 @@
+<div class="card event-create"
+  style="width: 700px; height: 800px;">
+  <div class="card-header title text-center">
+    <h5 class="card-title fw-bold">Tạo sự kiện</h5>
+  </div>
+  <div class="scroll">
+    <div class="card-body">
+      <div class="position-relative">
+        <div class="cover-image">
+          <img width="100%"
+            src="https://i.pinimg.com/originals/a1/a1/f8/a1a1f8802e05db06891afaa9abba00df.png">
+        </div>
+        <label class="btn-up">
+          <input type="file" hidden />
+          Thêm ảnh bìa
+        </label>
+      </div>
+
+      <div class="creater d-flex align-items-center">
+        <div class="avatar" style="text-align: center;">
+          <img class="rounded-circle mt-5" width="50px"
+            src="https://th.bing.com/th/id/OIP.nLowT0VxPdGDZncZ9uXqmwAAAA?pid=ImgDet&rs=1">
+        </div>
+        <div class="name">
+          <label>Triều Đỗ</label>
+        </div>
+      </div>
+
+      <div class="form-input">
+        <div class="datainput">
+          <input type="text" required />
+          <span class="highlight"></span>
+          <label>Tên sự kiện</label>
+        </div>
+        <label>Thời gian bắt đầu</label>
+        <div class="time-input">
+          <input type="date" placeholder="Ngày bắt đầu" class="date">
+          <input type="time" placeholder="Giờ bắt đầu" class="time">
+        </div>
+
+        <label>Thời gian kết thúc</label>
+        <div class="time-input" [hidden]="!showSecondTimeInput">
+          <input type="date" placeholder="Ngày kết thúc" class="date">
+          <input type="time" placeholder="Giờ kết thúc" class="time">
+        </div>
+        <div class="input-group mb-3">
+          <select class="form-select" aria-label="label for the select">
+            <option selected>Đây là sự kiện gặp trực tiếp hay trên mạng?</option>
+            <option value="1">Gặp mặt trực tiếp</option>
+            <option value="2">Gặp trên mạng</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <select class="form-select" aria-label="label for the select">
+            <option selected>Ai có thể tham gia sự kiện này?</option>
+            <option value="1">Riêng tư</option>
+            <option value="2">Công khai</option>
+            <option value="3">Bạn bè</option>
+          </select>
+        </div>
+        <div class="datainput">
+          <input type="text" required />
+          <span class="highlight"></span>
+          <label>Mô tả chi tiết về sự kiện</label>
+        </div>
+        <div class="khach-moi d-flex justify-content-between align-items-center">
+          <div class="title-label">
+            <label>Hiển thị danh sách khách mời</label>
+          </div>
+          <div class="switch">
+            <input id="switch-1" type="checkbox" class="switch-input" />
+            <label for="switch-1" class="switch-label">Hiển thị danh sách khách
+              mời</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-center">
+    <button class="btn btn-primary">Tạo sự kiện</button>
+  </div>
+</div>

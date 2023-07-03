@@ -56,6 +56,7 @@ import { UserComponent } from './components/user/user.component';
 import { BirdComponent } from './pages/bird/bird.component';
 import { BirdCardComponent } from './components/bird-card/bird-card.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EventCreateComponent } from './components/event-create/event-create.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -96,6 +97,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     DashboardComponent,
     BirdCardComponent,
     BirdComponent,
+    EventCreateComponent,
   ],
   imports: [
     BrowserModule,
