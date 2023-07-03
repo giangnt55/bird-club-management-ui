@@ -11,6 +11,7 @@ import { TestComponent } from './pages/test/test.component';
 import { ChatsComponent } from './pages/chats/chats.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { BirdComponent } from './pages/bird/bird.component';
 import { EventsComponent } from './pages/events/events.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   },
   { path: 'news/:id', component: NewsReadingComponent },
   { path: 'create-news', component: NewsCreateComponent },
+  { path: 'bird', component: BirdComponent },
   { path: 'test', component: TestComponent },
   { path: 'inbox', component: ChatsComponent },
   { path: 'test', component: TestComponent },
@@ -35,7 +37,7 @@ const routes: Routes = [
   { path: 'events', component: EventsComponent },
   { path: 'event-detail', component: EventDetailComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: ':username', component: ProfileComponent },
+  { path: ':username', component: ProfileComponent }
 ];
 
 @NgModule({

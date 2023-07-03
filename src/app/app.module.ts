@@ -53,6 +53,8 @@ import { EventsComponent } from './pages/events/events.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { SuggestionUserComponent } from './components/suggestion-user/suggestion-user.component';
 import { UserComponent } from './components/user/user.component';
+import { BirdComponent } from './pages/bird/bird.component';
+import { BirdCardComponent } from './components/bird-card/bird-card.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 @NgModule({
   declarations: [
@@ -92,6 +94,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     SuggestionUserComponent,
     UserComponent,
     DashboardComponent,
+    BirdCardComponent,
+    BirdComponent,
   ],
   imports: [
     BrowserModule,
