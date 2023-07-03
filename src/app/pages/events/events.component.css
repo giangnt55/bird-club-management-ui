@@ -1,17 +1,16 @@
-.events {
+/* .events {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+} */
 
 .event-card {
-  width: calc(33.33% - 10px); /* Adjust the width as needed */
+  /* width: calc(20% - 5px); Adjust the width as needed */
   margin-bottom: 20px; /* Adjust the margin as needed */
   box-sizing: border-box;
 }
 
-.btn-primary {
-  margin-left: 10px;
+.main-content {
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 }
-
-
