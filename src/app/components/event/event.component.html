@@ -1,31 +1,22 @@
 
   <div class="event-card">
     <div class="event-card-header">
-      <svg viewBox="0 -13 512 512" xmlns="http://www.w3.org/2000/svg"
-        style="background-color:#2e2882">
-        <g fill="#feb0a5">
-          <path
-            d="M256 92.5l127.7 91.6L512 92 383.7 0 256 91.5 128.3 0 0 92l128.3 92zm0 0M256 275.9l-127.7-91.5L0 276.4l128.3 92L256 277l127.7 91.5 128.3-92-128.3-92zm0 0" />
-          <path d="M127.7 394.1l128.4 92 128.3-92-128.3-92zm0 0" />
-        </g>
-        <path
-          d="M512 92L383.7 0 256 91.5v1l127.7 91.6zm0 0M512 276.4l-128.3-92L256 275.9v1l127.7 91.5zm0 0M256 486.1l128.4-92-128.3-92zm0 0"
-          fill="#feb0a5" />
-      </svg>
+      <img [src]="this.event.cover_image" style="width: 100%; height: 100%;" alt="">
       <div class="menu-dot"></div>
     </div>
-    <div class="event-card-time">1 Tháng 7 - 5 Tháng 7</div>
-    <div class="event-card-title">
-      SỰ KIỆN ĐUA CHIM ĐỊNH KỲ
+    <div class="event-card-content">
+      <div class="event-card-time">{{this.event.start_date}} - {{this.event.end_date}}</div>
+    <div class="event-card-title fw-bold">
+      {{this.event.event_name}}
     </div>
     <div class="event-detail-buttons">
-      <div class="interested-person">100 people interested</div>
-      <div class="participants">100 participants</div>
-
+      <div class="participants">100 sẽ tham gia</div>
     </div>
     <div class="event-card-buttons">
-      <button type="button" class="btn btn-primary">Apply Now</button>
-      <button [routerLink]="['/event-detail']" type="button" class="btn btn-primary">Detail</button>
+      <button style="width: 100%; background-color: #F2F3F5;" type="button" class="btn btn-grey">
+        <i class="fa fa-star" style="margin-right: 5px;"></i> Quan tâm
+      </button>
+    </div>
     </div>
   </div>
 

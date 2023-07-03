@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'events', component: EventsComponent },
   { path: 'event-detail', component: EventDetailComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: ':username', component: ProfileComponent }
+  { path: ':username', component: ProfileComponent },
 ];
 
 @NgModule({
