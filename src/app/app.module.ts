@@ -53,6 +53,7 @@ import { EventsComponent } from './pages/events/events.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { SuggestionUserComponent } from './components/suggestion-user/suggestion-user.component';
 import { UserComponent } from './components/user/user.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +91,7 @@ import { UserComponent } from './components/user/user.component';
     EventDetailComponent,
     SuggestionUserComponent,
     UserComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
