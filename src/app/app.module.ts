@@ -57,6 +57,7 @@ import { BirdComponent } from './pages/bird/bird.component';
 import { BirdCardComponent } from './components/bird-card/bird-card.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EventCreateComponent } from './components/event-create/event-create.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,6 +99,7 @@ import { EventCreateComponent } from './components/event-create/event-create.com
     BirdCardComponent,
     BirdComponent,
     EventCreateComponent,
+    NavBarComponent,
   ],
   imports: [
     BrowserModule,
