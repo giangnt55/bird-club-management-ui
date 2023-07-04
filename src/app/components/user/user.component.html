@@ -1,4 +1,4 @@
-<span class="creator-content">
+<span class="creator-content" *ngIf="!followed">
     <div class="avatar"  [routerLink]="['/', user?.username]">
         <div>
             <div class="">
@@ -22,7 +22,7 @@
             <div class="fullname">{{user?.fullname}}</div>
         </div>
         <div> 
-            <a class="btn-follow" type="button">
+            <a (click)="followClick(user?.id)" class="btn-follow" type="button">
                 {{ user?.is_following_logged_in_user ? 'Follow Back' : 'Follow' }}
               </a>
         </div>

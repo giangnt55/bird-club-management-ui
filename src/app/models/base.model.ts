@@ -1,6 +1,7 @@
 export interface AccountCreator {
   id: string;
   fullname: string;
+  username: string;
   email: string;
   phonenumber: string;
   avatar: string;
