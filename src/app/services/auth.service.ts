@@ -4,7 +4,7 @@ import { environment } from 'src/app/environments/environment';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { catchError } from 'rxjs/operators';
-import { LoginResponse } from '../models/auth.model';
+import { BaseResponse, LoginResponse } from '../models/auth.model';
 import { Response } from '../models/response.model';
 
 @Injectable({
