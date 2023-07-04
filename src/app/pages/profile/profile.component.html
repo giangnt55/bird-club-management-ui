@@ -13,7 +13,7 @@ Enjoy the code <3
           <div class="user-info">
               <h3>
                   {{this.user?.fullname}}
-                  <svg class="uname-verified" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1350.03 1326.16">
+                  <!-- <svg class="uname-verified" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1350.03 1326.16">
                       <defs>
                           <style>
                               .cls-11 {
@@ -35,14 +35,14 @@ Enjoy the code <3
                               d="M755.33,979.23s125.85,78.43,165.06,114c34.93-36,234.37-277.22,308.24-331.94,54.71,21.89,85,73.4,93,80.25-3.64,21.89-321.91,418.58-368.42,445.94-32.74-3.84-259-195.16-275.4-217C689.67,1049.45,725.24,1003.85,755.33,979.23Z"
                               transform="translate(-322.83 -335.95)" />
                       </g>
-                  </svg>
+                  </svg> -->
               </h3>
-              <button class="btn" [routerLink]="['/update-profile']">Edit Profile</button>
+              <button class="btn btn-secondary" [routerLink]="['/update-profile']"><i class="fa fa-cog" aria-hidden="true"></i>  Edit Profile</button>
           </div>
           <div class=user-links>
               <a><span>{{this.user?.total_post}}</span> Posts</a>
-              <a><span>{{this.user?.total_follower}}</span> Followers</a>
-              <a>Following <span>{{this.user?.total_following}}</span></a>
+              <a (click)="this.getFollowers(this.user?.id)"><span>{{this.user?.total_follower}}</span> Followers</a>
+              <a (click)="this.getFollowings(this.user?.id)">Following <span>{{this.user?.total_following}}</span></a>
           </div>
           <div class="user-bio">
               <p class="user-bio-name">{{this.user?.username}}</p>

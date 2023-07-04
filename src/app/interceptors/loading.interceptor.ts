@@ -17,6 +17,7 @@ export class LoadingInterceptor implements HttpInterceptor {
   private ignoredAPIs: string[] = [
     `${this.apiUrl}/like`,
     `${this.apiUrl}/comment`,
+    `${this.apiUrl}/follower`,
   ];
 
   constructor(private loadingService: LoaderService) {}

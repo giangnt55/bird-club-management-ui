@@ -1,0 +1,53 @@
+.contain {
+    width: 500px;
+}
+
+.creator-content {
+    width: 100%;
+    display: flex;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.username {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.fullname {
+    font-size: 14px;
+    color: rgb(160, 161, 161);
+    margin-top: -6px;
+}
+
+.avatar {
+    margin-bottom: auto;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.right-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-follow {
+    font-weight: normal;
+    font-size: 12px;
+    text-decoration: none;
+    color: #1877F2;
+}
+
+.btn-remove {
+    background-color: rgb(237, 237, 237);
+    color: black;
+    border: none;
+    font-size: 14px;
+}
+
+.btn-remove:hover {
+    background-color: rgb(229, 229, 229);
+}

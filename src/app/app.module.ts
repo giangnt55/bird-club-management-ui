@@ -59,6 +59,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EventCreateComponent } from './components/event-create/event-create.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { MoreMenuComponent } from './components/more-menu/more-menu.component';
+import { FollowerDialogComponent } from './components/follower-dialog/follower-dialog.component';
+import { FollowingDialogComponent } from './components/following-dialog/following-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -102,6 +104,8 @@ import { MoreMenuComponent } from './components/more-menu/more-menu.component';
     EventCreateComponent,
     NavbarComponent,
     MoreMenuComponent,
+    FollowerDialogComponent,
+    FollowingDialogComponent,
   ],
   imports: [
     BrowserModule,
