@@ -21,7 +21,7 @@
           <span class="button-text" [class.hide]="isSidebarSmaller || showSearch">Trang chủ</span>
         </span>
       </button>
-      <button (click)="toggleSearchTable()">
+      <!-- <button (click)="toggleSearchTable()">
         <span>
           <svg aria-label class color="#262626" fill="#262626" height="24"
             role="img" viewBox="0 0 24 24"
@@ -37,7 +37,7 @@
           </i>
           <span class="button-text" [class.hide]="isSidebarSmaller || showSearch">Tìm kiếm</span>
         </span>
-      </button>
+      </button> -->
       <button [routerLink]="['/events']" (click)="hideSearchBox()">
         <span>
           <svg aria-label class color="#262626" fill="#262626" height="24"
@@ -55,10 +55,10 @@
           </svg>
           <i class="uil uil-explore">
           </i>
-          <span class="button-text" [class.hide]="isSidebarSmaller || showSearch">Bài viết hay</span>
+          <span class="button-text" [class.hide]="isSidebarSmaller || showSearch">Sự kiện</span>
         </span>
       </button>
-      <button [routerLink]="['/inbox']" (click)="isSidebarSmaller = true">
+      <!-- <button [routerLink]="['/inbox']" (click)="isSidebarSmaller = true">
         <span>
           <svg aria-label="Messenger" class color="#262626" fill="#262626"
             height="24" role="img" viewBox="0 0 24 24"
@@ -76,8 +76,8 @@
           </i>
           <span class="button-text" [class.hide]="isSidebarSmaller || showSearch">Tin nhắn</span>
         </span>
-      </button>
-      <button (click)="hideSearchBox()">
+      </button> -->
+      <!-- <button (click)="hideSearchBox()">
         <span>
           <svg aria-label class color="#262626" fill="#262626" height="24"
             role="img" viewBox="0 0 24 24"
@@ -91,7 +91,7 @@
           </i>
           <span class="button-text" [class.hide]="isSidebarSmaller || showSearch">Thông báo</span>
         </span>
-      </button>
+      </button> -->
       <button (click)="openDialog()" (click)="hideSearchBox()">
         <span>
           <svg aria-label class color="#262626" fill="#262626" height="24"
@@ -169,7 +169,7 @@
               <span class="button-text" [class.hide]="isSidebarSmaller || showSearch">Logout</span>
             </span>
           </button>
-          <button [routerLink]="['/dashboard']" class="option" (click)="hideSearchBox()">
+          <!-- <button [routerLink]="['/dashboard']" class="option" (click)="hideSearchBox()">
             <span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                 viewBox="0 0 36 36"><path fill="currentColor"
                   d="M7 6h16v9.8h2V6a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v24a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2H7Z"
@@ -180,10 +180,10 @@
                   d="M0 0h36v36H0z" /></svg>
               <span class="button-text" [class.hide]="isSidebarSmaller || showSearch">Dasboard</span>
             </span>
-          </button>
+          </button> -->
         </ul>
       </div>
-      <button (click)="toggleMoreOptions()" [class.active]="showMoreOptions">
+      <button (click)="openMoreOptionsDialog()" [class.active]="showMoreOptions">
         <span>
           <svg aria-label class color="#262626" fill="#262626" height="24"
             role="img" viewBox="0 0 24 24" width="24">
@@ -204,59 +204,4 @@
       </button>
     </nav>
   </aside>
-  <div class="search-box" [ngClass]="{'show': showSearch}">
-    <div class="card">
-      <div class="card-body">
-        <div class="input-wrapper">
-          <input type="text" placeholder="Search.." class="search-input"
-            (click)="stopPropagation($event)">
-          <span class="fa fa-search icon-search"></span>
-        </div>
-        <div class="display-container">
-          <div class="search-person-container">
-            <div class="person-infor">
-              <div class="person-avatar">
-                <img width="50px"
-                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-              </div>
-              <div class="person-name">
-                <label>Trieu Do</label>
-              </div>
-            </div>
-
-            <div class="person-infor">
-              <div class="person-avatar">
-                <img width="50px"
-                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-              </div>
-              <div class="person-name">
-                <label>Trieu Do</label>
-              </div>
-            </div>
-
-            <div class="person-infor">
-              <div class="person-avatar">
-                <img width="50px"
-                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-              </div>
-              <div class="person-name">
-                <label>Trieu Do</label>
-              </div>
-            </div>
-          </div>
-          <div class="search-post-container">
-            <div class="person-infor">
-              <div class="person-avatar">
-                <img width="50px"
-                  src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-              </div>
-              <div class="person-name">
-                <label>Trieu Do</label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
