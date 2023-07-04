@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { PostCreateComponent } from '../../components/post-create/post-create.component';
@@ -8,11 +8,16 @@ import { PostCreateComponent } from '../../components/post-create/post-create.co
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit, OnChanges {
   showMoreOptions: boolean = false;
   showSearch = false;
 
+  isSidebarSmaller: boolean = false;
+
   constructor(private router: Router, private dialog: MatDialog) {}
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('sidebar change');
+  }
   loggedInAccount!: any | null;
   ngOnInit(): void {
     // Retrieve the stored account information from session storage
@@ -41,11 +46,21 @@ export class SidebarComponent implements OnInit {
     // Your logout implementation
   }
   toggleSearchTable() {
-    this.showSearch = !this.showSearch;
+    if (this.showSearch) {
+      this.hideSearchBox();
+    } else {
+      this.showSearchBox();
+    }
   }
 
   hideSearchBox() {
     this.showSearch = false;
+    this.isSidebarSmaller = false;
+  }
+
+  showSearchBox() {
+    this.showSearch = true;
+    this.isSidebarSmaller = true;
   }
 
   stopPropagation(event: Event) {

@@ -1,0 +1,68 @@
+<div class="card-box mb-30">
+  <div class="pd-20">
+    <h4 class="text-primary">Data Table with multiple select row</h4>
+  </div>
+  <div class="row table-head">
+    <div class="col-sm-12 col-md-6">
+      <div class="table-leght">
+        <label class="show-label">Show
+          <select class="data-table-length" (change)="changePageSize($event)">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="-1">All</option>
+          </select>
+          entries
+        </label>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <div class="data-table-search">
+        <label>Search:
+          <input type="search" placeholder="Search">
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="pb-20">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th (click)="sortTable('Name')" [ngClass]="{'sorted': sortColumn === 'Name', 'asc': sortColumn === 'Name' && sortDirection === 'asc', 'desc': sortColumn === 'Name' && sortDirection === 'desc'}">
+            Name
+          </th>
+          <th (click)="sortTable('Age')" [ngClass]="{'sorted': sortColumn === 'Age', 'asc': sortColumn === 'Age' && sortDirection === 'asc', 'desc': sortColumn === 'Age' && sortDirection === 'desc'}">
+            Age
+          </th>
+          <th (click)="sortTable('Office')" [ngClass]="{'sorted': sortColumn === 'Office', 'asc': sortColumn === 'Office' && sortDirection === 'asc', 'desc': sortColumn === 'Office' && sortDirection === 'desc'}">
+            Office
+          </th>
+          <th (click)="sortTable('Address')" [ngClass]="{'sorted': sortColumn === 'Address', 'asc': sortColumn === 'Address' && sortDirection === 'asc', 'desc': sortColumn === 'Address' && sortDirection === 'desc'}">
+            Address
+          </th>
+          <th (click)="sortTable('StartDate')" [ngClass]="{'sorted': sortColumn === 'StartDate', 'asc': sortColumn === 'StartDate' && sortDirection === 'asc', 'desc': sortColumn === 'StartDate' && sortDirection === 'desc'}">
+            Start Date
+          </th>
+          <th (click)="sortTable('Salary')" [ngClass]="{'sorted': sortColumn === 'Salary', 'asc': sortColumn === 'Salary' && sortDirection === 'asc', 'desc': sortColumn === 'Salary' && sortDirection === 'desc'}">
+            Salary
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of paginatedData">
+          <td>{{ row.Name }}</td>
+          <td>{{ row.Age }}</td>
+          <td>{{ row.Office }}</td>
+          <td>{{ row.Address }}</td>
+          <td>{{ row.StartDate }}</td>
+          <td>{{ row.Salary }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pagination">
+    <button [disabled]="currentPage === 1" (click)="prevPage()">Prev</button>
+    <span>{{ currentPage }}</span>
+    <button [disabled]="currentPage === totalPages" (click)="nextPage()">Next</button>
+  </div>
+</div>

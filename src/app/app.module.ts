@@ -48,10 +48,15 @@ import { LikeComponent } from './components/like/like.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { EventComponent } from './components/event/event.component';
+import { EventsComponent } from './pages/events/events.component';
+import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { SuggestionUserComponent } from './components/suggestion-user/suggestion-user.component';
 import { UserComponent } from './components/user/user.component';
 import { BirdComponent } from './pages/bird/bird.component';
 import { BirdCardComponent } from './components/bird-card/bird-card.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { EventCreateComponent } from './components/event-create/event-create.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,10 +89,15 @@ import { BirdCardComponent } from './components/bird-card/bird-card.component';
     UpdateProfileComponent,
     PostDetailComponent,
     UpdatePasswordComponent,
+    EventComponent,
+    EventsComponent,
+    EventDetailComponent,
     SuggestionUserComponent,
     UserComponent,
+    DashboardComponent,
     BirdCardComponent,
     BirdComponent,
+    EventCreateComponent,
   ],
   imports: [
     BrowserModule,
