@@ -15,25 +15,14 @@ export class EventsComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
   private currentPage: number = 1;
   events: Event[] = [];
-  eventRows: any[] = [];
+  selectedDateOption: string = 'anyz'; // Store the selected date option
+  selectedDate: string = ''; // Store the selected date for filtering
+  isFollowed: boolean = false;
 
   constructor(private eventService: EventService, private dialog: MatDialog) {}
 
   ngOnInit() {
     this.getEvents();
-    this.eventRows = this.chunkArray(this.events, 5);
-  }
-
-  chunkArray(arr: any[], size: number): any[] {
-    const chunkedArray = [];
-    const maxSize = Math.ceil(arr.length / size);
-
-    for (let i = 0; i < maxSize; i++) {
-      const chunk = arr.slice(i * size, (i + 1) * size);
-      chunkedArray.push(chunk);
-    }
-
-    return chunkedArray;
   }
 
   ngOnDestroy() {
@@ -60,6 +49,19 @@ export class EventsComponent implements OnInit, OnDestroy {
         console.log('Error:', error);
       }
     );
+  }
+
+  updateSelectedDate(): void {
+    const today = new Date().toISOString().split('T')[0]; // Get the current date
+    const tomorrow = new Date(Date.now() + 86400000)
+      .toISOString()
+      .split('T')[0]; // Get tomorrow's date
+
+    if (this.selectedDateOption === 'today') {
+      this.selectedDate = today;
+    } else if (this.selectedDateOption === 'tomorrow') {
+      this.selectedDate = tomorrow;
+    }
   }
 
   openDialog() {

@@ -61,6 +61,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { MoreMenuComponent } from './components/more-menu/more-menu.component';
 import { FollowerDialogComponent } from './components/follower-dialog/follower-dialog.component';
 import { FollowingDialogComponent } from './components/following-dialog/following-dialog.component';
+import { DatePipe } from '@angular/common';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -142,6 +144,7 @@ import { FollowingDialogComponent } from './components/following-dialog/followin
       useClass: AuthInterceptor, // Add the AuthInterceptor
       multi: true,
     },
+    DatePipe,
   ],
   bootstrap: [AppComponent],
 })

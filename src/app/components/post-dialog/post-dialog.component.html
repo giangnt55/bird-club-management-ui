@@ -1,18 +1,97 @@
 <div class="dialog-content">
-    <div class="image-container">
-      <img [src]="post?.image" alt="" class="fit-image">
+  <div class="image-container">
+    <img [src]="post?.image" alt="" class="fit-image">
+  </div>
+  <div class="post-content">
+    <!-- Post content and comments markup here -->
+    <div class="creator">
+      <span class="creator-content">
+        <div class="">
+          <div>
+            <div class="">
+              <div class=""><span class="" role="link" tabindex="-1">
+                  <img style="border-radius: 50%; width: 40px; height: 40px;" alt="" class="profile-img"
+                    crossorigin="anonymous" draggable="false" [src]="this.post?.creator?.avatar">
+                </span></div>
+            </div>
+          </div>
+          <div class="" style="opacity: 1;">
+            <div style="width: 100%;">
+              <div class=""></div>
+            </div>
+          </div>
+        </div>
+        <i class="uil uil-profile">
+        </i>
+        <span class="fullname">{{this.post?.creator?.fullname}}</span>
+        <i (click)="openMenuDialog()" class="fas fa-ellipsis-h menu-icon"></i>
+      </span>
     </div>
-    <div class="post-content">
-      <!-- Post content and comments markup here -->
+    <hr class="line">
+    <div class="comment-container">
+      <div class="comment-content">
+        <!-- Add more comments here -->
+        <div class="creator">
+          <span class="creator-content owner-content">
+            <div class="avatar">
+              <div>
+                <div class="">
+                  <div class=""><span class="" role="link" tabindex="-1">
+                      <img style="border-radius: 50%; width: 40px; height: 40px;" alt="" class="profile-img"
+                        crossorigin="anonymous" draggable="false" [src]="post?.creator?.avatar">
+                    </span></div>
+                </div>
+              </div>
+              <div class="" style="opacity: 1;">
+                <div style="width: 100%;">
+                  <div class=""></div>
+                </div>
+              </div>
+            </div>
+            <i class="uil uil-profile">
+            </i>
+            <div class="comment-content">
+              <span class="fullname">{{post?.creator?.fullname}}</span>
+              <div class="commnet">{{post?.content}}</div>
+            </div>
+          </span>
+          <div class="comment-actions">
+            <span class="comment-time">{{ post?.created_at | dateAgo }}</span>
+          </div>
+        </div>
+        <ng-container *ngFor="let comment of comments">
+          <app-commment class="comment" [detailComment]="comment"></app-commment>
+        </ng-container>
+
+      </div>
+    </div>
+   
+    <hr style="margin-top: auto; margin-bottom: 0;">
+    <div class="" style="margin-top: 5px; margin-bottom: 5px; padding-top: 10px;">
+      <div class="post-actions">
+        <svg style="margin-right: 10px;" aria-label="J’aime" class="x1lliihq x1n2onr6" color="rgb(38, 38, 38)"  [style.fill]="post?.is_liked? 'rgb(255, 102, 102)' : 'rgb(38, 38, 38)'" height="24" role="img" viewBox="0 0 24 24" width="24">
+          <path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-2.143-1.823-4.303-3.752C5.141 14.072 2.5 12.167 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938m0-2a6.04 6.04 0 0 0-4.797 2.127 6.052 6.052 0 0 0-4.787-2.127A6.985 6.985 0 0 0 .5 9.122c0 3.61 2.55 5.827 5.015 7.97.283.246.569.494.853.747l1.027.918a44.998 44.998 0 0 0 3.518 3.018 2 2 0 0 0 2.174 0 45.263 45.263 0 0 0 3.626-3.115l.922-.824c.293-.26.59-.519.885-.774 2.334-2.025 4.98-4.32 4.98-7.94a6.985 6.985 0 0 0-6.708-7.218Z"></path></svg>
+  
+        <svg aria-label="Commenter" style="margin-right: 10px;" class="x1lliihq x1n2onr6" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24"><path d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></path></svg>
+  
+        <svg aria-label="Partager la publication" class="x1lliihq x1n2onr6" color="rgb(0, 0, 0)" fill="rgb(0, 0, 0)" height="24" role="img" viewBox="0 0 24 24" width="24" ><title>Partager la publication</title><line fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2" x1="22" x2="9.218" y1="3" y2="10.083"></line><polygon fill="none" points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334" stroke="currentColor" stroke-linejoin="round" stroke-width="2"></polygon></svg>
+  
+      </div>
+
+      <div class="post-actions" style="height: fit-content;">
+          <p style="margin-bottom: 0;"><b>{{post?.total_like}} likes </b> <span style="font-size: 12px; text-transform: uppercase;"> • {{ post?.created_at | dateAgo }}</span></p>
+      </div>
+    </div>
+    <hr style="margin-top: 0; margin-bottom: 0;">
+    <div class="comment-section" style="margin-top: 5px; margin-bottom: 10px;">
       <div class="creator">
-        <span class="creator-content">
-          <div class="">
+        <span class="creator-content owner-content">
+          <div class="avatar">
             <div>
               <div class="">
                 <div class=""><span class="" role="link" tabindex="-1">
                     <img style="border-radius: 50%; width: 40px; height: 40px;" alt="" class="profile-img"
-                      crossorigin="anonymous" draggable="false"
-                    [src]="this.post?.creator?.avatar">
+                      crossorigin="anonymous" draggable="false" [src]="loggedInAccount?.avatar">
                   </span></div>
               </div>
             </div>
@@ -22,76 +101,12 @@
               </div>
             </div>
           </div>
-          <i class="uil uil-profile">
-          </i>
-          <span class="fullname">{{this.post?.creator?.fullname}}</span>
-          <i (click)="openMenuDialog()" class="fas fa-ellipsis-h menu-icon"></i>
+          <i class="uil uil-profile"></i>
+          <div class="comment-content">
+            <input class="form-input" type="text" placeholder="Add a comment..." [(ngModel)]="commentContent" />
+            <a type="button" class="publish-btn highlight-link" (click)="commentPost()">Post</a>
+          </div>
         </span>
       </div>
-      <hr class="line">
-      <div class="comment-container">
-        <div class="comment-content"> 
-          <!-- Add more comments here -->
-          <div class="creator">
-            <span class="creator-content owner-content">
-                <div class="avatar">
-                    <div>
-                        <div class="">
-                            <div class=""><span class="" role="link" tabindex="-1">
-                                    <img style="border-radius: 50%; width: 40px; height: 40px;" alt="" class="profile-img"
-                                        crossorigin="anonymous" draggable="false" 
-                                        [src]="post?.creator?.avatar">
-                                </span></div>
-                        </div>
-                    </div>
-                    <div class="" style="opacity: 1;">
-                        <div style="width: 100%;">
-                            <div class=""></div>
-                        </div>
-                    </div>
-                </div>
-                <i class="uil uil-profile">
-                </i>
-                <div class="comment-content">
-                    <span class="fullname">{{post?.creator?.fullname}}</span>
-                    <div class="commnet">{{post?.content}}</div>
-                </div>
-            </span>
-            <div class="comment-actions">
-              <span class="comment-time">{{ post?.created_at | dateAgo }}</span>
-            </div>
-        </div>
-        <ng-container *ngFor="let comment of comments">
-          <app-commment class="comment" [detailComment]="comment"></app-commment>
-        </ng-container>
-        
-        </div>
-      </div>
-      <div class="comment-section">
-        <div class="creator">
-          <span class="creator-content owner-content">
-            <div class="avatar">
-              <div>
-                <div class="">
-                  <div class=""><span class="" role="link" tabindex="-1">
-                    <img style="border-radius: 50%; width: 40px; height: 40px;" alt="" class="profile-img"
-                      crossorigin="anonymous" draggable="false" [src]="loggedInAccount?.avatar">
-                  </span></div>
-                </div>
-              </div>
-              <div class="" style="opacity: 1;">
-                <div style="width: 100%;">
-                  <div class=""></div>
-                </div>
-              </div>
-            </div>
-            <i class="uil uil-profile"></i>
-            <div class="comment-content">
-              <input class="form-input" type="text" placeholder="Add a comment..." [(ngModel)]="commentContent"/>
-              <a type="button" class="publish-btn highlight-link" (click)="commentPost()">Post</a>
-            </div>
-          </span>
-        </div>
     </div>
   </div>
-  

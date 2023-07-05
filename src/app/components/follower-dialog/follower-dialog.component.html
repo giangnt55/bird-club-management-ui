@@ -22,7 +22,9 @@
     </i>
     <div class="right-content">
         <div class="comment-content">
-            <span class="username">{{follower?.creator?.username}}<span *ngIf="follower.is_followed == false" class="btn-follow">• follow</span></span>
+            <span class="username">{{follower?.creator?.username}}
+                <!-- <span *ngIf="follower.is_followed == false" class="btn-follow">• follow</span> -->
+            </span>
             <div class="fullname">{{follower?.creator?.fullname}}</div>
         </div>
         <div> 
