@@ -1,0 +1,16 @@
+<div class="Suggested">
+    <p>Suggested for you</p>
+    <!-- <a class="btn-viewAll" type="button">See All</a> -->
+</div>
+
+<ng-container *ngIf="suggestions.length > 0; else noSuggestions">
+    <div *ngFor="let user of suggestions" class="user-bio">
+      <app-user [user]="user"></app-user>
+    </div>
+  </ng-container>
+  
+  <ng-template #noSuggestions>
+    <div class="NoSuggestions" style="color: gray;">
+      <p>No suggestions at the moment</p>
+    </div>
+  </ng-template>

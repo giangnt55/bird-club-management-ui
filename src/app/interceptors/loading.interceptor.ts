@@ -17,6 +17,7 @@ export class LoadingInterceptor implements HttpInterceptor {
   private ignoredAPIs: string[] = [
     `${this.apiUrl}/like`,
     `${this.apiUrl}/comment`,
+    `${this.apiUrl}/follower`,
   ];
 
   constructor(private loadingService: LoaderService) {}
@@ -44,6 +45,11 @@ export class LoadingInterceptor implements HttpInterceptor {
   }
 
   private shouldIgnoreApi(apiUrl: string): boolean {
-    return apiUrl.startsWith(`${this.apiUrl}`);
+    for (const ignoredApi of this.ignoredAPIs) {
+      if (apiUrl.startsWith(ignoredApi)) {
+        return true;
+      }
+    }
+    return false;
   }
 }

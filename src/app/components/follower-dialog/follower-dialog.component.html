@@ -1,0 +1,39 @@
+<mat-dialog-content class="dialog contain">
+  <h6>Followers</h6>
+  <hr>
+  
+<span class="creator-content" *ngFor="let follower of followers">
+    <div class="avatar">
+        <div>
+            <div class="">
+                <div class=""><span class="" role="link" tabindex="-1">
+                        <img style="border-radius: 50%; width: 35px; height: 35px;" alt="" class="profile-img"
+                            crossorigin="anonymous" draggable="false" [src]="follower?.creator?.avatar">
+                    </span></div>
+            </div>
+        </div>
+        <div class="" style="opacity: 1;">
+            <div style="width: 100%;">
+                <div class=""></div>
+            </div>
+        </div>
+    </div>
+    <i class="uil uil-profile">
+    </i>
+    <div class="right-content">
+        <div class="comment-content">
+            <span class="username">{{follower?.creator?.username}}
+                <!-- <span *ngIf="follower.is_followed == false" class="btn-follow">• follow</span> -->
+            </span>
+            <div class="fullname">{{follower?.creator?.fullname}}</div>
+        </div>
+        <div> 
+            <a class="btn btn-secondary btn-remove" type="button">
+                Remove
+              </a>
+        </div>
+
+    </div>
+</span>
+
+</mat-dialog-content>

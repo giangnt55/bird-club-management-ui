@@ -1,0 +1,41 @@
+.custom-search {
+  position: relative;
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.search-input {
+  padding-right: 36px; /* Adjust the padding as needed */
+  border: 1px solid #ccc;
+  height: 43px;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: width 0.3s ease; /* Transition for smooth animation */
+  width: 200px; /* Initial width of the input field */
+}
+
+.search-input:focus {
+  width: 300px; /* Expanded width when the input field is in focus */
+}
+
+.search-button {
+  position: absolute;
+  margin-top: 2px;
+  margin-right: 2px;
+  right: 0;
+  top: 0;
+  height: 38px;
+  padding: 6px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.search-button i {
+  font-size: 14px;
+}
+
+.search-button:hover {
+  background-color: #d32f2f;
+}

@@ -9,9 +9,12 @@ import { ListNewsComponent } from './pages/list-news/list-news.component';
 import { NewsCreateComponent } from './pages/news-create/news-create.component';
 import { TestComponent } from './pages/test/test.component';
 import { ChatsComponent } from './pages/chats/chats.component';
-import { NewsComponent } from './components/news/news.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { BirdComponent } from './pages/bird/bird.component';
+import { EventsComponent } from './pages/events/events.component';
+import { EventDetailComponent } from './pages/event-detail/event-detail.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -25,12 +28,17 @@ const routes: Routes = [
   },
   { path: 'news/:id', component: NewsReadingComponent },
   { path: 'create-news', component: NewsCreateComponent },
+  { path: 'bird', component: BirdComponent },
   { path: 'test', component: TestComponent },
-  { path: 'profile', component: ProfileComponent },
   { path: 'inbox', component: ChatsComponent },
   { path: 'test', component: TestComponent },
-  {path : 'update-profile', component: UpdateProfileComponent},
-  {path : 'update-password', component: UpdatePasswordComponent}
+  { path: 'update-profile', component: UpdateProfileComponent },
+  { path: 'update-password', component: UpdatePasswordComponent },
+  { path: 'events', component: EventsComponent },
+  { path: 'events/:id', component: EventDetailComponent },
+  { path: 'event-detail', component: EventDetailComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: ':username', component: ProfileComponent },
 ];
 
 @NgModule({

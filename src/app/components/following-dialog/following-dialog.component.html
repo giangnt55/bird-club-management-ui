@@ -1,0 +1,42 @@
+<mat-dialog-content class="dialog contain">
+    <h6>Followings</h6>
+    <hr>
+    
+  <span class="creator-content" *ngFor="let following of followings">
+      <div class="avatar" >
+          <div>
+              <div class="">
+                  <div class=""><span class="" role="link" tabindex="-1">
+                          <img style="border-radius: 50%; width: 35px; height: 35px;" alt="" class="profile-img"
+                              crossorigin="anonymous" draggable="false" [src]="following?.follow_to_user?.avatar">
+                      </span></div>
+              </div>
+          </div>
+          <div class="" style="opacity: 1;">
+              <div style="width: 100%;">
+                  <div class=""></div>
+              </div>
+          </div>
+      </div>
+      <i class="uil uil-profile">
+      </i>
+      <div class="right-content">
+          <div class="comment-content">
+              <span class="username">{{following?.follow_to_user?.username}}</span>
+              <div class="fullname">{{following?.follow_to_user?.fullname}}</div>
+          </div>
+          <div> 
+              <a class="btn btn-secondary btn-remove" type="button">
+                  Unfollow
+                </a>
+          </div>
+  
+      </div>
+  </span>
+
+  <div *ngIf="!(followings && followings.length > 0)" class="NoFollowings">
+    <p>No followings at the moment</p>
+  </div>
+  
+  </mat-dialog-content>
+  

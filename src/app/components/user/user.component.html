@@ -1,0 +1,31 @@
+<span class="creator-content" *ngIf="!followed">
+    <div class="avatar"  [routerLink]="['/', user?.username]">
+        <div>
+            <div class="">
+                <div class=""><span class="" role="link" tabindex="-1">
+                        <img style="border-radius: 50%; width: 35px; height: 35px;" alt="" class="profile-img"
+                            crossorigin="anonymous" draggable="false" [src]="user?.avatar">
+                    </span></div>
+            </div>
+        </div>
+        <div class="" style="opacity: 1;">
+            <div style="width: 100%;">
+                <div class=""></div>
+            </div>
+        </div>
+    </div>
+    <i class="uil uil-profile">
+    </i>
+    <div class="right-content">
+        <div class="comment-content"  [routerLink]="['/', user?.username]">
+            <span class="username">{{user?.username}}</span>
+            <div class="fullname">{{user?.fullname}}</div>
+        </div>
+        <div> 
+            <a (click)="followClick(user?.id)" class="btn-follow" type="button">
+                {{ user?.is_following_logged_in_user ? 'Follow Back' : 'Follow' }}
+              </a>
+        </div>
+
+    </div>
+</span>
