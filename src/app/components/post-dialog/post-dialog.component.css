@@ -139,3 +139,10 @@
 .highlighted-username {
   color: yellow !important;
 }
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}

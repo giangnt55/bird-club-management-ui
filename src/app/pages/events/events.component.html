@@ -1,12 +1,27 @@
 <div class="container main-content">
   <h3 class="fw-bold">Khám phá sự kiện</h3>
+  
+  <div class="filter-options d-flex" style="margin-left: 30px; margin-top: 10px;">
+    <div class="input-group" style="width: 200px;">
+      <select id="date-filter" class="form-select" [(ngModel)]="selectedDateOption" (ngModelChange)="updateSelectedDate()">
+        <option value="any">Ngày bất kỳ</option>
+        <option value="today">Hôm nay</option>
+        <option value="tomorrow">Ngày mai</option>
+      </select>
+      <label class="input-group-text" for="date-filter">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+      </label>
+    </div>
+
+    <div class="form-check mt-3" style="margin-top: 0 !important;">
+      <a class="btn btn-secondary" type="button" id="followed-filter" [(ngModel)]="isFollowed">Đang theo dõi</a>
+    </div>
+  </div>
+   
+
   <div class="events">
-    <div class="event-row" *ngFor="let eventRow of eventRows">
-      <div class="row">
-        <div class="col-md-2" *ngFor="let event of events">
-          <app-event class="event-card" [event]="event"></app-event>
-        </div>
-      </div>
+    <div class="mb-4 card" *ngFor="let event of events">
+      <app-event class="event-card" [event]="event"></app-event>
     </div>
   </div>
 </div>

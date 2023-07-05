@@ -35,6 +35,7 @@ const routes: Routes = [
   { path: 'update-profile', component: UpdateProfileComponent },
   { path: 'update-password', component: UpdatePasswordComponent },
   { path: 'events', component: EventsComponent },
+  { path: 'events/:id', component: EventDetailComponent },
   { path: 'event-detail', component: EventDetailComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: ':username', component: ProfileComponent },

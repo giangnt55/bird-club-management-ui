@@ -14,6 +14,7 @@ export interface DetailPost extends BaseDto {
   image: string;
   title: string;
   content: string;
+  is_liked: boolean;
   total_like: number;
   total_comment: number;
   comments: DetailComment[];
