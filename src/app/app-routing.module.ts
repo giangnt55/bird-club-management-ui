@@ -15,6 +15,13 @@ import { BirdComponent } from './pages/bird/bird.component';
 import { EventsComponent } from './pages/events/events.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
+import { StaffUsersComponent } from './pages/staff-users/staff-users.component';
+import { StaffPostsComponent } from './pages/staff-posts/staff-posts.component';
+import { StaffArticlesComponent } from './pages/staff-articles/staff-articles.component';
+import { StaffBirdsComponent } from './pages/staff-birds/staff-birds.component';
+import { StaffSettingsComponent } from './pages/staff-settings/staff-settings.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -37,8 +44,17 @@ const routes: Routes = [
   { path: 'events', component: EventsComponent },
   { path: 'events/:id', component: EventDetailComponent },
   { path: 'event-detail', component: EventDetailComponent },
+  { path: 'admin', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
-  { path: ':username', component: ProfileComponent },
+  { path: 'profile/:username', component: ProfileComponent },
+  { path: 'admin-users', component: AdminUsersComponent },
+  { path: 'staff', redirectTo: '/staff-posts', pathMatch: 'full' },
+  { path: 'staff-users', component: StaffUsersComponent },
+  { path: 'staff-posts', component: StaffPostsComponent },
+  { path: 'staff-articles', component: StaffArticlesComponent },
+  { path: 'staff-birds', component: StaffBirdsComponent },
+  { path: 'staff-settings', component: StaffSettingsComponent },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

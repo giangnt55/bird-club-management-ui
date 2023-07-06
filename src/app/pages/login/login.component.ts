@@ -58,14 +58,22 @@ export class LoginComponent implements OnInit {
               JSON.stringify(accountInfo)
             );
             // Use the account information here
-            console.log(accountInfo);
+            if (accountInfo.role == 4) {
+              this.router.navigate(['/admin']);
+            }
+
+            if (accountInfo.role == 1) {
+              this.router.navigate(['/home']);
+            }
+
+            if (accountInfo.role == 2) {
+              this.router.navigate(['/staff']);
+            }
           },
           (error) => {
             console.error('Error retrieving account information:', error);
           }
         );
-
-        this.router.navigate(['/home']);
       },
       (error) => {
         console.error('Login error:', error);
