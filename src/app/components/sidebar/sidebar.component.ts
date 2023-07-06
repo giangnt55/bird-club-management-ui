@@ -1,4 +1,11 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { PostCreateComponent } from '../../components/post-create/post-create.component';
@@ -11,7 +18,7 @@ import { MoreMenuComponent } from '../more-menu/more-menu.component';
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent implements OnInit, OnChanges {
+export class SidebarComponent implements OnInit, OnChanges, AfterViewInit {
   showMoreOptions: boolean = false;
   showSearch = false;
 
@@ -21,19 +28,30 @@ export class SidebarComponent implements OnInit, OnChanges {
     private router: Router,
     private dialog: MatDialog,
     private authService: AuthService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private changeDetectorRef: ChangeDetectorRef
   ) {}
+
+  ngAfterViewInit(): void {
+    this.getUser();
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     console.log('sidebar change');
   }
   loggedInAccount!: any | null;
 
   ngOnInit(): void {
+    this.getUser();
+  }
+
+  getUser() {
     // Retrieve the stored account information from session storage
     const storedAccountInfo = sessionStorage.getItem('account_infor');
     if (storedAccountInfo) {
       this.loggedInAccount = JSON.parse(storedAccountInfo);
     }
+    this.changeDetectorRef.detectChanges();
   }
 
   openDialog() {

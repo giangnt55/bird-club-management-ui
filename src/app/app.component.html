@@ -1,21 +1,59 @@
-<ng-container
-  *ngIf="getCurrentRoutePath() !== '/login' && getCurrentRoutePath() !== '/register'">
+<ng-container [ngTemplateOutlet]="specialTemplate" *ngIf="isAdminUrls(); else defaultTemplate"></ng-container>
+
+<ng-template #specialTemplate>
   <div class="container-fluid">
     <div class="row">
       <div class="col-2">
-        <app-sidebar></app-sidebar>
+        <app-admin-sidebar></app-admin-sidebar>
       </div>
       <div class="col-10">
         <div class="page-main">
-          <!-- <app-navbar></app-navbar> -->
+          <app-admin-navbar></app-admin-navbar>
           <router-outlet></router-outlet>
         </div>
       </div>
     </div>
   </div>
-</ng-container>
-<ng-container
-  *ngIf="getCurrentRoutePath() === '/login' || getCurrentRoutePath()  === '/register'">
+</ng-template>
+
+<ng-template #defaultTemplate>
+  <ng-container *ngIf="isStaffUrls() == false && isAuthUrls() == false; else staffTemplate">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2">
+          <app-sidebar></app-sidebar>
+        </div>
+        <div class="col-10">
+          <div class="page-main">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #staffTemplate>
+  <ng-container *ngIf="isAuthUrls() == false; else loginTemplate">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2">
+          <app-staff-sidebar></app-staff-sidebar>
+        </div>
+        <div class="col-10">
+          <div class="page-main">
+            <app-staff-navbar></app-staff-navbar>
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</ng-template>
+
+<ng-template #loginTemplate>
+  <!-- Your login template content goes here -->
   <router-outlet></router-outlet>
-</ng-container>
+</ng-template>
+
 <app-spinner></app-spinner>

@@ -62,6 +62,20 @@ import { MoreMenuComponent } from './components/more-menu/more-menu.component';
 import { FollowerDialogComponent } from './components/follower-dialog/follower-dialog.component';
 import { FollowingDialogComponent } from './components/following-dialog/following-dialog.component';
 import { DatePipe } from '@angular/common';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
+import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
+import { UsersTableComponent } from './components/users-table/users-table.component';
+import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
+import { StaffSidebarComponent } from './components/staff-sidebar/staff-sidebar.component';
+import { StaffNavbarComponent } from './components/staff-navbar/staff-navbar.component';
+import { StaffUsersComponent } from './pages/staff-users/staff-users.component';
+import { StaffEventsComponent } from './pages/staff-events/staff-events.component';
+import { StaffPostsComponent } from './pages/staff-posts/staff-posts.component';
+import { StaffArticlesComponent } from './pages/staff-articles/staff-articles.component';
+import { StaffBirdsComponent } from './pages/staff-birds/staff-birds.component';
+import { StaffSettingsComponent } from './pages/staff-settings/staff-settings.component';
+import { PostsTableComponent } from './components/posts-table/posts-table.component';
 
 @NgModule({
   declarations: [
@@ -108,6 +122,20 @@ import { DatePipe } from '@angular/common';
     MoreMenuComponent,
     FollowerDialogComponent,
     FollowingDialogComponent,
+    NotFoundComponent,
+    AdminSidebarComponent,
+    AdminNavbarComponent,
+    UsersTableComponent,
+    AdminUsersComponent,
+    StaffSidebarComponent,
+    StaffNavbarComponent,
+    StaffUsersComponent,
+    StaffEventsComponent,
+    StaffPostsComponent,
+    StaffArticlesComponent,
+    StaffBirdsComponent,
+    StaffSettingsComponent,
+    PostsTableComponent,
   ],
   imports: [
     BrowserModule,

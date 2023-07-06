@@ -111,7 +111,7 @@
           <span class="button-text" [class.hide]="isSidebarSmaller || showSearch">Tạo bài viết</span>
         </span>
       </button>
-      <button [routerLink]="['/', loggedInAccount?.username]" (click)="hideSearchBox()">
+      <button [routerLink]="['/profile/', loggedInAccount?.username]" (click)="hideSearchBox()">
         <span>
           <div class>
             <div>
