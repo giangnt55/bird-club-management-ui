@@ -1,4 +1,10 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,22 +12,56 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit, OnChanges {
+export class AppComponent implements OnInit, OnChanges, AfterViewInit {
   constructor(private router: Router) {}
+  ngAfterViewInit(): void {
+    console.log('after init', this.router.url);
+  }
 
   title = 'bird-club-management-ui';
 
   ngOnInit(): void {
-    console.log('routt', this.router.url);
-    // if (currentUrl === '/inbox') {
-    //   // Apply the styles for /inbox
-    //   console.log('ok');
-    //   this.applyInboxStyles();
-    // }
+    console.log('routt init', this.router.url);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('routt chnage', this.router.url);
+  }
+
+  // Code smell
+  isAdminUrls(): boolean {
+    const restrictedUrls: string[] = [
+      '/dashboard',
+      '/admin-users',
+      '/admin-settings',
+    ];
+    const currentRoute = this.router.url;
+
+    return restrictedUrls.includes(currentRoute);
+  }
+
+  // Code smell
+  isStaffUrls(): boolean {
+    const restrictedUrls: string[] = [
+      '/staff',
+      '/staff-users',
+      '/staff-events',
+      '/staff-posts',
+      '/staff-articles',
+      '/staff-birds',
+      '/staff-settings',
+    ];
+    const currentRoute = this.router.url;
+
+    return restrictedUrls.includes(currentRoute);
+  }
+
+  // Code smell
+  isAuthUrls(): boolean {
+    const restrictedUrls: string[] = ['/login', '/register'];
+    const currentRoute = this.router.url;
+
+    return restrictedUrls.includes(currentRoute);
   }
 
   applyInboxStyles(): void {

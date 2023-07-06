@@ -1,0 +1,101 @@
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex">
+            <div>
+                <button class="btn btn-primary mr-2">Create <i class="fa fa-plus" aria-hidden="true"></i></button>
+                <button class="btn btn-secondary">Export<i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+              </div>
+            <form style="margin-left: auto !important; margin-right: 0 !important;"
+                class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <input style="border: solid 0.2px rgb(192, 192, 192);" type="text"
+                        class="form-control bg-light small" placeholder="Search for..." aria-label="Search"
+                        aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Email</th>
+                            <th>Phone number</th>
+                            <th>Address</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                    </tfoot>
+                    <tbody>
+                        <tr>
+                            <td>Nguyen Truong Giang</td>
+                            <td>Giang</td>
+                            <td>Member</td>
+                            <td>Active</td>
+                            <td>giangntse150747@gmail.com</td>
+                            <td>0977264752</td>
+                            <td>Di An, Binh Duong</td>
+                            <td style="display: flex;">
+                                <a href="" type="button" class="btn btn-sm btn-secondary">View</a>
+                                <a href="" type="button" class="btn btn-sm btn-warning">Inactive</a>
+                                <a href="" type="button" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Đỗ Hải Triều</td>
+                            <td>Trieu</td>
+                            <td>Member</td>
+                            <td>Active</td>
+                            <td>trieudhse151129@fpt.edu.com</td>
+                            <td>097837823</td>
+                            <td>Thu Duc, TP Ho Chi Minh</td>
+                            <td style="display: flex;">
+                                <a href="" type="button" class="btn btn-sm btn-secondary">View</a>
+                                <a href="" type="button" class="btn btn-sm btn-warning">Inactive</a>
+                                <a href="" type="button" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+       <div class="d-flex">
+            <div class="mr-3 d-flex" style="margin-left: 20px; height: fit-content;">
+                <label for="page-size-select" style="margin-bottom: auto;
+                margin-top: auto; margin-right: 5px;">Size:</label>
+                <select id="page-size-select" class="form-control">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+            <nav aria-label="Page navigation example" style="margin-left: auto; margin-right: 20px;"> 
+                <ul class="pagination">
+                <li class="page-item"><a class="page-link">Previous</a></li>
+                <li class="page-item"><a class="page-link">1</a></li>
+                <!-- <li class="page-item"><a class="page-link">2</a></li>
+                <li class="page-item"><a class="page-link">3</a></li> -->
+                <li class="page-item"><a class="page-link">Next</a></li>
+                </ul>
+            </nav>
+       </div>
+       
+    </div>
+
+</div>

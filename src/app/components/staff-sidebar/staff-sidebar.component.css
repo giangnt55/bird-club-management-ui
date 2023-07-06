@@ -1,0 +1,25 @@
+.accordion {
+    height: 100vh;
+    border-right: solid 0.1px rgb(217, 217, 217) !important;
+  } 
+  
+  .sidebar-header {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .logo-icon {
+    display: none;
+    font-size: 28px;
+    height: 35px;
+    width: 51px;
+    text-align: center;
+  }
+  
+  .logo-img {
+    width: 100%;
+  }
+
+  .sidebar {
+    padding-top: 20%;
+  }
