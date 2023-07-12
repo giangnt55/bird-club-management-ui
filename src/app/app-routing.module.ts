@@ -23,6 +23,7 @@ import { StaffArticlesComponent } from './pages/staff-articles/staff-articles.co
 import { StaffBirdsComponent } from './pages/staff-birds/staff-birds.component';
 import { StaffSettingsComponent } from './pages/staff-settings/staff-settings.component';
 import { BirdDetailComponent } from './components/bird-detail/bird-detail.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -56,6 +57,7 @@ const routes: Routes = [
   { path: 'staff-birds', component: StaffBirdsComponent },
   { path: 'staff-settings', component: StaffSettingsComponent },
   { path: 'bird-detail', component: BirdDetailComponent },
+  { path: 'user-card', component: UserCardComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

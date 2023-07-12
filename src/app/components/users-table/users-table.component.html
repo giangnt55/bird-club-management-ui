@@ -1,6 +1,4 @@
-<!-- Begin Page Content -->
 <div class="container-fluid">
-
   <div class="card shadow mb-4">
     <div class="card-header py-3 d-flex">
       <div>
@@ -15,9 +13,11 @@
           <input style="border: solid 0.2px rgb(192, 192, 192);" type="text"
             class="form-control bg-light small" placeholder="Search for..."
             aria-label="Search"
-            aria-describedby="basic-addon2">
+            aria-describedby="basic-addon2"
+            [(ngModel)]="searchQuery">
           <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
+            <button class="btn btn-primary" type="button"
+              (click)="searchMembers()">
               <i class="fas fa-search fa-sm"></i>
             </button>
           </div>
@@ -43,47 +43,25 @@
           <tfoot>
           </tfoot>
           <tbody>
-            <ng-container *ngIf="members.length > 0">
-              <div *ngFor="let member of members">
-                <script>
-                  console.log("case 1: " + member);
-                </script>
-                <tr>
-                  <td>{{member.fullname}}</td>
-                  <td>{{member.username}}</td>
-                  <td>{{member.role}}</td>
-                  <td>{{member.status}}</td>
-                  <td>{{member.email}}</td>
-                  <td>{{member.phone_number}}</td>
-                  <td>{{member.address}}</td>
-                  <td style="display: flex;">
-                    <a href type="button" class="btn btn-sm btn-secondary">View</a>
-                    <a href type="button" class="btn btn-sm btn-warning">Inactive</a>
-                    <a href type="button" class="btn btn-sm btn-danger">Delete</a>
-                  </td>
-                </tr>
-              </div>
-            </ng-container>
-            <!-- <tr>
-                            <td>Đỗ Hải Triều</td>
-                            <td>Trieu</td>
-                            <td>Member</td>
-                            <td>Active</td>
-                            <td>trieudhse151129@fpt.edu.com</td>
-                            <td>097837823</td>
-                            <td>Thu Duc, TP Ho Chi Minh</td>
-                            <td style="display: flex;">
-                                <a href="" type="button" class="btn btn-sm btn-secondary">View</a>
-                                <a href="" type="button" class="btn btn-sm btn-warning">Inactive</a>
-                                <a href="" type="button" class="btn btn-sm btn-danger">Delete</a>
-                            </td>
-                        </tr> -->
-
+            <tr *ngFor="let member of members">
+              <td>{{member.fullname}}</td>
+              <td>{{member.username}}</td>
+              <td>{{member.role}}</td>
+              <td>{{member.status}}</td>
+              <td>{{member.email}}</td>
+              <td>{{member.phone_number}}</td>
+              <td>{{member.address}}</td>
+              <td style="display: flex;">
+                <a (click)="openMemberDialog(member)" type="button"
+                  class="btn btn-sm btn-secondary">View</a>
+                <a href type="button" class="btn btn-sm btn-warning">Inactive</a>
+                <a href type="button" class="btn btn-sm btn-danger" (click)="confirmDelete(member)">Delete</a>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
-
     <div class="d-flex">
       <div class="mr-3 d-flex" style="margin-left: 20px; height: fit-content;">
         <label for="page-size-select" style="margin-bottom: auto;
@@ -100,13 +78,9 @@
         <ul class="pagination">
           <li class="page-item"><a class="page-link">Previous</a></li>
           <li class="page-item"><a class="page-link">1</a></li>
-          <!-- <li class="page-item"><a class="page-link">2</a></li>
-                <li class="page-item"><a class="page-link">3</a></li> -->
           <li class="page-item"><a class="page-link">Next</a></li>
         </ul>
       </nav>
     </div>
-
   </div>
-
 </div>

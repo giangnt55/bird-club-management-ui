@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '../environments/environment';
@@ -53,9 +53,33 @@ export class UsersService {
       .get<PaginationResponse<User>>(this.GET_USER_INFOR)
       .pipe(
         map((response: PaginationResponse<User>) => {
-          console.log("case 1: " + response);
+          return response;
+          console.log("case 2: " + response);
+        })
+      );
+  }
+
+  getMemberById(id: string): Observable<any> {
+    return this.httpClient
+      .get<BaseResponse<User>>(`${this.GET_USER_INFOR}/${id}`)
+      .pipe(
+        map((response: BaseResponse<User>) => {
           return response;
         })
       );
   }
+
+  searchMembers(query: string): Observable<any> {
+    const params = new HttpParams().set('Keyword', query);
+
+    return this.httpClient
+      .get<BaseResponse<User>>(this.GET_USER_INFOR, { params })
+      .pipe(
+        map((response: BaseResponse<User>) => {
+          console.log("Search Response:", response);
+          return response;
+        })
+      );
+  }
+
 }
