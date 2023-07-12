@@ -1,108 +1,202 @@
 .event {
- display: flex;
- flex-direction: column;
- max-width: 1400px;
- height: 100vh;
- margin: 0 auto;
- overflow: hidden;
- background-color: var(--theme-bg-color);
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #f0f2f5;
 }
 
 .event-explain {
- background-color: var(--header-bg-color);
- margin-left: 40px;
- border-radius: 0 0 8px 8px;
+  background-color: #f0f2f5;
+  margin-left: 40px;
+  border-radius: 0 0 8px 8px;
 }
 
 .event-bg {
- border-radius: 8px 8px 0 0;
- object-fit: cover;
- width: 100%;
- height: 350px;
- transition: .3s;
- position: relative;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+  width: 100%;
+  height: 350px;
+  transition: 0.3s;
+  position: relative;
 }
 
-.event-card-time{
+.event-card-time {
   color: red;
   font-weight: bold;
 }
 
-.detail-event,
-.introduce-card{
-  background-color: beige;
-  width: 50%;
+.event-contact,
+.address,
+.participant,
+.introduce-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
   border-radius: 10px;
   margin: 5px;
 }
 
-.event-body{
+.event-contact {
+  height: 380px;
+}
+
+.event-body {
   display: flex;
   flex-direction: row;
 }
 
+.right-side,
+.left-side {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
 .explain-title,
-.event-subtitle-wrapper{
+.event-subtitle-wrapper {
   font-weight: bold;
   margin-bottom: 10px;
   font-size: 25px;
-  border-bottom: solid 1px black;
+  /* border-bottom: solid 1px black; */
 }
 
 .overview-text,
-.explain-bar{
+.explain-bar {
   display: flex;
   flex-direction: column;
   margin: 10px;
-  .explain-contents{
+  .explain-contents {
     display: flex;
     flex-direction: row;
-    .explain-subtitle{
+    .explain-subtitle {
       margin-left: 10px;
     }
   }
 }
-.below-header{
+
+.below-header {
   display: flex;
   align-items: center;
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
-.nav-bar{
+.btn-group {
   width: 50%;
+  margin-left: 5px;
 }
 
-.options{
+.options {
   width: 50%;
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-right: 40px;
-  .btn-primary {
-    margin-left: 10px;
-  }
-
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: black;
+.options .button {
+  background-color: white;
+  border: none;
+  padding: 10px 27px;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border: 2px solid #555555;
+  border-radius: 5px;
 }
 
-li a:hover {
-  background-color: #7d7b7b;
+.options .button:hover {
+  background-color: #555555;
+  color: white;
+}
+
+.btn-group .button {
+  background-color: white; /* Green */
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-group .button:hover {
+  background-color: #6c757d;
+  color: white;
+}
+
+.contact-body {
+  text-align: center;
+}
+
+.avatar img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+.hover-contact-body button {
+  width: 85%;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.hover-contact-body {
+  margin: 15px auto 10px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  border: solid 1px #e6e6e6;
+  border-radius: 5px;
+}
+
+.hover-contact-body:hover {
+  z-index: 1;
+  opacity: 0.5;
+}
+
+.maps {
+  width: 100%;
+  height: 300px;
+}
+
+.address {
+  height: 400px;
+}
+
+.body-participant,
+.head-participant {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.head-participant button {
+  position: absolute;
+  right: 0;
+  margin-right: 5px;
+}
+
+.explain-title {
+  margin-left: 5px;
+}
+
+.joined,
+.interested {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+}
+
+.body-participant div span {
+  font: bold;
 }

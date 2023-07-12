@@ -76,6 +76,7 @@ import { StaffArticlesComponent } from './pages/staff-articles/staff-articles.co
 import { StaffBirdsComponent } from './pages/staff-birds/staff-birds.component';
 import { StaffSettingsComponent } from './pages/staff-settings/staff-settings.component';
 import { PostsTableComponent } from './components/posts-table/posts-table.component';
+import { ParticipantListComponent } from './components/participant-list/participant-list.component';
 
 @NgModule({
   declarations: [
@@ -136,6 +137,7 @@ import { PostsTableComponent } from './components/posts-table/posts-table.compon
     StaffBirdsComponent,
     StaffSettingsComponent,
     PostsTableComponent,
+    ParticipantListComponent,
   ],
   imports: [
     BrowserModule,
