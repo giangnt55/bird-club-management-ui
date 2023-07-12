@@ -43,7 +43,6 @@ const routes: Routes = [
   { path: 'update-password', component: UpdatePasswordComponent },
   { path: 'events', component: EventsComponent },
   { path: 'events/:id', component: EventDetailComponent },
-  { path: 'event-detail', component: EventDetailComponent },
   { path: 'admin', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile/:username', component: ProfileComponent },

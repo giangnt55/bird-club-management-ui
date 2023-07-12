@@ -14,9 +14,17 @@
       <div class="participants">100 người quân tâm</div>
     </div> -->
     <div class="event-card-buttons">
+     <ng-container *ngIf="this.event.is_joined == false">
       <button (click)="joinEvent(this.event.id)" style="width: 100%; background-color: #F2F3F5;" type="button" class="btn btn-grey">
-        <i class="fa fa-star" style="margin-right: 5px;"></i> Quan tâm
+        <i class="fa fa-star" style="margin-right: 5px;"></i> <span style="color:green">Quan tâm</span>
       </button> 
+      </ng-container>
+      <ng-container *ngIf="this.event.is_joined">
+        <button (click)="joinEvent(this.event.id)" style="width: 100%; background-color: #F2F3F5;" type="button" class="btn btn-warning">
+          <i class="fa fa-star" style="margin-right: 5px;"></i> <span style="color:rgb(234, 73, 73)">Bỏ theo dõi</span>
+        </button> 
+      </ng-container>
+      
     </div>
     </div>
   </div>
