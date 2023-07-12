@@ -47,4 +47,15 @@ export class UsersService {
         })
       );
   }
+
+  getMembers() : Observable<any> {
+    return this.httpClient
+      .get<PaginationResponse<User>>(this.GET_USER_INFOR)
+      .pipe(
+        map((response: PaginationResponse<User>) => {
+          console.log("case 1: " + response);
+          return response;
+        })
+      );
+  }
 }

@@ -77,6 +77,7 @@ import { StaffBirdsComponent } from './pages/staff-birds/staff-birds.component';
 import { StaffSettingsComponent } from './pages/staff-settings/staff-settings.component';
 import { PostsTableComponent } from './components/posts-table/posts-table.component';
 import { ParticipantListComponent } from './components/participant-list/participant-list.component';
+import { BirdDetailComponent } from './components/bird-detail/bird-detail.component';
 
 @NgModule({
   declarations: [
@@ -138,6 +139,7 @@ import { ParticipantListComponent } from './components/participant-list/particip
     StaffSettingsComponent,
     PostsTableComponent,
     ParticipantListComponent,
+    BirdDetailComponent,
   ],
   imports: [
     BrowserModule,

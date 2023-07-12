@@ -1,0 +1,116 @@
+<div class="title">
+  <h1 class="page-title">THÔNG TIN CHI TIẾT</h1>
+</div>
+<ul class="navbar">
+  <li [class.active]="activeOption === 'option1'" (click)="scrollTo('option1')"><a>Giới
+      thiệu</a></li>
+  <li [class.active]="activeOption === 'option2'" (click)="scrollTo('option2')"><a>Hình
+      ảnh</a></li>
+  <li [class.active]="activeOption === 'option3'" (click)="scrollTo('option3')"><a>Mô
+      tả</a></li>
+  <li [class.active]="activeOption === 'option4'" (click)="scrollTo('option4')"><a>Môi
+      trường sống</a></li>
+  <li [class.active]="activeOption === 'option5'" (click)="scrollTo('option5')"><a>Tham
+      khảo thêm</a></li>
+</ul>
+
+<div class="content-sections">
+  <div id="option1" class="content-section">
+    <div class="card">
+      <div class="content-wrapper">
+        <h2>Giới thiệu</h2>
+        <div class="body-option1">
+          <img
+            src="https://s3.animalia.bio/animals/photos/full/1.25x1/shutterstock-88365403jpg.webp">
+          <div class="infomation">
+            <h1 class="name">HỒNG Y PHƯƠNG BẮC</h1>
+            <h4>Hồng y chung, hồng y</h4>
+            <div class="line"></div>
+            <div class="age">Tuổi thọ:
+              <span class="index">10 năm</span>
+            </div>
+            <div class="age">Cân nặng:
+              <span class="index">33.6-65 G</span>
+            </div>
+            <div class="age">Kích thước:
+              <span class="index">8.3-9.3 inch</span>
+            </div>
+            <div class="age">Mức độ đe dọa:
+              <span class="index">Ổn định </span>|
+              <span class="index" style="color: red;">Đe dọa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="option2" class="content-section">
+    <div class="card">
+      <div class="content-wrapper">
+        <h2>Hình ảnh</h2>
+        <p>This is the content for Option 2.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="option3" class="content-section">
+    <div class="card">
+      <div class="content-wrapper">
+        <h2>Mô tả</h2>
+        <p>The adult male is a brilliant crimson-red color with a black face
+          mask
+          over the eyes, extending to the upper chest. The color becomes duller
+          and darker on the back and wings. The female is fawn-colored, with
+          mostly grayish-brown tones and a slight reddish tint on the wings,
+          crest, and tail feathers. The face mask of the female is gray to black
+          and is less defined than that of the male. Both sexes possess
+          prominent
+          raised crests and bright coral-colored beaks. The beak is cone-shaped
+          and strong. Young birds, both male, and female show coloring similar
+          to
+          the adult female until the fall, when they molt and grow adult
+          feathers.
+          They are brown above and red-brown below, with brick-colored crest,
+          forehead, wings, and tail. The legs and feet are dark pink-brown. The
+          iris of the eye is brown. The plumage color of the males is produced
+          from carotenoid pigments in the diet. Coloration is produced from both
+          red pigments and yellow carotenoid pigments. Northern cardinal males
+          normally metabolize carotenoid pigments to create plumage pigmentation
+          of a color different from the ingested pigment. When fed only yellow
+          pigments, males become a pale red color. A few "yellow morph"
+          cardinals,
+          a trait called xanthochroism, lack the enzyme to do this conversion.
+          Their beak and feathers (except for the black face mask) are yellow.
+          During winter, both males and females will fluff up their down
+          feathers
+          in order to retain warm air next to their bodies. The down feathers
+          are
+          small and hairlike at the base of each flight feather. The legs and
+          feet
+          of almost all birds are thin and lack feathers, and are vulnerable to
+          rapid heat loss.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="option4" class="content-section">
+    <div class="card">
+      <div class="content-wrapper">
+        <h2>Môi trường sống</h2>
+        <p>This is the content for Option 2.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="option5" class="content-section">
+    <div class="card">
+      <div class="content-wrapper">
+        <h2>Tham khảo thêm</h2>
+        <p>This is the content for Option 1.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer"></div>
