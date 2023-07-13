@@ -79,6 +79,7 @@ import { PostsTableComponent } from './components/posts-table/posts-table.compon
 import { ParticipantListComponent } from './components/participant-list/participant-list.component';
 import { ReportMenuComponent } from './components/report-menu/report-menu.component';
 import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
+import { BirdDetailComponent } from './components/bird-detail/bird-detail.component';
 
 @NgModule({
   declarations: [
@@ -142,6 +143,7 @@ import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.
     ParticipantListComponent,
     ReportMenuComponent,
     DeleteDialogComponent,
+    BirdDetailComponent,
   ],
   imports: [
     BrowserModule,
