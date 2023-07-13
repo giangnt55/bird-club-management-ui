@@ -1,0 +1,13 @@
+<mat-dialog-content class="dialog">
+    <h6>Choose Report Type</h6>
+    <hr>
+    <ul class="menu-options">
+        <li (click)="onReportTypeClick('spam')">Spam</li>
+        <li (click)="onReportTypeClick('violence')">Violence</li>
+        <li (click)="onReportTypeClick('unauthorizedSales')">UnauthorizedSales</li>
+        <li (click)="onReportTypeClick('terrorism')">Terrorism</li>
+        <li (click)="onReportTypeClick('fakeInformation')">FakeInformation</li>
+        <li (click)="onReportTypeClick('others')">Others</li>
+        <li (click)="onReportTypeClick('back')">Back</li>
+    </ul>
+</mat-dialog-content>

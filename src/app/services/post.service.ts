@@ -9,7 +9,7 @@ import {
   PaginationResponse,
 } from 'src/app/models/paging.model';
 import { map } from 'rxjs/operators';
-import { BaseResponse } from '../models/auth.model';
+import { BaseResponse, NoDataResponse } from '../models/auth.model';
 
 @Injectable({
   providedIn: 'root',
@@ -72,6 +72,16 @@ export class PostService {
       .pipe(
         map((response: BaseResponse<DetailPost>) => {
           return response.data;
+        })
+      );
+  }
+
+  deletePost(postId: string): Observable<any> {
+    return this.httpClient
+      .delete<NoDataResponse>(`${this.GET_POST_URL}/${postId}`)
+      .pipe(
+        map((response: NoDataResponse) => {
+          return response;
         })
       );
   }

@@ -54,4 +54,17 @@ export class EventComponent implements OnInit, OnDestroy {
       }
     );
   }
+
+  outEvent(eventId: string) {
+    this.participantService.joinEvent(eventId).subscribe(
+      (response) => {
+        this.changeDetectorRef.detectChanges(); // Manually trigger change detection to update the UI
+      },
+      (error) => {
+        // Handle the error here
+        // For example, display an error message or perform error handling tasks
+        this.toastr.error(error.error.message, 'Error');
+      }
+    );
+  }
 }

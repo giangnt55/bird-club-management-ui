@@ -77,6 +77,8 @@ import { StaffBirdsComponent } from './pages/staff-birds/staff-birds.component';
 import { StaffSettingsComponent } from './pages/staff-settings/staff-settings.component';
 import { PostsTableComponent } from './components/posts-table/posts-table.component';
 import { ParticipantListComponent } from './components/participant-list/participant-list.component';
+import { ReportMenuComponent } from './components/report-menu/report-menu.component';
+import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -138,6 +140,8 @@ import { ParticipantListComponent } from './components/participant-list/particip
     StaffSettingsComponent,
     PostsTableComponent,
     ParticipantListComponent,
+    ReportMenuComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,

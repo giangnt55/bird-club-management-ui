@@ -1,0 +1,22 @@
+.dialog {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.menu-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 500px;
+    text-align: center;
+    justify-content: space-between;
+}
+  
+  .menu-options li {
+    cursor: pointer;
+  }
+
+  .btn-report{
+    color: #FA383E  ;
+    font-weight: bolder;
+  }

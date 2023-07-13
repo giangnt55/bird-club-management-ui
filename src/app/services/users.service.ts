@@ -3,8 +3,8 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 import { Observable, map } from 'rxjs';
-import { AccountInfor, User } from '../models/user.model';
-import { BaseResponse } from '../models/auth.model';
+import { AccountInfor, User, UserUpdate } from '../models/user.model';
+import { BaseResponse, NoDataResponse } from '../models/auth.model';
 import { PaginationResponse } from '../models/paging.model';
 
 @Injectable({
@@ -43,6 +43,16 @@ export class UsersService {
       .get<BaseResponse<User>>(`${this.GET_USER_INFOR}/${username}`)
       .pipe(
         map((response: BaseResponse<User>) => {
+          return response;
+        })
+      );
+  }
+
+  updateUserInfor(id: string, user: UserUpdate): Observable<any> {
+    return this.httpClient
+      .put<NoDataResponse>(`${this.GET_USER_INFOR}/${id}`, user)
+      .pipe(
+        map((response: NoDataResponse) => {
           return response;
         })
       );
