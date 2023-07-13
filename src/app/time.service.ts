@@ -37,4 +37,12 @@ export class TimeService {
 
     return date.toLocaleDateString(undefined, options);
   }
+
+  convertToTimezone(date: Date, timezoneOffset: number): Date {
+    const offsetInMillis = timezoneOffset * 60 * 60 * 1000;
+    const utcTimestamp = date.getTime() + date.getTimezoneOffset() * 60 * 1000;
+    const timezoneTimestamp = utcTimestamp + offsetInMillis;
+
+    return new Date(timezoneTimestamp);
+  }
 }

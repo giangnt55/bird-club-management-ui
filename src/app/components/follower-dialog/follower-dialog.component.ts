@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, Inject, Input } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Follower } from 'src/app/models/follow.model';
 import { FollowService } from 'src/app/services/follow.service';
@@ -17,6 +18,7 @@ export class FollowerDialogComponent {
     private followService: FollowService,
     private changeDetectorRef: ChangeDetectorRef,
     private toastr: ToastrService,
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.followers = data.followers;
@@ -42,5 +44,10 @@ export class FollowerDialogComponent {
   onCancelClick(): void {
     // Close the dialog
     this.dialogRef.close();
+  }
+
+  onGotoProfile(username: string | any): void {
+    this.dialogRef.close();
+    this.router.navigate([`/profile/${username}`]);
   }
 }

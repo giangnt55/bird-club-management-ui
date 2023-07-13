@@ -14,7 +14,7 @@ Enjoy the code <3
               <h3>
                   {{this.user?.fullname}}
               </h3>
-              <button class="btn btn-secondary" [routerLink]="['/update-profile']"><i class="fa fa-cog" aria-hidden="true"></i>  Edit Profile</button>
+              <button *ngIf="this.loggedInAccount.id === this.user?.id" class="btn btn-secondary" [routerLink]="['/update-profile']"><i class="fa fa-cog" aria-hidden="true"></i>  Edit Profile</button>
           </div>
           <div class=user-links>
               <a><span>{{this.user?.total_post}}</span> Posts</a>
@@ -24,6 +24,9 @@ Enjoy the code <3
           <div class="user-bio">
               <p class="user-bio-name">{{this.user?.username}}</p>
               <p>{{this.user?.introduction}}</p>
+              <div *ngIf="!user?.introduction" class="NoPosts">
+                <p>Not have bio yet!</p>
+              </div>
           </div>
       </div>
   </div>
@@ -40,6 +43,9 @@ Enjoy the code <3
                     alt="">
             </div>
             <div id="imgblockbc1" class="block-background"></div>
+        </div>
+        <div *ngIf="!(posts && posts.length > 0)" class="NoPosts">
+            <p>Not have any post yet!</p>
         </div>
         <div *ngFor="let post of posts" class="post">
             <app-profile-post [post]="post"></app-profile-post>
