@@ -56,8 +56,6 @@ export class PostComponent implements OnInit, OnDestroy {
 
   likePost() {
     if (this.post.is_liked) {
-      // Post already liked, implement the logic to unlike the post
-      console.log('Post Unliked');
       // Call the API to unlike the post
       this.likeSubscription = this.likeService
         .unlike({ post_id: this.post.id, comment_id: null })
@@ -76,8 +74,6 @@ export class PostComponent implements OnInit, OnDestroy {
           }
         );
     } else {
-      // Post not liked, implement the logic to like the post
-      console.log('Post Liked');
       // Call the API to like the post
       this.likeSubscription = this.likeService
         .like({ post_id: this.post.id, comment_id: null })
