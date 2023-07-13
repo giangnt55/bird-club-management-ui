@@ -22,6 +22,8 @@ import { StaffPostsComponent } from './pages/staff-posts/staff-posts.component';
 import { StaffArticlesComponent } from './pages/staff-articles/staff-articles.component';
 import { StaffBirdsComponent } from './pages/staff-birds/staff-birds.component';
 import { StaffSettingsComponent } from './pages/staff-settings/staff-settings.component';
+import { BirdDetailComponent } from './components/bird-detail/bird-detail.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -43,7 +45,6 @@ const routes: Routes = [
   { path: 'update-password', component: UpdatePasswordComponent },
   { path: 'events', component: EventsComponent },
   { path: 'events/:id', component: EventDetailComponent },
-  { path: 'event-detail', component: EventDetailComponent },
   { path: 'admin', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile/:username', component: ProfileComponent },
@@ -54,6 +55,8 @@ const routes: Routes = [
   { path: 'staff-articles', component: StaffArticlesComponent },
   { path: 'staff-birds', component: StaffBirdsComponent },
   { path: 'staff-settings', component: StaffSettingsComponent },
+  { path: 'bird-detail', component: BirdDetailComponent },
+  { path: 'user-card', component: UserCardComponent },
   { path: '**', component: NotFoundComponent },
 ];
 

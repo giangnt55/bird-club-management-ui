@@ -9,15 +9,6 @@ Enjoy the code <3
               <div class="gradient"></div>
           </div>
       </div>
-               
-        <!-- <div class="profile-pic">
-            <label class="-label" for="file">
-            <span class="glyphicon glyphicon-camera"></span>
-            <span>Change Image</span>
-            </label>
-            <input id="file" type="file" onchange="loadFile(event)"/>
-            <img [src]="this.user?.avatar" id="output" width="200" />
-        </div> -->
       <div class="uh-right">
           <div class="user-info">
               <h3>
@@ -32,7 +23,7 @@ Enjoy the code <3
           </div>
           <div class="user-bio">
               <p class="user-bio-name">{{this.user?.username}}</p>
-              <p>The person has a strong love for birds.</p>
+              <p>{{this.user?.introduction}}</p>
           </div>
       </div>
   </div>
@@ -55,11 +46,4 @@ Enjoy the code <3
           </div>
     </div>
 </div>
-<!-- <div class="user-loader">
-  <div class="loader">
-      <svg class="circular" viewBox="25 25 50 50">
-          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
-      </svg>
-  </div>
-</div> -->
 <div class="space"></div>

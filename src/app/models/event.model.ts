@@ -13,6 +13,7 @@ export interface Event extends BaseDto {
   total_participants: number;
   total_feedback: number;
   average_rating: number;
+  is_joined: boolean;
 }
 
 export enum EventType {
@@ -27,8 +28,7 @@ export enum EventStatus {
   Ending = 4,
 }
 
-
-export interface EventCreateDto extends BaseDto{
+export interface EventCreateDto extends BaseDto {
   event_name: string;
   status: EventStatus;
   type: EventType;
@@ -43,7 +43,7 @@ export interface EventCreateDto extends BaseDto{
   evaluation_strategy: string;
 }
 
-export interface EventDetailDto extends BaseDto{
+export interface EventDetailDto extends BaseDto {
   event_name: string;
   status: EventStatus;
   type: EventType;

@@ -47,3 +47,12 @@ opacity: 0.8;
 .file-input {
     cursor: pointer;
 }
+
+.card-body {
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.content {
+    height: fit-content;
+}

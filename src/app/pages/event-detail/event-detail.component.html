@@ -24,59 +24,103 @@
       Fair
     </div>
     <div class="below-header">
-      <div class="nav-bar">
-        <ul>
-          <li><a class="active">Introduce</a></li>
-          <li><a>Feedback</a></li>
-        </ul>
+      <div class="btn-group">
+        <button class="button">Giới thiệu</button>
+        <button class="button">Thảo luận</button>
       </div>
       <div class="options">
-        <button type="button" class="btn btn-primary">Interested</button>
-        <button type="button" class="btn btn-primary">Join</button>
-        <button type="button" class="btn btn-primary">Invite</button>
-        <button type="button" class="btn btn-primary">Share</button>
+        <button class="button">Interested</button>
+        <button class="button">Join</button>
+        <button class="button">Invite</button>
+        <button class="button">Share</button>
       </div>
     </div>
     <div class="event-body">
-      <div class="introduce-card">
-        <div class="explain-bar">
-          <div class="explain-title">Detail</div>
-          <div class="explain-contents">
-            <i class="fa-solid fa-user"></i>
-            <div class="explain-subtitle">Event of VIFA ASEAN 2023 - Vietnam
-              ASEAN
-              International Furniture & Home Accessories Fair</div>
-          </div>
-          <div class="explain-contents">
-            <i class="fa-sharp fa-solid fa-location-dot"></i>
-            <div class="explain-subtitle">SECC Events - Saigon Exhibition and
-              Convention Center</div>
-          </div>
-          <div class="explain-contents">
-            <i class="fa-solid fa-clock"></i>
-            <div class="explain-subtitle">Khoảng thời gian: 4 ngày</div>
-          </div>
-          <div class="explain-contents">
-            <i class="fa-solid fa-earth-americas"></i>
-            <div class="explain-subtitle">Công khai · Bất kỳ ai ở trên</div>
+      <div class="left-side">
+        <!-- INTRODUCE -->
+        <div class="introduce-card">
+          <div class="explain-bar">
+            <div class="explain-title">Chi tiết</div>
+            <div class="explain-contents">
+              <i class="fa-solid fa-user"></i>
+              <div class="explain-subtitle">Event of VIFA ASEAN 2023 - Vietnam
+                ASEAN
+                International Furniture & Home Accessories Fair</div>
+            </div>
+            <div class="explain-contents">
+              <i class="fa-sharp fa-solid fa-location-dot"></i>
+              <div class="explain-subtitle">SECC Events - Saigon Exhibition and
+                Convention Center</div>
+            </div>
+            <div class="explain-contents">
+              <i class="fa-solid fa-clock"></i>
+              <div class="explain-subtitle">Khoảng thời gian: 4 ngày</div>
+            </div>
+            <div class="explain-contents">
+              <i class="fa-solid fa-earth-americas"></i>
+              <div class="explain-subtitle">Công khai · Bất kỳ ai ở trên</div>
+            </div>
+            <div class="overview-text">
+              <div class="overview-text-header">Overview</div>
+              <div class="overview-text-subheader">We believe that design (and
+                you) will be critical to the company's success. You will work
+                with our founders and our early customers to help define and
+                build our product functionality, while maintaining the quality
+                bar that customers have come to expect from modern SaaS
+                applications. You have a strong background in product design
+                with a quantitavely anf qualitatively analytical mindset. You
+                will also have the opportunity to craft our overall product
+                and visual identity and should be comfortable to flex into
+                working.</div>
+            </div>
           </div>
         </div>
-        <div class="overview-text">
-          <div class="overview-text-header">Overview</div>
-          <div class="overview-text-subheader">We believe that design (and
-            you) will be critical to the company's success. You will work
-            with our founders and our early customers to help define and
-            build our product functionality, while maintaining the quality
-            bar that customers have come to expect from modern SaaS
-            applications. You have a strong background in product design
-            with a quantitavely anf qualitatively analytical mindset. You
-            will also have the opportunity to craft our overall product
-            and visual identity and should be comfortable to flex into
-            working.</div>
+        <!-- CONTACT -->
+        <div class="event-contact">
+          <div class="explain-title">Liên hệ người tổ chức</div>
+          <div class="hover-contact-body">
+            <div class="contact-body">
+              <div class="avatar">
+                <img
+                  src="https://i.pinimg.com/originals/13/4b/2b/134b2b480df1469d9b9c5d82932fae41.jpg">
+              </div>
+              <div class="descript">
+                <p>Triều Đỗ</p>
+                <p>Mô tả</p>
+              </div>
+            </div>
+            <button class="btn btn-secondary"><i class="fa-solid fa-phone"></i>
+              Liên lạc</button>
+          </div>
         </div>
       </div>
-      <div class="detail-event">
-
+      <div class="right-side">
+        <!-- ADDRESS -->
+        <div class="address">
+          <div class="explain-title">Bản đồ</div>
+          <div class="maps">
+            <img
+              src="https://th.bing.com/th/id/R.7011ed42588da87a8ca7b566d4e1920a?rik=brtRX88v%2bhsJRg&riu=http%3a%2f%2fift.tt%2f2gdYTKJ&ehk=eoh4SKdmXCLExuMCyg2dAhcoHSWxmLl3zb2F%2fIVnS2g%3d&risl=&pid=ImgRaw&r=0">
+          </div>
+        </div>
+        <!-- PARTICIPANT -->
+        <div class="participant">
+          <div class="head-participant">
+            <div class="explain-title">Người tham gia</div>
+            <button class="btn btn-secondary" (click)="openParticipantsDialog()">Xem
+              chi tiết</button>
+          </div>
+          <div class="body-participant">
+            <div class="joined">
+              <span>4</span>
+              <span>SẼ THAM GIA</span>
+            </div>
+            <div class="interested">
+              <span>28</span>
+              <span>QUAN TÂM</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
