@@ -1,127 +1,34 @@
 <div class="event-explain">
-  <img class="event-bg" alt
-    src="https://th.bing.com/th/id/R.16426baaaee7a6c324ec0b78876131bb?rik=MKmqRqKATfK0HQ&pid=ImgRaw&r=0">
+  <img class="event-bg" alt [src]="this.event?.cover_image">
   <div class="event-explain-content">
     <div class="event-title-wrapper">
-      <div class="event-card-time">29 THÁNG 8 LÚC 09:00 – 1 THÁNG 9 LÚC 17:00</div>
-      <!-- <div class="event-action">
-          <svg class="heart" xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" class="feather feather-heart">
-            <path
-              d="M20.8 4.6a5.5 5.5 0 00-7.7 0l-1.1 1-1-1a5.5 5.5 0 00-7.8 7.8l1 1 7.8 7.8 7.8-7.7 1-1.1a5.5 5.5 0 000-7.8z" /></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-share-2"><circle cx="18" cy="5" r="3" /><circle
-              cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path
-              d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" /></svg>
-        </div> -->
+      <div class="event-card-time"> {{this.event?.start_date}} - {{this.event?.end_date}}</div>
     </div>
     <div class="event-subtitle-wrapper">
-      VIFA ASEAN 2023 - Vietnam ASEAN International Furniture & Home Accessories
-      Fair
+      {{this.event?.event_name}}
     </div>
-    <div class="below-header">
-      <div class="btn-group">
-        <button class="button">Giới thiệu</button>
-        <button class="button">Thảo luận</button>
+
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+          role="tab" aria-controls="nav-home" aria-selected="true">Thông tin</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+          role="tab" aria-controls="nav-profile" aria-selected="false">Thảo luận</button>
+        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
+          role="tab" aria-controls="nav-contact" aria-selected="false">Thông tin liên hệ</button>
       </div>
-      <div class="options">
-        <button class="button">Interested</button>
-        <button class="button">Join</button>
-        <button class="button">Invite</button>
-        <button class="button">Share</button>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...
+
       </div>
-    </div>
-    <div class="event-body">
-      <div class="left-side">
-        <!-- INTRODUCE -->
-        <div class="introduce-card">
-          <div class="explain-bar">
-            <div class="explain-title">Chi tiết</div>
-            <div class="explain-contents">
-              <i class="fa-solid fa-user"></i>
-              <div class="explain-subtitle">Event of VIFA ASEAN 2023 - Vietnam
-                ASEAN
-                International Furniture & Home Accessories Fair</div>
-            </div>
-            <div class="explain-contents">
-              <i class="fa-sharp fa-solid fa-location-dot"></i>
-              <div class="explain-subtitle">SECC Events - Saigon Exhibition and
-                Convention Center</div>
-            </div>
-            <div class="explain-contents">
-              <i class="fa-solid fa-clock"></i>
-              <div class="explain-subtitle">Khoảng thời gian: 4 ngày</div>
-            </div>
-            <div class="explain-contents">
-              <i class="fa-solid fa-earth-americas"></i>
-              <div class="explain-subtitle">Công khai · Bất kỳ ai ở trên</div>
-            </div>
-            <div class="overview-text">
-              <div class="overview-text-header">Overview</div>
-              <div class="overview-text-subheader">We believe that design (and
-                you) will be critical to the company's success. You will work
-                with our founders and our early customers to help define and
-                build our product functionality, while maintaining the quality
-                bar that customers have come to expect from modern SaaS
-                applications. You have a strong background in product design
-                with a quantitavely anf qualitatively analytical mindset. You
-                will also have the opportunity to craft our overall product
-                and visual identity and should be comfortable to flex into
-                working.</div>
-            </div>
-          </div>
-        </div>
-        <!-- CONTACT -->
-        <div class="event-contact">
-          <div class="explain-title">Liên hệ người tổ chức</div>
-          <div class="hover-contact-body">
-            <div class="contact-body">
-              <div class="avatar">
-                <img
-                  src="https://i.pinimg.com/originals/13/4b/2b/134b2b480df1469d9b9c5d82932fae41.jpg">
-              </div>
-              <div class="descript">
-                <p>Triều Đỗ</p>
-                <p>Mô tả</p>
-              </div>
-            </div>
-            <button class="btn btn-secondary"><i class="fa-solid fa-phone"></i>
-              Liên lạc</button>
-          </div>
-        </div>
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">.dsada..
+
       </div>
-      <div class="right-side">
-        <!-- ADDRESS -->
-        <div class="address">
-          <div class="explain-title">Bản đồ</div>
-          <div class="maps">
-            <img
-              src="https://th.bing.com/th/id/R.7011ed42588da87a8ca7b566d4e1920a?rik=brtRX88v%2bhsJRg&riu=http%3a%2f%2fift.tt%2f2gdYTKJ&ehk=eoh4SKdmXCLExuMCyg2dAhcoHSWxmLl3zb2F%2fIVnS2g%3d&risl=&pid=ImgRaw&r=0">
-          </div>
-        </div>
-        <!-- PARTICIPANT -->
-        <div class="participant">
-          <div class="head-participant">
-            <div class="explain-title">Người tham gia</div>
-            <button class="btn btn-secondary" (click)="openParticipantsDialog()">Xem
-              chi tiết</button>
-          </div>
-          <div class="body-participant">
-            <div class="joined">
-              <span>4</span>
-              <span>SẼ THAM GIA</span>
-            </div>
-            <div class="interested">
-              <span>28</span>
-              <span>QUAN TÂM</span>
-            </div>
-          </div>
-        </div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">..dddddddd.
+
       </div>
     </div>
   </div>
+
 </div>
