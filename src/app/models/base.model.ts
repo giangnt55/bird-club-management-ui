@@ -3,7 +3,7 @@ export interface AccountCreator {
   fullname: string;
   username: string;
   email: string;
-  phonenumber: string;
+  phone_number: string;
   avatar: string;
 }
 

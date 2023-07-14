@@ -14,11 +14,19 @@ export interface Event extends BaseDto {
   total_feedback: number;
   average_rating: number;
   is_joined: boolean;
+  type: number;
+  host_type: number;
+  status: number;
 }
 
 export enum EventType {
-  Competition = 1,
-  Entertainment = 2,
+  Information = 1,
+  Competition = 2,
+}
+
+export enum EventHostType {
+  Offline = 1,
+  Online = 2,
 }
 
 export enum EventStatus {

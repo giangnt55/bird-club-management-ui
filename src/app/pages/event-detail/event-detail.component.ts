@@ -64,6 +64,40 @@ export class EventDetailComponent implements OnInit, OnDestroy {
     }
   }
 
+  getStatusLabel(status: number | undefined): string {
+    if (status === undefined) {
+      return '';
+    }
+
+    switch (status) {
+      case 1:
+        return 'Upcoming';
+      case 2:
+        return 'Happening';
+      case 3:
+        return 'Cancelled';
+      case 4:
+        return 'Ending';
+      default:
+        return '';
+    }
+  }
+
+  getHostTypeLabel(host_type: number | undefined): string {
+    if (host_type === undefined) {
+      return '';
+    }
+
+    switch (host_type) {
+      case 1:
+        return 'Offline';
+      case 2:
+        return 'Online';
+      default:
+        return '';
+    }
+  }
+
   ngOnDestroy() {
     if (this.subscription) {
       this.subscription.unsubscribe();

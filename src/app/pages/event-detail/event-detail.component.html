@@ -2,14 +2,14 @@
   <img class="event-bg" alt [src]="this.event?.cover_image">
   <div class="event-explain-content">
     <div class="event-title-wrapper">
-      <div class="event-card-time"> {{this.event?.start_date}} - {{this.event?.end_date}}</div>
+      <div class="" style="margin-top: 10px;"> {{this.event?.start_date}} - {{this.event?.end_date}}</div>
     </div>
     <div class="event-subtitle-wrapper">
       {{this.event?.event_name}}
     </div>
 
     <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin-bottom: 20px;">
         <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
           role="tab" aria-controls="nav-home" aria-selected="true">Thông tin</button>
         <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
@@ -19,14 +19,72 @@
       </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...
-
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <p><b>Mô tả: </b>{{ event?.description }}</p>
+        <p><b>Trạng thái: </b>{{ getStatusLabel(event?.status) }}</p>
+        <p><b>Vị trí: </b>{{ event?.location }}</p>
+        <p><b>Hình thức: </b>{{ getHostTypeLabel(event?.host_type) }}</p>
+        <p><b>Điều kiện tham gia: </b>{{ event?.prerequisite }}</p>
+        <p><b>Dự kiến tham gia: </b>{{ event?.min_participants }} - {{ event?.max_participants }} người</p>
       </div>
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">.dsada..
+      
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+          <!--Section: Comments-->
+    <section class="border-bottom mb-3">
 
+      <!-- Comment -->
+      <div class="row mb-4">
+        <div class="col-1">
+          <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(24).jpg"
+            class="img-fluid shadow-1-strong rounded-5" alt="" />
+        </div>
+
+        <div class="col-11">
+          <p class="mb-2"><strong>Marta Dolores</strong></p>
+          <p style="margin-bottom: 0px;"><i class="fa fa-star" style="color: #fd0;"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i></p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio est ab iure
+            inventore dolorum consectetur? Molestiae aperiam atque quasi consequatur aut?
+            Repellendus alias dolor ad nam, soluta distinctio quis accusantium!
+          </p>
+        </div>
       </div>
-      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">..dddddddd.
 
+     
+    </section>
+        <form>
+          <div class="mb-3">
+            <textarea class="form-control" id="feedback" rows="3" placeholder="Enter your feedback" required></textarea>
+          </div>
+          
+          <div id="full-stars-example-two">
+            <label for="rating-group" class="form-label">Rating: </label>
+              <div class="rating-group">
+                  <input disabled checked class="rating__input rating__input--none" name="rating3" id="rating3-none" value="0" type="radio">
+                  <label aria-label="1 star" class="rating__label" for="rating3-1"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="rating3" id="rating3-1" value="1" type="radio">
+                  <label aria-label="2 stars" class="rating__label" for="rating3-2"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="rating3" id="rating3-2" value="2" type="radio">
+                  <label aria-label="3 stars" class="rating__label" for="rating3-3"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="rating3" id="rating3-3" value="3" type="radio">
+                  <label aria-label="4 stars" class="rating__label" for="rating3-4"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="rating3" id="rating3-4" value="4" type="radio">
+                  <label aria-label="5 stars" class="rating__label" for="rating3-5"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                  <input class="rating__input" name="rating3" id="rating3-5" value="5" type="radio">
+              </div>
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+      </div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <p><b>Người tổ chức: </b>{{ event?.creator?.fullname }}</p>
+        <p><b>Số điện thoại: </b>{{ event?.creator?.email }}</p>
+        <p><b>Người tổ chức: </b>{{ event?.creator?.phone_number }}</p>
       </div>
     </div>
   </div>
