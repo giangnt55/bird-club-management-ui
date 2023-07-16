@@ -10,7 +10,7 @@ export interface Event extends BaseDto {
   end_date: Date;
   location: string;
   prerequisite: string;
-  total_participants: number;
+  total_participant: number;
   total_feedback: number;
   average_rating: number;
   is_joined: boolean;

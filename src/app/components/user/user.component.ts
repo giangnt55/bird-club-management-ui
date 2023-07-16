@@ -39,6 +39,7 @@ export class UserComponent {
     this.followService.create(createFollow).subscribe(
       (response) => {
         this.followed = true;
+        this.toastr.success('Followed');
       },
       (error) => {
         // Handle error during post creation

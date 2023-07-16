@@ -95,4 +95,14 @@ export class FollowService {
       })
     );
   }
+
+  delete(follow: CreateFollowDto): Observable<any> {
+    return this.httpClient
+      .delete<NoDataResponse>(`${this.BASE_URL}/${follow.follow_to}`)
+      .pipe(
+        map((response: NoDataResponse) => {
+          return response;
+        })
+      );
+  }
 }
