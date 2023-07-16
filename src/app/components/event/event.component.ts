@@ -45,24 +45,26 @@ export class EventComponent implements OnInit, OnDestroy {
   joinEvent(eventId: string) {
     this.participantService.joinEvent(eventId).subscribe(
       (response) => {
-        this.changeDetectorRef.detectChanges(); // Manually trigger change detection to update the UI
+        this.toastr.success('Followed successfully');
+        this.event.is_joined = true;
+        this.event.total_participant++;
+        this.changeDetectorRef.detectChanges();
       },
       (error) => {
-        // Handle the error here
-        // For example, display an error message or perform error handling tasks
         this.toastr.error(error.error.message, 'Error');
       }
     );
   }
 
   outEvent(eventId: string) {
-    this.participantService.joinEvent(eventId).subscribe(
+    this.participantService.outEvent(eventId).subscribe(
       (response) => {
-        this.changeDetectorRef.detectChanges(); // Manually trigger change detection to update the UI
+        this.toastr.success('Unfollowed successfully');
+        this.event.is_joined = false;
+        this.event.total_participant--;
+        this.changeDetectorRef.detectChanges();
       },
       (error) => {
-        // Handle the error here
-        // For example, display an error message or perform error handling tasks
         this.toastr.error(error.error.message, 'Error');
       }
     );

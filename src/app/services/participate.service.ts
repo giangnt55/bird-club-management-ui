@@ -28,4 +28,14 @@ export class ParticipateService {
       })
     );
   }
+
+  outEvent(event_id: string): Observable<any> {
+    return this.httpClient
+      .delete<NoDataResponse>(`${this.BASE_URL}/${event_id}`)
+      .pipe(
+        map((response: NoDataResponse) => {
+          return response;
+        })
+      );
+  }
 }
