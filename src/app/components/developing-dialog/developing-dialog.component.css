@@ -1,0 +1,12 @@
+.announcement-container {
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .announcement-text {
+    font-size: 20px;
+    font-weight: bold;
+  }

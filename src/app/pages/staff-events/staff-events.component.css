@@ -1,0 +1,7 @@
+.max-width-col {
+    max-width: 300px; /* Adjust the desired maximum width */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  

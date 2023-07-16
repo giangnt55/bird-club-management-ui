@@ -6,8 +6,8 @@
     </div>
     <div class="event-subtitle-wrapper">
       {{this.event?.event_name}}
-      <button *ngIf="!this.event?.is_joined" class="btn btn-primary btn-sm">Quan tâm</button>
-      <button *ngIf="this.event?.is_joined" class="btn btn-primary btn-sm">Hủy theo dõi</button>
+      <button (click)="joinEvent(this.event.id)" *ngIf="!this.event?.is_joined" class="btn btn-primary btn-sm">Quan tâm</button>
+      <button (click)="outEvent(this.event.id)" *ngIf="this.event?.is_joined" class="btn btn-secondary btn-sm">Hủy theo dõi</button>
     </div>
 
     <nav>

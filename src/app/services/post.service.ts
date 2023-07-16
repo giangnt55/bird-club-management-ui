@@ -10,6 +10,7 @@ import {
 } from 'src/app/models/paging.model';
 import { map } from 'rxjs/operators';
 import { BaseResponse, NoDataResponse } from '../models/auth.model';
+import { AdminPagingParam } from '../models/dashboard.model';
 
 @Injectable({
   providedIn: 'root',
@@ -22,8 +23,12 @@ export class PostService {
 
   constructor(private httpClient: HttpClient, private toastr: ToastrService) {}
 
-  getPosts(paging: BasePaginationParam): Observable<any> {
+  getPosts(paging: AdminPagingParam): Observable<any> {
     let params = new HttpParams();
+
+    if (paging.keyword !== null) {
+      params = params.set('keyword', paging.keyword);
+    }
 
     if (paging.page !== null) {
       params = params.set('page', paging.page);

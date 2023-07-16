@@ -1,8 +1,8 @@
 export interface PaginationResponse<T> {
-  totalItems: number;
-  totalPages: number;
-  currentPage: number;
-  pageSize: number;
+  total_count: number;
+  total_pages: number | any;
+  offset: number;
+  page_size: number;
   data: T[];
 }
 
