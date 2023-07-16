@@ -34,7 +34,6 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { CreateArticleComponent } from './components/create-article/create-article.component';
 import { NewsCreateComponent } from './pages/news-create/news-create.component';
 import { ListNewsComponent } from './pages/list-news/list-news.component';
-import { TestComponent } from './pages/test/test.component';
 import { NewsItemComponent } from './components/news-item/news-item.component';
 import { HotNewsComponent } from './components/hot-news/hot-news.component';
 import { ChatsComponent } from './pages/chats/chats.component';
@@ -65,7 +64,6 @@ import { DatePipe } from '@angular/common';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
-import { UsersTableComponent } from './components/users-table/users-table.component';
 import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
 import { StaffSidebarComponent } from './components/staff-sidebar/staff-sidebar.component';
 import { StaffNavbarComponent } from './components/staff-navbar/staff-navbar.component';
@@ -76,6 +74,12 @@ import { StaffArticlesComponent } from './pages/staff-articles/staff-articles.co
 import { StaffBirdsComponent } from './pages/staff-birds/staff-birds.component';
 import { StaffSettingsComponent } from './pages/staff-settings/staff-settings.component';
 import { PostsTableComponent } from './components/posts-table/posts-table.component';
+import { ParticipantListComponent } from './components/participant-list/participant-list.component';
+import { ReportMenuComponent } from './components/report-menu/report-menu.component';
+import { DeleteDialogComponent } from './components/delete-dialog/delete-dialog.component';
+import { BirdDetailComponent } from './components/bird-detail/bird-detail.component';
+import { DevelopingDialogComponent } from './components/developing-dialog/developing-dialog.component';
+import { DeleteConfirmDialogComponent } from './components/delete-confirm-dialog/delete-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +99,6 @@ import { PostsTableComponent } from './components/posts-table/posts-table.compon
     CreateArticleComponent,
     NewsCreateComponent,
     ListNewsComponent,
-    TestComponent,
     NewsItemComponent,
     HotNewsComponent,
     ChatsComponent,
@@ -125,7 +128,6 @@ import { PostsTableComponent } from './components/posts-table/posts-table.compon
     NotFoundComponent,
     AdminSidebarComponent,
     AdminNavbarComponent,
-    UsersTableComponent,
     AdminUsersComponent,
     StaffSidebarComponent,
     StaffNavbarComponent,
@@ -136,6 +138,12 @@ import { PostsTableComponent } from './components/posts-table/posts-table.compon
     StaffBirdsComponent,
     StaffSettingsComponent,
     PostsTableComponent,
+    ParticipantListComponent,
+    ReportMenuComponent,
+    DeleteDialogComponent,
+    BirdDetailComponent,
+    DevelopingDialogComponent,
+    DeleteConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,

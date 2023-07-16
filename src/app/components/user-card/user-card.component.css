@@ -1,5 +1,26 @@
-.user-image-small {
-    width: 50px;
-    height: 50px;
-    border: solid 1px rgb(75, 75, 75);
+/* 
+.card{
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 500px;
+  height: 800px;
+  margin: auto;
 }
+
+img{
+  margin-bottom: 30px;
+}
+
+
+.information {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+  border-bottom: solid 1px rgb(107, 105, 105);
+}
+
+.index {
+  margin-right: 10px;
+}
+ */

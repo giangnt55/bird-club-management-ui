@@ -2,64 +2,59 @@
 Enjoy the code <3
 -->
 <div class="user-header-wrapper" style="margin-top: 10px;">
-  <div class="user-header-inner">
-      <div class="uh-left">
-          <div class="uh-image">
-              <img class="uh-image-inner" [src]="this.user?.avatar" alt="">
-              <div class="gradient"></div>
-          </div>
-      </div>
-               
-        <!-- <div class="profile-pic">
-            <label class="-label" for="file">
-            <span class="glyphicon glyphicon-camera"></span>
-            <span>Change Image</span>
-            </label>
-            <input id="file" type="file" onchange="loadFile(event)"/>
-            <img [src]="this.user?.avatar" id="output" width="200" />
-        </div> -->
-      <div class="uh-right">
-          <div class="user-info">
-              <h3>
-                  {{this.user?.fullname}}
-              </h3>
-              <button class="btn btn-secondary" [routerLink]="['/update-profile']"><i class="fa fa-cog" aria-hidden="true"></i>  Edit Profile</button>
-          </div>
-          <div class=user-links>
-              <a><span>{{this.user?.total_post}}</span> Posts</a>
-              <a (click)="this.getFollowers(this.user?.id)"><span>{{this.user?.total_follower}}</span> Followers</a>
-              <a (click)="this.getFollowings(this.user?.id)">Following <span>{{this.user?.total_following}}</span></a>
-          </div>
-          <div class="user-bio">
-              <p class="user-bio-name">{{this.user?.username}}</p>
-              <p>The person has a strong love for birds.</p>
-          </div>
-      </div>
-  </div>
+    <div class="user-header-inner">
+        <div class="uh-left">
+            <div class="uh-image">
+                <img class="uh-image-inner" [src]="this.user?.avatar" alt="">
+                <div class="gradient"></div>
+            </div>
+        </div>
+        <div class="uh-right">
+            <div class="user-info">
+                <h3>
+                    {{this.user?.fullname}}
+                </h3>
+                <button *ngIf="this.loggedInAccount.id === this.user?.id" class="btn btn-secondary"
+                    [routerLink]="['/update-profile']"><i class="fa fa-cog" aria-hidden="true"></i> Edit
+                    Profile</button>
+                <button *ngIf="(loggedInAccount.id !== user?.id) && (user?.is_followed_by_logged_in_user !== false)"
+                    class="btn" (click)="unFollowClick(user?.id)">Unfollow</button>
+                <button *ngIf="(loggedInAccount.id !== user?.id) && (user?.is_followed_by_logged_in_user === false)"
+                    class="btn" (click)="followClick(user?.id)">Follow</button>
+
+            </div>
+            <div class=user-links>
+                <a><span>{{this.user?.total_post}}</span> Posts</a>
+                <a (click)="this.getFollowers(this.user?.id)"><span>{{this.user?.total_follower}}</span> Followers</a>
+                <a (click)="this.getFollowings(this.user?.id)">Following <span>{{this.user?.total_following}}</span></a>
+            </div>
+            <div class="user-bio">
+                <p class="user-bio-name">{{this.user?.username}}</p>
+                <p>{{this.user?.introduction}}</p>
+                <div *ngIf="!user?.introduction" class="NoPosts">
+                    <p>Not have bio yet!</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="row justify-content-center">
- <hr style="width: 78%; margin-top: 10px;">
+    <hr style="width: 78%; margin-top: 10px;">
 </div>
 <div class="user-page-wrapper">
     <div class="user-page-inner">
         <div id="imgblock1" class="image-block">
             <div class="block">
-                <img class="image"
-                    src=""
-                    alt="">
+                <img class="image" src="" alt="">
             </div>
             <div id="imgblockbc1" class="block-background"></div>
         </div>
+        <div *ngIf="!(posts && posts.length > 0)" class="NoPosts">
+            <p>Not have any post yet!</p>
+        </div>
         <div *ngFor="let post of posts" class="post">
             <app-profile-post [post]="post"></app-profile-post>
-          </div>
+        </div>
     </div>
 </div>
-<!-- <div class="user-loader">
-  <div class="loader">
-      <svg class="circular" viewBox="25 25 50 50">
-          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
-      </svg>
-  </div>
-</div> -->
 <div class="space"></div>

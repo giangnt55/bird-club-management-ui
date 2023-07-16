@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -21,7 +21,7 @@ import { UsersService } from 'src/app/services/users.service';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit, OnDestroy {
   posts: Post[] = [];
   followers: Follower[] = [];
   followings: Following[] = [];
@@ -47,10 +47,11 @@ export class ProfileComponent implements OnInit {
       this.loggedInAccount = JSON.parse(storedAccountInfo);
     }
 
-    this.username = this.route.snapshot.paramMap.get('username');
-
-    this.getPostsByUsername();
-    this.getUserInfor();
+    this.subscription = this.route.params.subscribe((params) => {
+      this.username = params['username'];
+      this.getPostsByUsername();
+      this.getUserInfor();
+    });
   }
 
   getPostsByUsername() {
@@ -161,5 +162,47 @@ export class ProfileComponent implements OnInit {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
+  }
+
+  followClick(userId: any) {
+    const createFollow = {
+      follow_to: userId,
+    };
+
+    this.followService.create(createFollow).subscribe(
+      (response) => {
+        if (this.user) {
+          this.user.is_followed_by_logged_in_user = true;
+          this.user.total_follower++;
+          this.changeDetectorRef.detectChanges();
+          this.toastr.success('Followed');
+        }
+      },
+      (error) => {
+        // Handle error during follow operation
+        this.toastr.error('Failed to follow this user');
+      }
+    );
+  }
+
+  unFollowClick(userId: any) {
+    const createFollow = {
+      follow_to: userId,
+    };
+
+    this.followService.delete(createFollow).subscribe(
+      (response) => {
+        if (this.user) {
+          this.user.is_followed_by_logged_in_user = false;
+          this.user.total_follower--;
+          this.toastr.success('Unfollowed');
+          this.changeDetectorRef.detectChanges();
+        }
+      },
+      (error) => {
+        // Handle error during follow operation
+        this.toastr.error(error.error.message);
+      }
+    );
   }
 }

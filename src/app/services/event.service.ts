@@ -9,6 +9,7 @@ import {
   BasePaginationParam,
   PaginationResponse,
 } from '../models/paging.model';
+import { AdminPagingParam } from '../models/dashboard.model';
 
 @Injectable({
   providedIn: 'root',
@@ -19,8 +20,12 @@ export class EventService {
 
   constructor(private httpClient: HttpClient, private toastr: ToastrService) {}
 
-  getEvents(paging: BasePaginationParam): Observable<any> {
+  getEvents(paging: AdminPagingParam): Observable<any> {
     let params = new HttpParams();
+
+    if (paging.keyword !== null) {
+      params = params.set('keyword', paging.keyword);
+    }
 
     if (paging.page !== null) {
       params = params.set('page', paging.page);
@@ -45,7 +50,7 @@ export class EventService {
   }
 
   getEvent(id: string): Observable<any> {
-    const url = `${this.apiUrl}/events/${id}`;
+    const url = `${this.GET_URL}/${id}`;
     return this.httpClient.get<BaseResponse<EventDetailDto>>(url).pipe(
       map((response: BaseResponse<EventDetailDto>) => {
         return response.data;

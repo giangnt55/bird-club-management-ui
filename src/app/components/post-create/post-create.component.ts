@@ -114,6 +114,7 @@ export class PostCreateComponent implements OnInit {
             console.log('Post created:', response);
             this.cancelPreviewImage();
             this.toastr.success('Post created successfully');
+            window.location.reload();
           },
           (error) => {
             // Handle error during post creation

@@ -7,23 +7,27 @@
     </div>
     <!-- Place your large image of a bird here -->
     <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-      <form>
+      <form (ngSubmit)="register()" #registerForm="ngForm" autocomplete="off">
         <div class="container">
-          <h1>Sign Up</h1>
+          <h3>Sign Up</h3>
           <p>Please fill in this form to create an account.</p>
 
+          <label for="email"><b>Fullname</b></label>
+          <input type="text" name="fullname" [(ngModel)]="registerDto.fullname" placeholder="Enter Fullname" required>
+
           <label for="email"><b>Username</b></label>
-          <input type="text" name="username" placeholder="Enter Username" required>
+          <input type="text" name="username" [(ngModel)]="registerDto.username" placeholder="Enter Username" required>
+
           <label for="email"><b>Email</b></label>
-          <input type="text" placeholder="Enter Email" name="email" required>
+          <input type="text" placeholder="Enter Email" name="email" [(ngModel)]="registerDto.email" required>
 
           <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <input type="password" placeholder="Enter Password" name="password" [(ngModel)]="registerDto.password" required>
 
           <label for="phone_number"><b>Phone Number</b></label>
           <br>
 
-          <input type="text" placeholder="Enter Phone Number" name="phone_number" required>
+          <input type="text" placeholder="Enter Phone Number" name="phone_number" [(ngModel)]="registerDto.phone_number" required>
 
           <div class="d-flex align-items-center">
             <div class="form-check">
@@ -37,7 +41,7 @@
 
           <div class="clearfix">
 
-            <button type="submit" class="btn btn-submit">Sign Up</button>
+            <button type="submit" class="btn btn-submit btn-sm">Sign Up</button>
           </div>
         </div>
 

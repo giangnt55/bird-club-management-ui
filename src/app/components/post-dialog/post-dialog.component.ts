@@ -109,7 +109,6 @@ export class PostDialogComponent implements OnInit, OnDestroy {
     }
 
     const formattedDate = dateTime.toISOString();
-    console.log('this not null: ', this.timeService.getTimeAgo(formattedDate));
     return this.timeService.getTimeAgo(formattedDate);
   }
 
@@ -127,8 +126,6 @@ export class PostDialogComponent implements OnInit, OnDestroy {
       post_id: this.comment == null ? this.post.id : null,
       reply_to: this.comment == null ? null : this.comment.id,
     };
-
-    console.log(comment);
 
     this.commentService.comment(comment).subscribe(
       (response) => {
@@ -159,4 +156,14 @@ export class PostDialogComponent implements OnInit, OnDestroy {
       }
     });
   }
+
+  // convertToVNTimeZone(date: Date | null | undefined): any {
+  //   if (date === null) {
+  //     return null;
+  //   }
+  //   if (!(date instanceof Date)) {
+  //     return date as Date;
+  //   }
+  //   return date.toLocaleString();
+  // }
 }

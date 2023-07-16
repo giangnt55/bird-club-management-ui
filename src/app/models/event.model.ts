@@ -10,14 +10,23 @@ export interface Event extends BaseDto {
   end_date: Date;
   location: string;
   prerequisite: string;
-  total_participants: number;
+  total_participant: number;
   total_feedback: number;
   average_rating: number;
+  is_joined: boolean;
+  type: number;
+  host_type: number;
+  status: number;
 }
 
 export enum EventType {
-  Competition = 1,
-  Entertainment = 2,
+  Information = 1,
+  Competition = 2,
+}
+
+export enum EventHostType {
+  Offline = 1,
+  Online = 2,
 }
 
 export enum EventStatus {
@@ -27,8 +36,7 @@ export enum EventStatus {
   Ending = 4,
 }
 
-
-export interface EventCreateDto extends BaseDto{
+export interface EventCreateDto extends BaseDto {
   event_name: string;
   status: EventStatus;
   type: EventType;
@@ -43,7 +51,7 @@ export interface EventCreateDto extends BaseDto{
   evaluation_strategy: string;
 }
 
-export interface EventDetailDto extends BaseDto{
+export interface EventDetailDto extends BaseDto {
   event_name: string;
   status: EventStatus;
   type: EventType;

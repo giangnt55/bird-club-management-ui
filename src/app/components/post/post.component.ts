@@ -7,12 +7,13 @@ import {
 } from '@angular/core';
 import { Post } from 'src/app/models/post.model';
 import { PostDialogComponent } from '../post-dialog/post-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 import { CommentService } from 'src/app/services/comment.service';
 import { CommentCreate } from 'src/app/models/comment.model';
 import { LikeService } from 'src/app/services/like.service';
 import { MenuDialogComponent } from 'src/app/menu-dialog/menu-dialog.component';
+import { DeleteDialogComponent } from '../delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-post',
@@ -25,6 +26,7 @@ export class PostComponent implements OnInit, OnDestroy {
   private subscription!: Subscription;
   private likeSubscription: Subscription | undefined;
   commentContent: string = '';
+  loggedInAccount!: any | null;
 
   @Input() post!: Post;
 
@@ -35,7 +37,13 @@ export class PostComponent implements OnInit, OnDestroy {
     private changeDetectorRef: ChangeDetectorRef
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // Retrieve the stored account information from session storage
+    const storedAccountInfo = sessionStorage.getItem('account_infor');
+    if (storedAccountInfo) {
+      this.loggedInAccount = JSON.parse(storedAccountInfo);
+    }
+  }
 
   ngOnDestroy() {
     if (this.subscription) {
@@ -48,8 +56,6 @@ export class PostComponent implements OnInit, OnDestroy {
 
   likePost() {
     if (this.post.is_liked) {
-      // Post already liked, implement the logic to unlike the post
-      console.log('Post Unliked');
       // Call the API to unlike the post
       this.likeSubscription = this.likeService
         .unlike({ post_id: this.post.id, comment_id: null })
@@ -68,8 +74,6 @@ export class PostComponent implements OnInit, OnDestroy {
           }
         );
     } else {
-      // Post not liked, implement the logic to like the post
-      console.log('Post Liked');
       // Call the API to like the post
       this.likeSubscription = this.likeService
         .like({ post_id: this.post.id, comment_id: null })
@@ -131,14 +135,14 @@ export class PostComponent implements OnInit, OnDestroy {
   }
 
   openMenuDialog(): void {
-    const dialogRef = this.dialog.open(MenuDialogComponent);
+    const dialogConfig: MatDialogConfig = {
+      data: { targetId: this.post.id },
+    };
 
-    dialogRef.afterClosed().subscribe((result: string | undefined) => {
-      if (result === 'report') {
-        // Handle report option
-      } else if (result === 'cancel') {
-        // Handle cancel option
-      }
-    });
+    if (this.post.creator?.id === this.loggedInAccount.id) {
+      const dialogRef = this.dialog.open(DeleteDialogComponent, dialogConfig);
+    } else {
+      const dialogRef = this.dialog.open(MenuDialogComponent, dialogConfig);
+    }
   }
 }

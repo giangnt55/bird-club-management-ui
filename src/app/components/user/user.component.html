@@ -17,7 +17,7 @@
     <i class="uil uil-profile">
     </i>
     <div class="right-content">
-        <div class="comment-content"  [routerLink]="['/', user?.username]">
+        <div class="comment-content" [routerLink]="['/profile/', user?.username]">
             <span class="username">{{user?.username}}</span>
             <div class="fullname">{{user?.fullname}}</div>
         </div>

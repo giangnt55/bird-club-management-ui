@@ -1,6 +1,6 @@
 <div class="container main-content">
   <h3 class="fw-bold">Khám phá sự kiện</h3>
-  
+
   <div class="filter-options d-flex" style="margin-left: 30px; margin-top: 10px;">
     <div class="input-group" style="width: 200px;">
       <select id="date-filter" class="form-select" [(ngModel)]="selectedDateOption" (ngModelChange)="updateSelectedDate()">
@@ -13,14 +13,14 @@
       </label>
     </div>
 
-    <div class="form-check mt-3" style="margin-top: 0 !important;">
-      <a class="btn btn-secondary" type="button" id="followed-filter" [(ngModel)]="isFollowed">Đang theo dõi</a>
+    <div class="form-check mt-3" style="margin-top: 0 !important;" (click)="updateFollowedFilter()">
+      <a class="btn" type="button" id="followed-filter" [class.btn-secondary]="!isFollowed" [class.btn-primary]="isFollowed" [(ngModel)]="isFollowed">Đang theo dõi</a>
     </div>
+    
   </div>
-   
 
   <div class="events">
-    <div class="mb-4 card" *ngFor="let event of events">
+    <div class="mb-4 card" *ngFor="let event of filteredEvents">
       <app-event class="event-card" [event]="event"></app-event>
     </div>
   </div>

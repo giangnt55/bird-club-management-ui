@@ -1,0 +1,102 @@
+.page-title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  width: 75%;
+}
+
+.card{
+  height: 750px;
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
+img{
+  border-radius: 8px;
+}
+
+.navbar li {
+  width: auto;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.navbar a {
+  display: inline-block;
+  color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navbar li.active {
+  border-bottom: solid 2px black;
+}
+
+/* .content-sections {
+  margin-top: 0;
+} */
+
+.content-section {
+  height: 100vh; /* Set the height to take up the full screen */
+  overflow: hidden;
+}
+
+.content-wrapper {
+  height: 100%;
+  padding-top: 30px; /* Adjust the padding based on the navbar height */
+  padding-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.content-section.active .content-wrapper {
+  padding-top: 0;
+}
+
+.content-section h2 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.body-option1 {
+  display: flex;
+  flex-direction: row;
+}
+
+.body-option1 .infomation {
+  margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  font-size: 50px;
+  font: bold;
+}
+
+.line {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  border: solid 1px black;
+}
+
+.age{
+  font-size: 20px;
+  padding: 10px;
+}
+
+.index{
+  color: rgb(9, 188, 33);
+}

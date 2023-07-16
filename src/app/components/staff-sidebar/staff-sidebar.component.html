@@ -1,84 +1,66 @@
 <!-- Sidebar -->
 <ul class="navbar-nav sidebar accordion" id="accordionSidebar">
 
-    <header class="sidebar-header">
-     <img
-       src="../../../assets/img/choichim.png"
-       class="logo-img">
-     <i class="logo-icon uil uil-instagram"></i>
-   </header>    
-  
-  <!-- Divider -->
-  <hr class="sidebar-divider">
-  
-  <!-- Heading -->
-  <div class="sidebar-heading">
-     Quản lý
-  </div>
-  
-  <!-- Nav Item - Charts -->
-  <li class="nav-item">
-    <a class="nav-link"  [routerLink]="'/admin-users'">
-        <i class="fa fa-file-text" aria-hidden="true"></i>
-        <span> Bài viết</span></a>
- 
- </li>
+   <header class="sidebar-header">
+      <img src="../../../assets/img/choichim.png" class="logo-img">
+      <i class="logo-icon uil uil-instagram"></i>
+   </header>
 
- <li class="nav-item">
-    <a class="nav-link"  [routerLink]="'/admin-users'">
-        <i class="fa fa-calendar" aria-hidden="true"></i>
-        <span> Sự kiện</span></a>
- 
- </li>
+   <!-- Divider -->
+   <hr class="sidebar-divider">
 
-
- <li class="nav-item">
-    <a class="nav-link"  [routerLink]="'/admin-users'">
-        <i class="fa fa-newspaper" aria-hidden="true"></i>
-        <span> Tin tức</span></a>
- 
- </li>
-
- <li class="nav-item">
-    <a class="nav-link"  [routerLink]="'/admin-users'">
-        <i class="fa fa-info-circle" aria-hidden="true"></i>
-        <span> Thông tin</span></a>
- 
- </li>
-   <!-- Nav Item - Charts -->
-  <!-- <li class="nav-item">
-     <a class="nav-link">
-         <i class="fa fa-calendar" aria-hidden="true"></i>
-         <span> Events</span></a>
-  
-  </li> -->
-  
-  <!-- Divider -->
-  <hr class="sidebar-divider">
-  
-  <!-- Heading -->
-  <div class="sidebar-heading">
-     Khác
-  </div>
-  
-  <!-- Nav Item - Utilities Collapse Menu -->
-  <li class="nav-item">
-  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-   aria-expanded="false" aria-controls="collapseUtilities">
-   <i class="fas fa-fw fa-wrench"></i>
-   <span>Cài đặt</span>
-  </a>
-  <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-   <div class="bg-white py-2 collapse-inner rounded">
-     <h6 class="collapse-header">Custom Utilities:</h6>
-     <a class="collapse-item" href="utilities-color.html">Colors</a>
-     <a class="collapse-item" href="utilities-border.html">Borders</a>
-     <a class="collapse-item" href="utilities-animation.html">Animations</a>
-     <a class="collapse-item" href="utilities-other.html">Other</a>
+   <!-- Heading -->
+   <div class="sidebar-heading">
+      Quản lý
    </div>
-  </div>
-  </li>
-  
-  
-  </ul>
-  <!-- End of Sidebar -->
+
+   <!-- Nav Item - Charts -->
+   <li class="nav-item">
+      <a class="nav-link" [routerLink]="'/staff-posts'">
+         <i class="fa fa-file-text" aria-hidden="true"></i>
+         <span> Bài viết</span></a>
+
+   </li>
+
+   <li class="nav-item">
+      <a class="nav-link" [routerLink]="'/staff-events'">
+         <i class="fa fa-calendar" aria-hidden="true"></i>
+         <span> Sự kiện</span></a>
+
+   </li>
+
+   <li class="nav-item">
+      <a class="nav-link">
+         <i class="fa fa-info-circle" aria-hidden="true"></i>
+         <span> Thông tin</span></a>
+
+   </li>
+
+   <!-- Divider -->
+   <hr class="sidebar-divider">
+
+   <!-- Heading -->
+   <div class="sidebar-heading">
+      Khác
+   </div>
+
+   <!-- Nav Item - Utilities Collapse Menu -->
+   <li class="nav-item">
+      <a class="nav-link collapsed" data-target="#collapseUtilities"
+         aria-expanded="false" aria-controls="collapseUtilities">
+         <i class="fas fa-fw fa-wrench"></i>
+         <span>Cài đặt</span>
+      </a>
+   </li>
+
+   <li class="nav-item" (click)="logout()">
+      <a type="button" class="nav-link collapsed" aria-expanded="false"
+        aria-controls="collapseUtilities">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+        <span> Đăng xuất</span>
+      </a>
+    </li>
+
+
+</ul>
+<!-- End of Sidebar -->

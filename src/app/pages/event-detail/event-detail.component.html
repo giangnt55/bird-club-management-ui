@@ -1,83 +1,106 @@
 <div class="event-explain">
-  <img class="event-bg" alt
-    src="https://th.bing.com/th/id/R.16426baaaee7a6c324ec0b78876131bb?rik=MKmqRqKATfK0HQ&pid=ImgRaw&r=0">
+  <img class="event-bg" alt [src]="this.event?.cover_image">
   <div class="event-explain-content">
     <div class="event-title-wrapper">
-      <div class="event-card-time">29 THÁNG 8 LÚC 09:00 – 1 THÁNG 9 LÚC 17:00</div>
-      <!-- <div class="event-action">
-          <svg class="heart" xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" class="feather feather-heart">
-            <path
-              d="M20.8 4.6a5.5 5.5 0 00-7.7 0l-1.1 1-1-1a5.5 5.5 0 00-7.8 7.8l1 1 7.8 7.8 7.8-7.7 1-1.1a5.5 5.5 0 000-7.8z" /></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-            fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round"
-            class="feather feather-share-2"><circle cx="18" cy="5" r="3" /><circle
-              cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" /><path
-              d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" /></svg>
-        </div> -->
+      <div class="" style="margin-top: 10px;"> {{formatDate(this.event?.start_date)}} - {{formatDate(this.event?.end_date)}}</div>
     </div>
     <div class="event-subtitle-wrapper">
-      VIFA ASEAN 2023 - Vietnam ASEAN International Furniture & Home Accessories
-      Fair
+      {{this.event?.event_name}}
+      <button (click)="joinEvent(this.event.id)" *ngIf="!this.event?.is_joined" class="btn btn-primary btn-sm">Quan tâm</button>
+      <button (click)="outEvent(this.event.id)" *ngIf="this.event?.is_joined" class="btn btn-secondary btn-sm">Hủy theo dõi</button>
     </div>
-    <div class="below-header">
-      <div class="nav-bar">
-        <ul>
-          <li><a class="active">Introduce</a></li>
-          <li><a>Feedback</a></li>
-        </ul>
-      </div>
-      <div class="options">
-        <button type="button" class="btn btn-primary">Interested</button>
-        <button type="button" class="btn btn-primary">Join</button>
-        <button type="button" class="btn btn-primary">Invite</button>
-        <button type="button" class="btn btn-primary">Share</button>
-      </div>
-    </div>
-    <div class="event-body">
-      <div class="introduce-card">
-        <div class="explain-bar">
-          <div class="explain-title">Detail</div>
-          <div class="explain-contents">
-            <i class="fa-solid fa-user"></i>
-            <div class="explain-subtitle">Event of VIFA ASEAN 2023 - Vietnam
-              ASEAN
-              International Furniture & Home Accessories Fair</div>
-          </div>
-          <div class="explain-contents">
-            <i class="fa-sharp fa-solid fa-location-dot"></i>
-            <div class="explain-subtitle">SECC Events - Saigon Exhibition and
-              Convention Center</div>
-          </div>
-          <div class="explain-contents">
-            <i class="fa-solid fa-clock"></i>
-            <div class="explain-subtitle">Khoảng thời gian: 4 ngày</div>
-          </div>
-          <div class="explain-contents">
-            <i class="fa-solid fa-earth-americas"></i>
-            <div class="explain-subtitle">Công khai · Bất kỳ ai ở trên</div>
-          </div>
-        </div>
-        <div class="overview-text">
-          <div class="overview-text-header">Overview</div>
-          <div class="overview-text-subheader">We believe that design (and
-            you) will be critical to the company's success. You will work
-            with our founders and our early customers to help define and
-            build our product functionality, while maintaining the quality
-            bar that customers have come to expect from modern SaaS
-            applications. You have a strong background in product design
-            with a quantitavely anf qualitatively analytical mindset. You
-            will also have the opportunity to craft our overall product
-            and visual identity and should be comfortable to flex into
-            working.</div>
-        </div>
-      </div>
-      <div class="detail-event">
 
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin-bottom: 20px;">
+        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+          role="tab" aria-controls="nav-home" aria-selected="true">Thông tin</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+          role="tab" aria-controls="nav-profile" aria-selected="false">Đánh giá</button>
+        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
+          role="tab" aria-controls="nav-contact" aria-selected="false">Thông tin liên hệ</button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <p><b>Mô tả: </b>{{ event?.description }}</p>
+        <p><b>Trạng thái: </b>{{ getStatusLabel(event?.status) }}</p>
+        <p><b>Vị trí: </b>{{ event?.location }}</p>
+        <p><b>Hình thức: </b>{{ getHostTypeLabel(event?.host_type) }}</p>
+        <p><b>Điều kiện tham gia: </b>{{ event?.prerequisite }}</p>
+        <p><b>Dự kiến tham gia: </b>{{ event?.min_participants }} - {{ event?.max_participants }} người</p>
+      </div>
+
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <!--Section: Comments-->
+        <section class="border-bottom mb-3">
+          <div *ngIf="feedbacks.length < 1" class="NoPosts">
+            <p>Not have any feedback yet!</p>
+          </div>
+          <div *ngFor="let feedback of feedbacks">
+            <!-- Comment -->
+            <div class="row mb-4">
+              <div class="col-1">
+                <img height="50" [src]="feedback.creator?.avatar" class="img-fluid shadow-1-strong rounded-5" alt="" />
+              </div>
+
+              <div class="col-11">
+                <p class="mb-2"><strong>{{feedback.creator?.fullname}}</strong></p>
+                <p style="margin-bottom: 0px;">
+                  <ng-container *ngFor="let star of getStars(feedback.rating)">
+                    <i class="fa fa-star" style="color: #fd0;"></i>
+                  </ng-container>
+                  <ng-container *ngFor="let star of getEmptyStars(feedback.rating)">
+                    <i class="fa fa-star"></i>
+                  </ng-container>
+                </p>
+
+                <p>
+                  {{feedback.content}}
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </section>
+        <form (ngSubmit)="submitFeedback()">
+          <div class="mb-3">
+            <textarea class="form-control" id="feedback" rows="3" placeholder="Enter your feedback" required
+              [(ngModel)]="feedback.content" name="content"></textarea>
+          </div>
+        
+          <div id="full-stars-example-two">
+            <label for="rating-group" class="form-label">Rating: </label>
+            <div class="rating-group">
+              <input disabled checked class="rating__input rating__input--none" name="rating" id="rating-none"
+                value="0" type="radio">
+              <label aria-label="1 star" class="rating__label" for="rating-1"><i
+                  class="rating__icon rating__icon--star fa fa-star"></i></label>
+              <input class="rating__input" name="rating" id="rating-1" value="1" type="radio" [(ngModel)]="feedback.rating">
+              <label aria-label="2 stars" class="rating__label" for="rating-2"><i
+                  class="rating__icon rating__icon--star fa fa-star"></i></label>
+              <input class="rating__input" name="rating" id="rating-2" value="2" type="radio" [(ngModel)]="feedback.rating">
+              <label aria-label="3 stars" class="rating__label" for="rating-3"><i
+                  class="rating__icon rating__icon--star fa fa-star"></i></label>
+              <input class="rating__input" name="rating" id="rating-3" value="3" type="radio" [(ngModel)]="feedback.rating">
+              <label aria-label="4 stars" class="rating__label" for="rating-4"><i
+                  class="rating__icon rating__icon--star fa fa-star"></i></label>
+              <input class="rating__input" name="rating" id="rating-4" value="4" type="radio" [(ngModel)]="feedback.rating">
+              <label aria-label="5 stars" class="rating__label" for="rating-5"><i
+                  class="rating__icon rating__icon--star fa fa-star"></i></label>
+              <input class="rating__input" name="rating" id="rating-5" value="5" type="radio" [(ngModel)]="feedback.rating">
+            </div>
+          </div>
+        
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      
+      </div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <p><b>Người tổ chức: </b>{{ event?.creator?.fullname }}</p>
+        <p><b>Số điện thoại: </b>{{ event?.creator?.email }}</p>
+        <p><b>Người tổ chức: </b>{{ event?.creator?.phone_number }}</p>
       </div>
     </div>
   </div>
+
 </div>

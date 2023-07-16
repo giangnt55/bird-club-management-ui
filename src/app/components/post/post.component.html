@@ -1,10 +1,10 @@
 <div class="wrapper">
   <div class="post">
     <div class="header">
-      <div class="avatar">
+      <div class="avatar" [routerLink]="['/profile', post.creator?.username]" >
         <img [src]="post?.creator?.avatar" alt="Profile Picture">
       </div>
-      <a [href] target="_blank" class="username">{{ post.creator?.fullname }}</a>
+      <a [routerLink]="['/profile', post.creator?.username]" class="username">{{ post.creator?.fullname }}</a>
       <div class="date-separator">•</div>
       <div class="date">{{ post?.created_at | dateAgo }}</div>
       <a type="button" class="follow-btn highlight-link"  (click)="openMenuDialog()">...</a>

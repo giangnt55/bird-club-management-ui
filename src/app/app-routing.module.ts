@@ -7,7 +7,6 @@ import { RegisterComponent } from './pages/register/register.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ListNewsComponent } from './pages/list-news/list-news.component';
 import { NewsCreateComponent } from './pages/news-create/news-create.component';
-import { TestComponent } from './pages/test/test.component';
 import { ChatsComponent } from './pages/chats/chats.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
@@ -22,6 +21,9 @@ import { StaffPostsComponent } from './pages/staff-posts/staff-posts.component';
 import { StaffArticlesComponent } from './pages/staff-articles/staff-articles.component';
 import { StaffBirdsComponent } from './pages/staff-birds/staff-birds.component';
 import { StaffSettingsComponent } from './pages/staff-settings/staff-settings.component';
+import { BirdDetailComponent } from './components/bird-detail/bird-detail.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
+import { StaffEventsComponent } from './pages/staff-events/staff-events.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -36,24 +38,21 @@ const routes: Routes = [
   { path: 'news/:id', component: NewsReadingComponent },
   { path: 'create-news', component: NewsCreateComponent },
   { path: 'bird', component: BirdComponent },
-  { path: 'test', component: TestComponent },
   { path: 'inbox', component: ChatsComponent },
-  { path: 'test', component: TestComponent },
   { path: 'update-profile', component: UpdateProfileComponent },
   { path: 'update-password', component: UpdatePasswordComponent },
   { path: 'events', component: EventsComponent },
   { path: 'events/:id', component: EventDetailComponent },
-  { path: 'event-detail', component: EventDetailComponent },
   { path: 'admin', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'profile/:username', component: ProfileComponent },
   { path: 'admin-users', component: AdminUsersComponent },
   { path: 'staff', redirectTo: '/staff-posts', pathMatch: 'full' },
-  { path: 'staff-users', component: StaffUsersComponent },
+  { path: 'staff-events', component: StaffEventsComponent },
   { path: 'staff-posts', component: StaffPostsComponent },
-  { path: 'staff-articles', component: StaffArticlesComponent },
-  { path: 'staff-birds', component: StaffBirdsComponent },
   { path: 'staff-settings', component: StaffSettingsComponent },
+  { path: 'bird-detail', component: BirdDetailComponent },
+  { path: 'user-card', component: UserCardComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
