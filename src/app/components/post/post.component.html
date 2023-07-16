@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="post">
     <div class="header">
-      <div class="avatar"  [routerLink]="['/profile', post.creator?.username]" >
+      <div class="avatar" [routerLink]="['/profile', post.creator?.username]" >
         <img [src]="post?.creator?.avatar" alt="Profile Picture">
       </div>
       <a [routerLink]="['/profile', post.creator?.username]" class="username">{{ post.creator?.fullname }}</a>

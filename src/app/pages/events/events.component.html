@@ -16,14 +16,7 @@
     <div class="form-check mt-3" style="margin-top: 0 !important;">
       <a class="btn btn-secondary" type="button" id="followed-filter" [(ngModel)]="isFollowed">Đang theo dõi</a>
     </div>
-    <div class="form-check mt-3" style="margin-top: 0 !important;">
-      <button [routerLink]="['/event-detail']">Detail</button>
-    </div>
-    <div class="form-check mt-3" style="margin-top: 0 !important;">
-      <button [routerLink]="['/bird']">Bird</button>
-    </div>
   </div>
-
 
   <div class="events">
     <div class="mb-4 card" *ngFor="let event of events">

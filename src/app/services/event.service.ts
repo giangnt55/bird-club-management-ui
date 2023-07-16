@@ -45,7 +45,7 @@ export class EventService {
   }
 
   getEvent(id: string): Observable<any> {
-    const url = `${this.apiUrl}/events/${id}`;
+    const url = `${this.GET_URL}/${id}`;
     return this.httpClient.get<BaseResponse<EventDetailDto>>(url).pipe(
       map((response: BaseResponse<EventDetailDto>) => {
         return response.data;

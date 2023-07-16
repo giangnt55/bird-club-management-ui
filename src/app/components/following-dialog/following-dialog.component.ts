@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Following } from 'src/app/models/follow.model';
 import { FollowService } from 'src/app/services/follow.service';
 import { FollowerDialogComponent } from '../follower-dialog/follower-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-following-dialog',
@@ -18,6 +19,7 @@ export class FollowingDialogComponent {
     private followService: FollowService,
     private changeDetectorRef: ChangeDetectorRef,
     private toastr: ToastrService,
+    private router: Router,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.followings = data.followings;
@@ -26,5 +28,10 @@ export class FollowingDialogComponent {
   onCancelClick(): void {
     // Close the dialog
     this.dialogRef.close();
+  }
+
+  onGotoProfile(username: string | any): void {
+    this.dialogRef.close();
+    this.router.navigate([`/profile/${username}`]);
   }
 }

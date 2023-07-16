@@ -20,7 +20,7 @@
     </div>
     <i class="uil uil-profile">
     </i>
-    <div class="right-content">
+    <div class="right-content" (click)="onGotoProfile(this.follower?.creator?.username)">
         <div class="comment-content">
             <span class="username">{{follower?.creator?.username}}
                 <!-- <span *ngIf="follower.is_followed == false" class="btn-follow">• follow</span> -->

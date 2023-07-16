@@ -20,7 +20,7 @@
       </div>
       <i class="uil uil-profile">
       </i>
-      <div class="right-content">
+      <div class="right-content" (click)="this.onGotoProfile(following?.follow_to_user?.username)">
           <div class="comment-content">
               <span class="username">{{following?.follow_to_user?.username}}</span>
               <div class="fullname">{{following?.follow_to_user?.fullname}}</div>
