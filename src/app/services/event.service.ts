@@ -9,6 +9,7 @@ import {
   BasePaginationParam,
   PaginationResponse,
 } from '../models/paging.model';
+import { AdminPagingParam } from '../models/dashboard.model';
 
 @Injectable({
   providedIn: 'root',
@@ -19,8 +20,12 @@ export class EventService {
 
   constructor(private httpClient: HttpClient, private toastr: ToastrService) {}
 
-  getEvents(paging: BasePaginationParam): Observable<any> {
+  getEvents(paging: AdminPagingParam): Observable<any> {
     let params = new HttpParams();
+
+    if (paging.keyword !== null) {
+      params = params.set('keyword', paging.keyword);
+    }
 
     if (paging.page !== null) {
       params = params.set('page', paging.page);

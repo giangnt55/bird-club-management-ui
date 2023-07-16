@@ -1,1 +1,83 @@
-<app-posts-table></app-posts-table>
+<div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex">
+            <div>
+                <button (click)="openDevelopingDialog()" class="btn btn-primary mr-2">Create <i class="fa fa-plus" aria-hidden="true"></i></button>
+                <button (click)="openDevelopingDialog()" class="btn btn-secondary">Export <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+              </div>
+              <form style="margin-left: auto !important; margin-right: 0 !important;" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" (ngSubmit)="onsearchEntered()">
+                <div class="input-group">
+                  <input style="border: solid 0.2px rgb(192, 192, 192);" type="text" class="form-control bg-light small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="keyword" name="searchInput" (keydown.enter)="onsearchEntered()">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">
+                      <i class="fas fa-search fa-sm"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive" style="overflow-x: auto; border: solid 0.2px rgb(172, 172, 172);">
+              <table class="table table-bordered" id="dataTable">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th class="max-width-col">Content</th>
+                    <th>Image</th>
+                    <th>Like</th>
+                    <th>Comment</th>
+                    <th>Report</th>
+                    <th>At</th>
+                    <th>Creator</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let post of this.data.data">
+                    <td>{{post.id}}</td>
+                    <td class="max-width-col">{{post.content}}</td>
+                    <td><img [src]="post.image" alt="Image" style="width: 100px; height: auto;"></td>
+                    <td>{{post.total_like}}</td>
+                    <td>{{post.total_comment}}</td>
+                    <td>{{post.total_comment}}</td>
+                    <td>{{post.created_at}}</td>
+                    <td>{{post.creator?.fullname}}</td>
+                    <td style="display: flex;">
+                      <a type="button" class="btn btn-sm btn-secondary">View</a>
+                      <a type="button" class="btn btn-sm btn-danger">Hide</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="d-flex">
+            <div class="mr-3 d-flex" style="margin-left: 20px; height: fit-content;">
+              <label for="page-size-select" style="margin-bottom: auto; margin-top: auto; margin-right: 5px;">Size:</label>
+              <select id="page-size-select" class="form-control" [(ngModel)]="pageSize" (ngModelChange)="getPosts()">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+              </select>
+            </div>
+            <nav aria-label="Page navigation example" style="margin-left: auto; margin-right: 20px;">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a type="button" class="page-link" (click)="previousPage()">Previous</a>
+                </li>
+                <ng-container *ngFor="let pageNumber of getPageRange()">
+                  <li class="page-item" [class.active]="pageNumber === page">
+                    <a type="button" class="page-link" (click)="goToPage(pageNumber)">{{ pageNumber }}</a>
+                  </li>
+                </ng-container>
+                <li class="page-item">
+                  <a type="button" class="page-link" (click)="nextPage()">Next</a>
+                </li>
+              </ul>
+            </nav>
+            
+          </div>
+    </div>
+</div>

@@ -5,6 +5,7 @@ import { EventService } from 'src/app/services/event.service';
 import { Event } from '../../models/event.model';
 import { MatDialog } from '@angular/material/dialog';
 import { EventCreateComponent } from 'src/app/components/event-create/event-create.component';
+import { AdminPagingParam } from 'src/app/models/dashboard.model';
 
 @Component({
   selector: 'app-events',
@@ -37,7 +38,8 @@ export class EventsComponent implements OnInit, OnDestroy {
   }
 
   getEvents() {
-    const paging: BasePaginationParam = {
+    const paging: AdminPagingParam = {
+      keyword: null,
       id: null,
       create_at_from: null,
       page: this.currentPage,

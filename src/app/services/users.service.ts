@@ -3,9 +3,15 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 import { Observable, map } from 'rxjs';
-import { AccountInfor, RegisterDto, User, UserUpdate } from '../models/user.model';
+import {
+  AccountInfor,
+  RegisterDto,
+  User,
+  UserUpdate,
+} from '../models/user.model';
 import { BaseResponse, NoDataResponse } from '../models/auth.model';
 import { PaginationResponse } from '../models/paging.model';
+import { AdminPagingParam } from '../models/dashboard.model';
 
 @Injectable({
   providedIn: 'root',
@@ -59,13 +65,30 @@ export class UsersService {
       );
   }
 
-  getMembers(): Observable<any> {
+  getMembers(paging: AdminPagingParam): Observable<any> {
+    let params = new HttpParams();
+
+    if (paging.keyword !== null) {
+      params = params.set('keyword', paging.keyword);
+    }
+
+    if (paging.page !== null) {
+      params = params.set('page', paging.page);
+    }
+
+    if (paging.page_size !== null) {
+      params = params.set('page_size', paging.page_size);
+    }
+
+    if (paging.order_by !== null) {
+      params = params.set('order_by', paging.order_by);
+    }
+
     return this.httpClient
-      .get<PaginationResponse<User>>(this.GET_USER_INFOR)
+      .get<PaginationResponse<User>>(this.GET_USER_INFOR, { params })
       .pipe(
         map((response: PaginationResponse<User>) => {
           return response;
-          console.log('case 2: ' + response);
         })
       );
   }
@@ -75,6 +98,16 @@ export class UsersService {
       .get<BaseResponse<User>>(`${this.GET_USER_INFOR}/${id}`)
       .pipe(
         map((response: BaseResponse<User>) => {
+          return response;
+        })
+      );
+  }
+
+  deleteMember(id: string): Observable<any> {
+    return this.httpClient
+      .delete<NoDataResponse>(`${this.GET_USER_INFOR}/${id}`)
+      .pipe(
+        map((response: NoDataResponse) => {
           return response;
         })
       );
@@ -93,14 +126,14 @@ export class UsersService {
       );
   }
 
-  register(user: RegisterDto): Observable<any>{
+  register(user: RegisterDto): Observable<any> {
     const body = {
       fullname: user.fullname,
       username: user.username,
       email: user.email,
       password: user.password,
-      phone_number: user.phone_number
-    }
+      phone_number: user.phone_number,
+    };
 
     return this.httpClient
       .post<BaseResponse<User>>(this.USER_REGISTER, body)

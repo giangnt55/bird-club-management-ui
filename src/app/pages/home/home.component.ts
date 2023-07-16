@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { AdminPagingParam } from 'src/app/models/dashboard.model';
 import { BasePaginationParam } from 'src/app/models/paging.model';
 import { Post } from 'src/app/models/post.model';
 import { PostService } from 'src/app/services/post.service';
@@ -22,7 +23,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   getPosts() {
-    const paging: BasePaginationParam = {
+    const paging: AdminPagingParam = {
+      keyword: null,
       id: null,
       create_at_from: null,
       page: this.currentPage,
