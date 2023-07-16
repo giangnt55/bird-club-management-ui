@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '../environments/environment';
 import { Observable, map } from 'rxjs';
-import { AccountInfor, User, UserUpdate } from '../models/user.model';
+import { AccountInfor, RegisterDto, User, UserUpdate } from '../models/user.model';
 import { BaseResponse, NoDataResponse } from '../models/auth.model';
 import { PaginationResponse } from '../models/paging.model';
 
@@ -17,6 +17,7 @@ export class UsersService {
   GET_ACCOUNT_INFO_URL = `${this.apiUrl}/user/account-infor`;
   GET_SUGGESTION_LIST = `${this.apiUrl}/user/suggestion`;
   GET_USER_INFOR = `${this.apiUrl}/user`;
+  USER_REGISTER = `${this.apiUrl}/auth/register`;
 
   getAccountInfo(): Observable<AccountInfor> {
     return this.httpClient
@@ -87,6 +88,24 @@ export class UsersService {
       .pipe(
         map((response: BaseResponse<User>) => {
           console.log('Search Response:', response);
+          return response;
+        })
+      );
+  }
+
+  register(user: RegisterDto): Observable<any>{
+    const body = {
+      fullname: user.fullname,
+      username: user.username,
+      email: user.email,
+      password: user.password,
+      phone_number: user.phone_number
+    }
+
+    return this.httpClient
+      .post<BaseResponse<User>>(this.USER_REGISTER, body)
+      .pipe(
+        map((response: BaseResponse<User>) => {
           return response;
         })
       );
