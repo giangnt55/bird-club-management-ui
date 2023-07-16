@@ -39,3 +39,11 @@ export interface UserUpdate {
   address: string;
   introduction: string;
 }
+
+export interface RegisterDto {
+  fullname: string;
+  username: string;
+  email: string;
+  password: string;
+  phone_number: string;
+}
