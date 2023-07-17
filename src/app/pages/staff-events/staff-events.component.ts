@@ -10,6 +10,7 @@ import { Post } from 'src/app/models/post.model';
 import { EventService } from 'src/app/services/event.service';
 import { Event } from 'src/app/models/event.model';
 import { DatePipe } from '@angular/common';
+import { EventCreateComponent } from 'src/app/components/event-create/event-create.component';
 
 @Component({
   selector: 'app-staff-events',
@@ -85,6 +86,14 @@ export class StaffEventsComponent implements OnInit, OnDestroy {
         );
       }
     });
+  }
+
+  onCreateClick(): void {
+    const dialogRef = this.dialog.open(EventCreateComponent);
+
+    // dialogRef.afterClosed().subscribe((result) => {
+
+    // });
   }
 
   onsearchEntered(): void {

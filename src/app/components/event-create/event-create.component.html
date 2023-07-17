@@ -1,82 +1,103 @@
-<div class="card event-create"
-  style="width: 700px; height: 800px;">
-  <div class="card-header title text-center">
-    <h5 class="card-title fw-bold">Tạo sự kiện</h5>
-  </div>
-  <div class="scroll">
-    <div class="card-body">
-      <div class="position-relative">
-        <div class="cover-image">
-          <img width="100%"
-            src="https://i.pinimg.com/originals/a1/a1/f8/a1a1f8802e05db06891afaa9abba00df.png">
-        </div>
-        <label class="btn-up">
-          <input type="file" hidden />
-          Thêm ảnh bìa
-        </label>
-      </div>
-
-      <div class="creater d-flex align-items-center">
-        <div class="avatar" style="text-align: center;">
-          <img class="rounded-circle mt-5" width="50px"
-            src="https://th.bing.com/th/id/OIP.nLowT0VxPdGDZncZ9uXqmwAAAA?pid=ImgDet&rs=1">
-        </div>
-        <div class="name">
-          <label>Triều Đỗ</label>
-        </div>
-      </div>
-
-      <div class="form-input">
-        <div class="datainput">
-          <input type="text" required />
-          <span class="highlight"></span>
-          <label>Tên sự kiện</label>
-        </div>
-        <label>Thời gian bắt đầu</label>
-        <div class="time-input">
-          <input type="date" placeholder="Ngày bắt đầu" class="date">
-          <input type="time" placeholder="Giờ bắt đầu" class="time">
+<form [formGroup]="form" (ngSubmit)="createEvent()">
+  <div class="card event-create" style="width: 700px; height: 85vh;">
+    <div class="card-header title text-center">
+      <h5 class="card-title fw-bold">Tạo sự kiện</h5>
+    </div>
+    <div class="scroll">
+      <div class="card-body">
+        <div class="position-relative">
+          <div class="cover-image">
+            <div class="form-control content border-0" contenteditable="true" (input)="handleInput($event)" [attr.data-placeholder]="placeholder"></div>
+            <div id="imagePreview" class="mt-2">
+              <div class="image-container">
+                <img *ngIf="previewImageSrc !== null" [src]="previewImageSrc" class="img-thumbnail" alt="Preview Image">
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 d-flex btn-add-image">
+            <div class="custom-file text-center">
+              <div class="file-input">
+                <label class="custom-file-label file-input" for="image">
+                  Thêm ảnh bìa
+                </label>
+                <input type="file" id="image" (change)="previewImage($event)" style="display: none" #fileInput>
+              </div>
+            </div>
+            <button *ngIf="previewImageSrc !== null" class="btn btn-danger btn-sm cancel-button" (click)="cancelPreviewImage()">
+              <i class="fa fa-times"></i>
+            </button>
+          </div>
         </div>
 
-        <label>Thời gian kết thúc</label>
-        <div class="time-input" [hidden]="!showSecondTimeInput">
-          <input type="date" placeholder="Ngày kết thúc" class="date">
-          <input type="time" placeholder="Giờ kết thúc" class="time">
+        <div class="creater d-flex align-items-center">
+          <div class="avatar" style="text-align: center;">
+            <img class="rounded-circle mt-5" width="50px" [src]="loggedInAccount?.avatar">
+          </div>
+          <div class="name fw-bold" style="margin-top: auto; margin-bottom: auto; height: fit-content;">
+            <label style="margin-bottom: 0px;">{{ loggedInAccount?.fullname }}</label>
+          </div>
         </div>
+
+        <div class="form-input">
+          <div class="datainput">
+            <input type="text" formControlName="eventName" required>
+            <span class="highlight"></span>
+            <label>Tên sự kiện</label>
+          </div>
+
+          <div class="datainput">
+            <input type="text" formControlName="location" required>
+            <span class="highlight"></span>
+            <label>Địa điểm</label>
+          </div>
+
+          <div class="d-flex row">
+            <div class="col-md-6">
+              <label>Thời gian bắt đầu</label>
+              <div class="time-input">
+                <input style="width: 100%;" type="datetime-local" formControlName="startTime" required>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <label>Thời gian kết thúc</label>
+              <div class="time-input">
+                <input style="width: 100%;" type="datetime-local" formControlName="endTime" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex row" style="margin-bottom: 15px;">
+            <label>Dự kiến thành viên</label>
+            <div class="col-md-5">
+              <input class="form-control" style="width: 100%;" type="number" min="0" formControlName="expectedMembersFrom">
+            </div>
+            <div class="col-md-1">To</div>
+            <div class="col-md-5">
+              <input class="form-control" style="width: 100%;" type="number" min="0" formControlName="expectedMembersTo">
+            </div>
+          </div>
+
+        </div>
+
         <div class="input-group mb-3">
-          <select class="form-select" aria-label="label for the select">
+          <select class="form-select" aria-label="label for the select" formControlName="eventOption" required>
             <option selected>Đây là sự kiện gặp trực tiếp hay trên mạng?</option>
             <option value="1">Gặp mặt trực tiếp</option>
             <option value="2">Gặp trên mạng</option>
           </select>
         </div>
-        <div class="input-group mb-3">
-          <select class="form-select" aria-label="label for the select">
-            <option selected>Ai có thể tham gia sự kiện này?</option>
-            <option value="1">Riêng tư</option>
-            <option value="2">Công khai</option>
-            <option value="3">Bạn bè</option>
-          </select>
-        </div>
+
         <div class="datainput">
-          <input type="text" required />
+          <input type="text" formControlName="description" required>
           <span class="highlight"></span>
           <label>Mô tả chi tiết về sự kiện</label>
         </div>
-        <div class="khach-moi d-flex justify-content-between align-items-center">
-          <div class="title-label">
-            <label>Hiển thị danh sách khách mời</label>
-          </div>
-          <div class="switch">
-            <input id="switch-1" type="checkbox" class="switch-input" />
-            <label for="switch-1" class="switch-label">Hiển thị danh sách khách
-              mời</label>
-          </div>
-        </div>
+
       </div>
     </div>
   </div>
-  <div class="card-footer text-center">
-    <button class="btn btn-primary">Tạo sự kiện</button>
+  <div class="card-footer text-center" style="padding: 10px;">
+    <button class="btn btn-primary" [disabled]="form.invalid">Tạo sự kiện</button>
   </div>
-</div>
+</form>

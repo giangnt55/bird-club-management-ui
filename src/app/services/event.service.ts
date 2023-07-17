@@ -44,9 +44,23 @@ export class EventService {
       .pipe(map((response: PaginationResponse<Event>) => response));
   }
 
-  insertEvent(eventDto: EventCreateDto): Observable<any> {
-    const url = `${this.apiUrl}/events`;
-    return this.httpClient.post<BaseResponse<EventDetailDto>>(url, eventDto);
+  // insertEvent(eventDto: EventCreateDto): Observable<any> {
+  //   const url = `${this.apiUrl}/events`;
+  //   return this.httpClient.post<BaseResponse<EventDetailDto>>(url, eventDto);
+  // }
+
+  createEvent(event: EventCreateDto): Observable<any> {
+    // const body = {
+    //   title: post.title,
+    //   content: post.content,
+    //   image: post.image,
+    // };
+
+    return this.httpClient.post<NoDataResponse>(this.GET_URL, event).pipe(
+      map((response: NoDataResponse) => {
+        return response;
+      })
+    );
   }
 
   getEvent(id: string): Observable<any> {
