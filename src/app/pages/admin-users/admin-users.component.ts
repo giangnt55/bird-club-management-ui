@@ -130,4 +130,6 @@ export class AdminUsersComponent implements OnInit, OnDestroy {
   getPageRange(): number[] {
     return Array.from({ length: this.data.total_pages }, (_, i) => i + 1);
   }
+
+  exportData(): void {}
 }

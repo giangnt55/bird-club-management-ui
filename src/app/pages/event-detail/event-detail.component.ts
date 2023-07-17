@@ -208,4 +208,17 @@ export class EventDetailComponent implements OnInit, OnDestroy {
       }
     );
   }
+
+  convertToTimeZone7Plus(date: Date | null | undefined) {
+    if (!date) {
+      return null;
+    }
+    const originalDate = new Date(date);
+    originalDate.setHours(originalDate.getHours() + 7);
+
+    // Adjust the converted date to the desired format
+    const formattedDate = originalDate.toLocaleString('en-US');
+
+    return formattedDate;
+  }
 }

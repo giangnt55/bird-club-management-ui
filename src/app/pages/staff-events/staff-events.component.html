@@ -39,15 +39,15 @@
                     <td>{{event.event_name}}</td>
                     <td><img [src]="event.cover_image" alt="Image" style="width: 100px; height: auto;"></td>
                     <td class="max-width-col">{{event.description}}</td>
-                    <td>{{event.status}}</td>
-                    <td>{{event.host_type}}</td>
+                    <td>{{getStatusLabel(event.status)}}</td>
+                    <td>{{getHostTypeLabel(event.host_type)}}</td>
                     <td>{{event.location}}</td>
                     <td>{{event.total_participant}}</td>
-                    <td>{{event.created_at}}</td>
+                    <td>{{convertToTimeZone7Plus(event.created_at)}}</td>
                     <td>{{event.creator?.fullname}}</td>
                     <td style="display: flex;">
-                      <a type="button" class="btn btn-sm btn-secondary">View</a>
-                      <a type="button" class="btn btn-sm btn-danger">Hide</a>
+                      <a (click)="openDevelopingDialog()" type="button" class="btn btn-sm btn-secondary">View</a>
+                      <a (click)="confirmDelete(event)" type="button" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                   </tr>
                 </tbody>
