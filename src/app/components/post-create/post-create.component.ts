@@ -41,7 +41,6 @@ export class PostCreateComponent implements OnInit {
     if (storedAccountInfo) {
       this.loggedInAccount = JSON.parse(storedAccountInfo);
       // Use the account information here
-      console.log(this.loggedInAccount);
     }
   }
 
