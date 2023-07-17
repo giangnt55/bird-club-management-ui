@@ -3,7 +3,7 @@ import { environment } from '../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, map } from 'rxjs';
-import { BaseResponse } from '../models/auth.model';
+import { BaseResponse, NoDataResponse } from '../models/auth.model';
 import { Event, EventCreateDto, EventDetailDto } from '../models/event.model';
 import {
   BasePaginationParam,
@@ -63,8 +63,12 @@ export class EventService {
   //   return this.httpClient.put<ApiResponse<EventDetailDto>>(url, eventUpdateDto);
   // }
 
-  // deleteEvent(id: string): Observable<any> {
-  //   const url = `${this.apiUrl}/events/${id}`;
-  //   return this.httpClient.delete<ApiResponse>(url);
-  // }
+  deleteEvent(id: string): Observable<any> {
+    const url = `${this.GET_URL}/${id}`;
+    return this.httpClient.delete<NoDataResponse>(url).pipe(
+      map((response: NoDataResponse) => {
+        return response;
+      })
+    );
+  }
 }

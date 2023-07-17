@@ -5,24 +5,32 @@
       <div class="menu-dot"></div>
     </div>
     <div class="event-card-content">
-      <div class="event-card-time"> <b>From: </b> {{ formatDate(this.event.start_date)}}</div>
-      <div class="event-card-time"><b>To: </b>  {{ formatDate(this.event.start_date)}}</div>
+      <div class="event-card-time"> <b>From: </b> {{ convertToTimeZone7Plus(this.event.start_date)}}</div>
+      <div class="event-card-time"><b>To: </b>  {{ convertToTimeZone7Plus(this.event.start_date)}}</div>
     <div class="event-card-title fw-bold">
       {{this.event.event_name}}
+    </div>
+    <div class="event-card-title">
+      <b>Trạng thái: </b> {{getStatusLabel(this.event.status)}}
     </div>
     <div class="event-detail-buttons">
       <div class="participants">{{this.event.total_participant}} người quân tâm</div>
     </div>
     <div class="event-card-buttons">
-     <ng-container *ngIf="this.event.is_joined == false">
+     <ng-container *ngIf="this.event.is_joined == false && this.event.status !== 4">
       <button (click)="joinEvent(this.event.id)" style="width: 100%; background-color: #F2F3F5;" type="button" class="btn btn-grey">
         <span style="color:green">Quan tâm</span>
       </button> 
       </ng-container>
-      <ng-container *ngIf="this.event.is_joined">
+      <ng-container *ngIf="this.event.is_joined && this.event.status !== 4">
         <button (click)="outEvent(this.event.id)" style="width: 100%; background-color: #F2F3F5;" type="button" class="btn btn-warning">
           <span style="color:rgb(234, 73, 73)">Bỏ theo dõi</span>
         </button> 
+      </ng-container>
+      <ng-container *ngIf="this.event.status === 4">
+        <button style="width: 100%; background-color: #F2F3F5;" type="button" class="btn btn-disabled" disabled>
+          <span style="color: #999999">Ending</span>
+        </button>
       </ng-container>
       
     </div>

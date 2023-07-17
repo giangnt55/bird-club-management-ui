@@ -2,13 +2,13 @@
   <img class="event-bg" alt [src]="this.event?.cover_image">
   <div class="event-explain-content">
     <div class="event-title-wrapper">
-      <div class="" style="margin-top: 10px;"> {{formatDate(this.event?.start_date)}} - {{formatDate(this.event?.end_date)}}</div>
+      <div class="" style="margin-top: 10px;"> {{convertToTimeZone7Plus(this.event?.start_date)}} - {{convertToTimeZone7Plus(this.event?.end_date)}}</div>
     </div>
     <div class="event-subtitle-wrapper">
-      {{this.event?.event_name}}
-      <button (click)="joinEvent(this.event.id)" *ngIf="!this.event?.is_joined" class="btn btn-primary btn-sm">Quan tâm</button>
-      <button (click)="outEvent(this.event.id)" *ngIf="this.event?.is_joined" class="btn btn-secondary btn-sm">Hủy theo dõi</button>
-    </div>
+      {{ this.event?.event_name }}
+      <button (click)="joinEvent(this.event.id)" *ngIf="!this.event?.is_joined && (this.event.status === 1)" class="btn btn-primary btn-sm">Quan tâm</button>
+      <button (click)="outEvent(this.event.id)" *ngIf="this.event?.is_joined && (this.event.status === 1)" class="btn btn-secondary btn-sm">Hủy theo dõi</button>
+    </div>    
 
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist" style="margin-bottom: 20px;">

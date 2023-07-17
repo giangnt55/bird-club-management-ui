@@ -83,4 +83,17 @@ export class CommmentComponent implements OnInit, OnDestroy {
   onReplyClick(comment: DetailComment) {
     this.replyService.setcomment(comment);
   }
+
+  convertToTimeZone7Plus(date: Date | null | undefined) {
+    if (!date) {
+      return null;
+    }
+    const originalDate = new Date(date);
+    originalDate.setHours(originalDate.getHours() + 7);
+
+    // // Adjust the converted date to the desired format
+    // const formattedDate = originalDate.toLocaleString('en-US');
+
+    return originalDate;
+  }
 }

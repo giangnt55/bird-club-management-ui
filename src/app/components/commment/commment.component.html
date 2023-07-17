@@ -26,7 +26,7 @@
     
     </span>
     <div class="comment-actions">
-        <span class="comment-time">{{ detailComment?.created_at | dateAgo }}</span>
+        <span class="comment-time">{{ convertToTimeZone7Plus(detailComment?.created_at) | dateAgo }}</span>
         <span class="total_like">{{detailComment?.total_like}} likes</span>
         <span class="reply" (click)="onReplyClick(detailComment)">Reply</span>
     </div>
