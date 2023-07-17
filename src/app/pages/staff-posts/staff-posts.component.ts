@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
@@ -30,7 +31,8 @@ export class StaffPostsComponent implements OnInit, OnDestroy {
   constructor(
     private postService: PostService,
     private dialog: MatDialog,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private datePipe: DatePipe
   ) {}
 
   ngOnDestroy(): void {
@@ -113,5 +115,23 @@ export class StaffPostsComponent implements OnInit, OnDestroy {
 
   getPageRange(): number[] {
     return Array.from({ length: this.data.total_pages }, (_, i) => i + 1);
+  }
+
+  formatDate(date: Date | null | undefined): string {
+    const formattedStart = this.datePipe.transform(date, 'dd/MM/yyyy HH:mm');
+    return `${formattedStart}`;
+  }
+
+  convertToTimeZone7Plus(date: Date | null | undefined) {
+    if (!date) {
+      return null;
+    }
+    const originalDate = new Date(date);
+    originalDate.setHours(originalDate.getHours() + 7);
+
+    // Adjust the converted date to the desired format
+    const formattedDate = originalDate.toLocaleString('en-US');
+
+    return formattedDate;
   }
 }

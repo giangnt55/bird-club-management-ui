@@ -9,6 +9,7 @@ import { PaginationResponse } from 'src/app/models/paging.model';
 import { Post } from 'src/app/models/post.model';
 import { EventService } from 'src/app/services/event.service';
 import { Event } from 'src/app/models/event.model';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-staff-events',
@@ -31,7 +32,8 @@ export class StaffEventsComponent implements OnInit, OnDestroy {
   constructor(
     private eventService: EventService,
     private dialog: MatDialog,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private datePipe: DatePipe
   ) {}
 
   ngOnDestroy(): void {
@@ -67,20 +69,20 @@ export class StaffEventsComponent implements OnInit, OnDestroy {
     );
   }
 
-  confirmDelete(post: Post): void {
+  confirmDelete(event: Event): void {
     const dialogRef = this.dialog.open(DeleteConfirmDialogComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result === 'delete') {
-        // this.subscription = this.eventService.deletePost(post.id).subscribe(
-        //   (response) => {
-        //     this.getPosts();
-        //     this.toastr.success('Delete successfully');
-        //   },
-        //   (error) => {
-        //     this.toastr.error(error.error.message);
-        //   }
-        // );
+        this.subscription = this.eventService.deleteEvent(event.id).subscribe(
+          (response) => {
+            this.getEvents();
+            this.toastr.success('Delete successfully');
+          },
+          (error) => {
+            this.toastr.error(error.error.message);
+          }
+        );
       }
     });
   }
@@ -114,5 +116,57 @@ export class StaffEventsComponent implements OnInit, OnDestroy {
 
   getPageRange(): number[] {
     return Array.from({ length: this.data.total_pages }, (_, i) => i + 1);
+  }
+
+  getStatusLabel(status: number | undefined): string {
+    if (status === undefined) {
+      return '';
+    }
+
+    switch (status) {
+      case 1:
+        return 'Upcoming';
+      case 2:
+        return 'Happening';
+      case 3:
+        return 'Cancelled';
+      case 4:
+        return 'Ending';
+      default:
+        return '';
+    }
+  }
+
+  getHostTypeLabel(host_type: number | undefined): string {
+    if (host_type === undefined) {
+      return '';
+    }
+
+    switch (host_type) {
+      case 1:
+        return 'Offline';
+      case 2:
+        return 'Online';
+      default:
+        return '';
+    }
+  }
+
+  formatDate(date: Date | null | undefined): string {
+    const formattedStart = this.datePipe.transform(date, 'dd/MM/yyyy HH:mm');
+    return `${formattedStart}`;
+  }
+
+  convertToTimeZone7Plus(date: Date | null | undefined) {
+    if (!date) {
+      return null;
+    }
+    const originalDate = new Date(date);
+    originalDate.setHours(originalDate.getHours() + 7);
+
+    // Adjust the converted date to the desired format
+    const formattedDate = originalDate.toLocaleString('en-US');
+
+    return formattedDate;
   }
 }

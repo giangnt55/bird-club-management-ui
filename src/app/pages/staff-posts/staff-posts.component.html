@@ -40,11 +40,11 @@
                     <td>{{post.total_like}}</td>
                     <td>{{post.total_comment}}</td>
                     <td>{{post.total_comment}}</td>
-                    <td>{{post.created_at}}</td>
+                    <td>{{convertToTimeZone7Plus(post.created_at)}}</td>
                     <td>{{post.creator?.fullname}}</td>
                     <td style="display: flex;">
-                      <a type="button" class="btn btn-sm btn-secondary">View</a>
-                      <a type="button" class="btn btn-sm btn-danger">Hide</a>
+                      <a (click)="openDevelopingDialog()" type="button" class="btn btn-sm btn-secondary">View</a>
+                      <a (click)="confirmDelete(this.post)" type="button" class="btn btn-sm btn-danger">Delete</a>
                     </td>
                   </tr>
                 </tbody>
