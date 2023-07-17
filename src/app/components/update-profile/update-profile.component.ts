@@ -98,6 +98,12 @@ export class UpdateProfileComponent implements OnInit, OnDestroy {
 
       const userUpdate: UserUpdate = this.form.value as UserUpdate;
 
+      this.uploadImage();
+
+      if (this.imageUrl !== null) {
+        userUpdate.avatar = this.imageUrl;
+      }
+
       this.subscription = this.usersService
         .updateUserInfor(this.loggedInAccount.id, userUpdate)
         .subscribe(

@@ -36,7 +36,7 @@ export enum EventStatus {
   Ending = 4,
 }
 
-export interface EventCreateDto extends BaseDto {
+export interface EventCreateDto {
   event_name: string;
   status: EventStatus;
   type: EventType;
